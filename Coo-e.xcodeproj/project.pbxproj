@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B08C2831DB49AE5003F3B7D /* TeeUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B08C2821DB49AE4003F3B7D /* TeeUpViewController.swift */; };
+		3B08C2891DB531A2003F3B7D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B08C2851DB531A1003F3B7D /* FBSDKCoreKit.framework */; };
+		3B08C28A1DB531A2003F3B7D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B08C2861DB531A1003F3B7D /* FBSDKLoginKit.framework */; };
+		3B417AB21DB258A800D14360 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB11DB258A800D14360 /* Reachability.swift */; };
+		3B417AB61DB258D600D14360 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB31DB258D600D14360 /* LoginViewController.swift */; };
+		3B417AB71DB258D600D14360 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB41DB258D600D14360 /* SignUpViewController.swift */; };
+		3B417AB81DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB51DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift */; };
+		3BA264E61DB6E0B800618764 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA264E51DB6E0B800618764 /* Bolts.framework */; };
 		3BB55B331DA482E5005FD17D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B321DA482E5005FD17D /* AppDelegate.swift */; };
-		3BB55B351DA482E5005FD17D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B341DA482E5005FD17D /* ViewController.swift */; };
 		3BB55B381DA482E5005FD17D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BB55B361DA482E5005FD17D /* Main.storyboard */; };
 		3BB55B3B1DA482E5005FD17D /* Coo_e.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B391DA482E5005FD17D /* Coo_e.xcdatamodeld */; };
 		3BB55B3D1DA482E5005FD17D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BB55B3C1DA482E5005FD17D /* Assets.xcassets */; };
 		3BB55B401DA482E5005FD17D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BB55B3E1DA482E5005FD17D /* LaunchScreen.storyboard */; };
 		3BB55B4B1DA482E5005FD17D /* Coo_eTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B4A1DA482E5005FD17D /* Coo_eTests.swift */; };
 		3BB55B561DA482E5005FD17D /* Coo_eUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B551DA482E5005FD17D /* Coo_eUITests.swift */; };
+		3BB55B641DA48B1A005FD17D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB55B631DA48B1A005FD17D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +43,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		288AF51BA08FBDD319A2FBE9 /* Pods-Coo-e.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-e.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-e/Pods-Coo-e.debug.xcconfig"; sourceTree = "<group>"; };
+		3B08C2821DB49AE4003F3B7D /* TeeUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeeUpViewController.swift; path = ViewControllers/TeeUpControllers/TeeUpViewController.swift; sourceTree = "<group>"; };
+		3B08C2851DB531A1003F3B7D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		3B08C2861DB531A1003F3B7D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3B417AB11DB258A800D14360 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Model/Reachability.swift; sourceTree = "<group>"; };
+		3B417AB31DB258D600D14360 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "ViewControllers/Register|LoginViewControllers/LoginViewController.swift"; sourceTree = "<group>"; };
+		3B417AB41DB258D600D14360 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "ViewControllers/Register|LoginViewControllers/SignUpViewController.swift"; sourceTree = "<group>"; };
+		3B417AB51DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotUsernameOrPasswordVC.swift; path = "ViewControllers/Register|LoginViewControllers/ForgotUsernameOrPasswordVC.swift"; sourceTree = "<group>"; };
+		3BA264E21DB6DB6500618764 /* Coo-e-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Coo-e-Bridging-Header.h"; sourceTree = "<group>"; };
+		3BA264E51DB6E0B800618764 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		3BB55B2F1DA482E5005FD17D /* Coo-e.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coo-e.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BB55B321DA482E5005FD17D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3BB55B341DA482E5005FD17D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3BB55B371DA482E5005FD17D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BB55B3A1DA482E5005FD17D /* Coo_e.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Coo_e.xcdatamodel; sourceTree = "<group>"; };
 		3BB55B3C1DA482E5005FD17D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +66,12 @@
 		3BB55B511DA482E5005FD17D /* Coo-eUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coo-eUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BB55B551DA482E5005FD17D /* Coo_eUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coo_eUITests.swift; sourceTree = "<group>"; };
 		3BB55B571DA482E5005FD17D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BB55B631DA48B1A005FD17D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6B3C822E6202F42717388A17 /* Pods-Coo-eUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eUITests/Pods-Coo-eUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7CFC32A8288C7A3FA2C4E149 /* Pods-Coo-eTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eTests/Pods-Coo-eTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BD785371FA074EADC5AF503D /* Pods-Coo-eTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eTests/Pods-Coo-eTests.release.xcconfig"; sourceTree = "<group>"; };
+		D5C97AC6F38CF54AF507CF4E /* Pods-Coo-e.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-e.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-e/Pods-Coo-e.release.xcconfig"; sourceTree = "<group>"; };
+		FE703F4952B25F0010DB1EEE /* Pods-Coo-eUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eUITests/Pods-Coo-eUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BA264E61DB6E0B800618764 /* Bolts.framework in Frameworks */,
+				3B08C2891DB531A2003F3B7D /* FBSDKCoreKit.framework in Frameworks */,
+				3B08C28A1DB531A2003F3B7D /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +102,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B08C2811DB49A6D003F3B7D /* TeeUpControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B08C2821DB49AE4003F3B7D /* TeeUpViewController.swift */,
+			);
+			name = TeeUpControllers;
+			sourceTree = "<group>";
+		};
+		3B417AAF1DB2582700D14360 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B417AB11DB258A800D14360 /* Reachability.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3B417AB01DB2587700D14360 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B08C2811DB49A6D003F3B7D /* TeeUpControllers */,
+				3BE00CB31DB17D84000ACAB7 /* Register|Login */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3BA264E11DB6DACD00618764 /* Bridge-ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				3BA264E21DB6DB6500618764 /* Coo-e-Bridging-Header.h */,
+			);
+			name = "Bridge-ObjC";
+			sourceTree = "<group>";
+		};
 		3BB55B261DA482E4005FD17D = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +142,8 @@
 				3BB55B491DA482E5005FD17D /* Coo-eTests */,
 				3BB55B541DA482E5005FD17D /* Coo-eUITests */,
 				3BB55B301DA482E5005FD17D /* Products */,
+				7B4545EE09065A01489E710D /* Pods */,
+				3C64ECD4C5EC4367A5580714 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +160,16 @@
 		3BB55B311DA482E5005FD17D /* Coo-e */ = {
 			isa = PBXGroup;
 			children = (
+				3BA264E11DB6DACD00618764 /* Bridge-ObjC */,
+				3B417AB01DB2587700D14360 /* Controllers */,
+				3B417AAF1DB2582700D14360 /* Model */,
 				3BB55B321DA482E5005FD17D /* AppDelegate.swift */,
-				3BB55B341DA482E5005FD17D /* ViewController.swift */,
 				3BB55B361DA482E5005FD17D /* Main.storyboard */,
-				3BB55B3C1DA482E5005FD17D /* Assets.xcassets */,
 				3BB55B3E1DA482E5005FD17D /* LaunchScreen.storyboard */,
 				3BB55B411DA482E5005FD17D /* Info.plist */,
+				3BB55B631DA48B1A005FD17D /* GoogleService-Info.plist */,
 				3BB55B391DA482E5005FD17D /* Coo_e.xcdatamodeld */,
+				3BB55B3C1DA482E5005FD17D /* Assets.xcassets */,
 			);
 			path = "Coo-e";
 			sourceTree = "<group>";
@@ -128,6 +192,39 @@
 			path = "Coo-eUITests";
 			sourceTree = "<group>";
 		};
+		3BE00CB31DB17D84000ACAB7 /* Register|Login */ = {
+			isa = PBXGroup;
+			children = (
+				3B417AB31DB258D600D14360 /* LoginViewController.swift */,
+				3B417AB41DB258D600D14360 /* SignUpViewController.swift */,
+				3B417AB51DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift */,
+			);
+			name = "Register|Login";
+			sourceTree = "<group>";
+		};
+		3C64ECD4C5EC4367A5580714 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BA264E51DB6E0B800618764 /* Bolts.framework */,
+				3B08C2851DB531A1003F3B7D /* FBSDKCoreKit.framework */,
+				3B08C2861DB531A1003F3B7D /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7B4545EE09065A01489E710D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				288AF51BA08FBDD319A2FBE9 /* Pods-Coo-e.debug.xcconfig */,
+				D5C97AC6F38CF54AF507CF4E /* Pods-Coo-e.release.xcconfig */,
+				7CFC32A8288C7A3FA2C4E149 /* Pods-Coo-eTests.debug.xcconfig */,
+				BD785371FA074EADC5AF503D /* Pods-Coo-eTests.release.xcconfig */,
+				6B3C822E6202F42717388A17 /* Pods-Coo-eUITests.debug.xcconfig */,
+				FE703F4952B25F0010DB1EEE /* Pods-Coo-eUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +232,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BB55B5A1DA482E5005FD17D /* Build configuration list for PBXNativeTarget "Coo-e" */;
 			buildPhases = (
+				C74C81AEA63505FB82C69B1A /* [CP] Check Pods Manifest.lock */,
 				3BB55B2B1DA482E5005FD17D /* Sources */,
 				3BB55B2C1DA482E5005FD17D /* Frameworks */,
 				3BB55B2D1DA482E5005FD17D /* Resources */,
+				86D148A1E25877AA51C16EF8 /* [CP] Embed Pods Frameworks */,
+				5147759F648518FAEFAC92C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +252,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BB55B5D1DA482E5005FD17D /* Build configuration list for PBXNativeTarget "Coo-eTests" */;
 			buildPhases = (
+				A6662A0E69B85ABB2460F4CC /* [CP] Check Pods Manifest.lock */,
 				3BB55B421DA482E5005FD17D /* Sources */,
 				3BB55B431DA482E5005FD17D /* Frameworks */,
 				3BB55B441DA482E5005FD17D /* Resources */,
+				45776C8F559F1C2A9B079802 /* [CP] Embed Pods Frameworks */,
+				A0FCE7D00319A1561164CF76 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +273,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BB55B601DA482E5005FD17D /* Build configuration list for PBXNativeTarget "Coo-eUITests" */;
 			buildPhases = (
+				496E62A7E859106023D6F48D /* [CP] Check Pods Manifest.lock */,
 				3BB55B4D1DA482E5005FD17D /* Sources */,
 				3BB55B4E1DA482E5005FD17D /* Frameworks */,
 				3BB55B4F1DA482E5005FD17D /* Resources */,
+				8E1E3704B579E6FB041E2FEC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,18 +296,21 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Atisha Poojary";
 				TargetAttributes = {
 					3BB55B2E1DA482E5005FD17D = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					3BB55B451DA482E5005FD17D = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 3BB55B2E1DA482E5005FD17D;
 					};
 					3BB55B501DA482E5005FD17D = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 3BB55B2E1DA482E5005FD17D;
 					};
 				};
@@ -233,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB55B401DA482E5005FD17D /* LaunchScreen.storyboard in Resources */,
+				3BB55B641DA48B1A005FD17D /* GoogleService-Info.plist in Resources */,
 				3BB55B3D1DA482E5005FD17D /* Assets.xcassets in Resources */,
 				3BB55B381DA482E5005FD17D /* Main.storyboard in Resources */,
 			);
@@ -254,14 +363,141 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		45776C8F559F1C2A9B079802 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coo-eTests/Pods-Coo-eTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		496E62A7E859106023D6F48D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5147759F648518FAEFAC92C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coo-e/Pods-Coo-e-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86D148A1E25877AA51C16EF8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coo-e/Pods-Coo-e-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E1E3704B579E6FB041E2FEC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coo-eUITests/Pods-Coo-eUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0FCE7D00319A1561164CF76 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coo-eTests/Pods-Coo-eTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6662A0E69B85ABB2460F4CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C74C81AEA63505FB82C69B1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3BB55B2B1DA482E5005FD17D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B08C2831DB49AE5003F3B7D /* TeeUpViewController.swift in Sources */,
+				3B417AB81DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift in Sources */,
+				3B417AB61DB258D600D14360 /* LoginViewController.swift in Sources */,
+				3B417AB21DB258A800D14360 /* Reachability.swift in Sources */,
 				3BB55B3B1DA482E5005FD17D /* Coo_e.xcdatamodeld in Sources */,
-				3BB55B351DA482E5005FD17D /* ViewController.swift in Sources */,
 				3BB55B331DA482E5005FD17D /* AppDelegate.swift in Sources */,
+				3B417AB71DB258D600D14360 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,8 +566,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -376,8 +614,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -396,6 +636,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -403,68 +644,93 @@
 		};
 		3BB55B5B1DA482E5005FD17D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 288AF51BA08FBDD319A2FBE9 /* Pods-Coo-e.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Coo-e/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Atisha.Coo-e";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.atisha.coo-e";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Coo-e/Coo-e-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		3BB55B5C1DA482E5005FD17D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5C97AC6F38CF54AF507CF4E /* Pods-Coo-e.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Coo-e/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Atisha.Coo-e";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.atisha.coo-e";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Coo-e/Coo-e-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		3BB55B5E1DA482E5005FD17D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CFC32A8288C7A3FA2C4E149 /* Pods-Coo-eTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Coo-eTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Atisha.Coo-eTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coo-e.app/Coo-e";
 			};
 			name = Debug;
 		};
 		3BB55B5F1DA482E5005FD17D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD785371FA074EADC5AF503D /* Pods-Coo-eTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Coo-eTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Atisha.Coo-eTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coo-e.app/Coo-e";
 			};
 			name = Release;
 		};
 		3BB55B611DA482E5005FD17D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B3C822E6202F42717388A17 /* Pods-Coo-eUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Coo-eUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Atisha.Coo-eUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Coo-e";
 			};
 			name = Debug;
 		};
 		3BB55B621DA482E5005FD17D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE703F4952B25F0010DB1EEE /* Pods-Coo-eUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Coo-eUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Atisha.Coo-eUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Coo-e";
 			};
 			name = Release;
@@ -488,6 +754,7 @@
 				3BB55B5C1DA482E5005FD17D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3BB55B5D1DA482E5005FD17D /* Build configuration list for PBXNativeTarget "Coo-eTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +763,7 @@
 				3BB55B5F1DA482E5005FD17D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3BB55B601DA482E5005FD17D /* Build configuration list for PBXNativeTarget "Coo-eUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +772,7 @@
 				3BB55B621DA482E5005FD17D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
