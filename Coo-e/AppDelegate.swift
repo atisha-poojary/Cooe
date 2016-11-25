@@ -19,9 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+
+        let user_id = UserDefaults.standard.integer(forKey: "userId")
         
-        // Override point for customization after application launch.
+//        if (user_id != 0) {
+//            let containerViewController = MyTeeUpsUITabBarController()
+//            window!.rootViewController = containerViewController
+//            window!.makeKeyAndVisible()
+//        }
+        
         //FIRApp.configure()
+        // Override point for customization after application launch.
         return true
     }
     

@@ -81,6 +81,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     toastLabel.alpha = 0.0
                     
                     }, completion: nil)
+                
+                
+                self.signInFunc()
             }
         }
     }
@@ -144,7 +147,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             request.httpMethod = "POST"
             let session = URLSession.shared
             
-            let params = ["userName":username, "password":password] as Dictionary<String, String>
+            //let params = ["userName":username, "password":password] as Dictionary<String, String>
+            let params = ["userName":"SaurabhT", "password":"saurabh123"] as Dictionary<String, String>
             
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -206,11 +210,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                 if let code = dict["code"] as? String {
                                     print("code: \(code)")
                                     DispatchQueue.main.async{
+                                        
                                         if code == "COOE_011" {
                                          //authentication failed (invalid credential)
                                             
-                                            DispatchQueue.main.async {
-                                                
                                                 let message = "Invalid credential"
                                                 let stringWidth = message.widthOfString(usingFont: UIFont.systemFont(ofSize: 14.5)) + 16
                                                 
@@ -233,12 +236,19 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                                     toastLabel.alpha = 0.0
                                                     
                                                     }, completion: nil)
-                                            }
+                                           
                                         }
                                         else if code == "COOE_012" {
                                             //"dirty password on account
                                         }
-                                      
+                                        else if code == "COOE_010" {
+                                            //email isn't validated
+                                        }
+                                        else if code == "COOE_011" {
+                                            //"authentication failed (invalid credential)
+                                        }
+                                        
+                                        
                                         /*
                                         else if response_code == 5 {
                                             self.password_textField.becomeFirstResponder()
@@ -270,6 +280,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                             
                                         }
  */
+                                        
                                     }
                                 }
                                 
@@ -290,6 +301,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
             task.resume()
         }
+        
     }
     
 //    func isValidusername(username:String) -> Bool {
@@ -366,7 +378,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         FBLoginButton.center = view.center
         FBLoginButton.delegate = self
-        view.addSubview(FBLoginButton)
+        //view.addSubview(FBLoginButton)
         
         // Do any additional setup after loading the view.
         /*

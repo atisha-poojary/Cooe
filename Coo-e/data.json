@@ -1,0 +1,20 @@
+{
+    "userId": 234145201645121411,
+    "userName": "atisha19",
+    "firstName": "Atisha",
+    "lastName": "Poojary",
+    "profileUrl": "http://resources.coo-e.com:8080/cooe/profile/image/atisha19.jpg",
+    "emailAddress": "asp225@njit.edu",
+    "emailAddress": "COOE_ACCOUNT",
+    "dirtyPassword": false,
+    "avatarUrl": "http://resources.coo-e.com:8080/cooe/avatar/5.jpg",
+    "matchingPrivacy": {
+        "matchingPrivacyId": 235345201645121411
+    },
+    "publicPrivacy": {
+        "publicPrivacyId": 234445201645121411
+    },
+    "coordinatorPrivacy": {
+        "coordinatorPrivacyId": 235045201645121411
+    }
+}

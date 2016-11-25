@@ -29,6 +29,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var password_errorLabel: UILabel!
     @IBOutlet weak var retypePassword_errorLabel: UILabel!
     
+    var validationTextView : UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,6 +63,12 @@ class SignUpViewController: UIViewController {
         let retypePassword = retypePassword_textField.text!
         
         if username == "" && firstName == "" && lastName == "" && email == "" && mobilePhone == "" && password == "" && retypePassword == ""{
+            
+            //test
+            let avatarId = "5"
+            let profilePic = ""
+            self.signUpFunc(username: username, email: email, avatarId: avatarId, password: password, firstName: firstName, lastName: lastName, profilePic: profilePic)
+            
             self.messageLabel.isHidden = false
             
             self.username_errorLabel.isHidden = false
@@ -71,10 +79,6 @@ class SignUpViewController: UIViewController {
             self.password_errorLabel.isHidden = false
             self.retypePassword_errorLabel.isHidden = false
             
-            
-            let avatarId = "5"
-            let profilePic = ""
-            self.signUpFunc(username: username, email: email, avatarId: avatarId, password: password, firstName: firstName, lastName: lastName, profilePic: profilePic)
             
             /*
              let toastLabel = UILabel(frame: CGRectMake(self.view.frame.size.width/2 - 130, self.view.frame.size.height-80, 260, 24))
@@ -179,7 +183,6 @@ class SignUpViewController: UIViewController {
 
     func signUpFunc(username: String, email: String, avatarId: String, password: String, firstName: String, lastName: String, profilePic: String)
     {
-        
         let urlString = "http://resources.coo-e.com:8080/cooe/profile/"
         
         //let params = ["userName":"hiralp009", "password":"84317672"] as Dictionary<String, String>
@@ -213,8 +216,6 @@ class SignUpViewController: UIViewController {
             if error != nil {
                 print("error=\(error)")
                 DispatchQueue.main.async{
-                    //self.feedsTableView.hidden = true
-                    
                     let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:self.view.frame.size.width/2 - 90,y :self.view.frame.size.height-80), size: CGSize(width: 90+90, height: 24)))
                     toastLabel.backgroundColor = UIColor.black
                     toastLabel.textColor = UIColor.white
@@ -240,9 +241,12 @@ class SignUpViewController: UIViewController {
             let strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("Body: \(strData)")
             
+            //using local data
+            let url = Bundle.main.url(forResource: "data", withExtension: "json")
+            let data = NSData(contentsOf: url!)
             
             do {
-                let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
+                let json = try JSONSerialization.jsonObject(with: data! as Data, options:.allowFragments)
                 if let dict = json as? NSDictionary {
                     // ... process the data
                     print(dict)
@@ -251,7 +255,7 @@ class SignUpViewController: UIViewController {
                     // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
                     if(error != nil) {
                         print(error!.localizedDescription)
-                        let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                        let jsonStr = NSString(data: data! as Data, encoding: String.Encoding.utf8.rawValue)
                         print("Error could not parse JSON: '\(jsonStr)'")
                         //postCompleted(succeeded: false, msg: "Error")
                     }
@@ -261,125 +265,305 @@ class SignUpViewController: UIViewController {
                         // check and make sure that json has a value using optional binding.
                         if let dict = json as? NSDictionary {
                             // Okay, the parsedJSON is here, let's get the value for 'success' out of it
-                            if let code = dict["code"] as? String {
+                            
+                             if (dict["userId"] as? Int) != nil {
+                                
+                                let attributedString = NSAttributedString(string: "Enter the validation code", attributes: [
+                                    NSFontAttributeName : UIFont.systemFont(ofSize: 17),
+                                    NSForegroundColorAttributeName : UIColor(red:33.0/255, green:127.0/255, blue:242.0/255, alpha: 1.0)
+                                    ])
+                                
+                                let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+                         
+                                alert.setValue(attributedString, forKey: "attributedMessage")
+                                alert.addTextField(configurationHandler: { (textField) -> Void in
+                                })
+            
+                                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+                                    self.dismiss(animated: true, completion: nil)
+                                }))
+                                
+                                alert.addAction(UIAlertAction(title: "Send", style: .default, handler: { (action) -> Void in
+                                    let textField = alert.textFields![0] as UITextField
+                                    print("Text field: \(textField.text!)")
+                                    if textField.text != "" {
+                                        self.validateCodeRequest(userName: dict["userName"] as! String, validationCode: textField.text!, validationType: "EMAIL") //change later, as we use only email verication for now
+                                    }
+                                    else{
+                                    }
+                                    self.dismiss(animated: true, completion: nil)
+                                }))
+                                self.present(alert, animated: true, completion: nil)
+                             }
+                                                        
+                            else if let code = dict["code"] as? String {
                                 print("code: \(code)")
                                 
-                                DispatchQueue.main.async{
-                                    if code == "COOE_005" {
-                                        
-                                        DispatchQueue.main.async{
-                                            let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:self.view.frame.size.width/2 - 90,y :self.view.frame.size.height-80), size: CGSize(width: 90+90, height: 24)))
-                                            toastLabel.backgroundColor = UIColor.black
-                                            toastLabel.textColor = UIColor.white
-                                            toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 14.5)
-                                            toastLabel.textAlignment = NSTextAlignment.center;
-                                            toastLabel.text = "Username isn't valid"
-                                            toastLabel.alpha = 1.0
-                                            toastLabel.layer.cornerRadius = 4;
-                                            toastLabel.layer.borderColor = UIColor.white.cgColor
-                                            toastLabel.layer.borderWidth = CGFloat(Float (2.0))
-                                            toastLabel.clipsToBounds = true
-                                            
-                                            self.view.addSubview(toastLabel)
-                                            
-                                            UIView.animate(withDuration: 2.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
-                                                toastLabel.alpha = 0.0
-                                                }, completion: nil)
-                                        }
-                                        
-                                        /*
-                                        
-                                        let toastLabel = UILabel(frame: CGRectMake(self.view.frame.size.width/2 - 140, self.view.frame.size.height-80, 285, 24))
-                                        toastLabel.backgroundColor = UIColor.blackColor()
-                                        toastLabel.textColor = UIColor.whiteColor()
-                                        toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 15)
-                                        toastLabel.textAlignment = NSTextAlignment.Center;
-                                        self.view.addSubview(toastLabel)
-
-                                        toastLabel.text = "You have been successfully registered."
+                                DispatchQueue.main.async(execute: {
+                                        if code == "COOE_005" {
+                                        let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:self.view.frame.size.width/2 - 90,y :self.view.frame.size.height-80), size: CGSize(width: 90+90, height: 24)))
+                                        toastLabel.backgroundColor = UIColor.black
+                                        toastLabel.textColor = UIColor.white
+                                        toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 14.5)
+                                        toastLabel.textAlignment = NSTextAlignment.center;
+                                        toastLabel.text = "Username isn't valid"
                                         toastLabel.alpha = 1.0
-                                        toastLabel.layer.cornerRadius = 5;
-                                        toastLabel.clipsToBounds  =  true
+                                        toastLabel.layer.cornerRadius = 4;
+                                        toastLabel.layer.borderColor = UIColor.white.cgColor
+                                        toastLabel.layer.borderWidth = CGFloat(Float (2.0))
+                                        toastLabel.clipsToBounds = true
                                         
-                                        UIView.animateWithDuration(4.0, delay: 0.1, options: UIViewAnimationOptions.CurveEaseOut, animations:{
-                                            
-                                            toastLabel.alpha = 0.0
-                                            
-                                            }, completion: {(completed) in
-                                                
-                                                let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController")
-                                                UIApplication.sharedApplication().keyWindow?.rootViewController = viewController
-                                                self.navigationController?.popToRootViewControllerAnimated(true)
-                                        })*/
-                                    }
-                                        /*
-                                    else if response_code == 2 {
-                                        self.email_errorLabel.hidden = false
-                                        self.email_errorLabel.text = "This email is in use"
-                                        
-                                        self.emailTextField.layer.borderColor = UIColor.redColor().CGColor
-                                        self.emailTextField.layer.borderWidth = CGFloat(Float (1.0))
-                                    }
-                                    else if response_code == 3 {
-                                        self.email_errorLabel.hidden = false
-                                        self.email_errorLabel.text = "Email not valid. Please use NJIT email."
-                                        
-                                        self.emailTextField.layer.borderColor = UIColor.redColor().CGColor
-                                        self.emailTextField.layer.borderWidth = CGFloat(Float (1.0))
-                                    }
-                                    else if response_code == 4 {
-                                        self.password_errorLabel.hidden = false
-                                        self.password_errorLabel.text = "Password must be atleast 8 chararters long"
-                                        
-                                        self.passwordTextField.layer.borderColor = UIColor.redColor().CGColor
-                                        self.passwordTextField.layer.borderWidth = CGFloat(Float (1.0))
-                                    }
-                                    else if response_code == 8 {
-                                        self.self.verificationCode_errorLabel.hidden = false
-                                        self.self.verificationCode_errorLabel.text = "Verification code does not match"
-                                        
-                                        self.self.verificationCodeTextField.layer.borderColor = UIColor.redColor().CGColor
-                                        self.self.verificationCodeTextField.layer.borderWidth = CGFloat(Float (1.0))
-                                    }
-                                    else if response_code == 9 {
-                                        //Verification code has expired.
-                                        let toastLabel = UILabel(frame: CGRectMake(self.view.frame.size.width/2 - 115, self.view.frame.size.height-320, 230, 24))
-                                        toastLabel.backgroundColor = UIColor.blackColor()
-                                        toastLabel.textColor = UIColor.whiteColor()
-                                        toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 15)
-                                        toastLabel.textAlignment = NSTextAlignment.Center;
                                         self.view.addSubview(toastLabel)
-                                        //change
-                                        toastLabel.text = "Verification code has expired."
-                                        toastLabel.alpha = 1.0
-                                        toastLabel.layer.cornerRadius = 5;
-                                        toastLabel.clipsToBounds  =  true
                                         
-                                        UIView.animateWithDuration(4.0, delay: 0.1, options: UIViewAnimationOptions.CurveEaseOut, animations:{
-                                            
+                                        UIView.animate(withDuration: 2.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
                                             toastLabel.alpha = 0.0
-                                            
-                                            }, completion: nil)
-                                    }*/
-                                }
+                                        }, completion: nil)
+                                      
+                                    }
+                                    else if code == "COOE_004" {
+                                        let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:self.view.frame.size.width/2 - 90,y :self.view.frame.size.height-80), size: CGSize(width: 90+90, height: 24)))
+                                        toastLabel.backgroundColor = UIColor.black
+                                        toastLabel.textColor = UIColor.white
+                                        toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 14.5)
+                                        toastLabel.textAlignment = NSTextAlignment.center;
+                                        toastLabel.text = "Username already exist"
+                                        toastLabel.alpha = 1.0
+                                        toastLabel.layer.cornerRadius = 4;
+                                        toastLabel.layer.borderColor = UIColor.white.cgColor
+                                        toastLabel.layer.borderWidth = CGFloat(Float (2.0))
+                                        toastLabel.clipsToBounds = true
+                                        
+                                        self.view.addSubview(toastLabel)
+                                        
+                                        UIView.animate(withDuration: 2.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
+                                            toastLabel.alpha = 0.0
+                                        }, completion: nil)
+                                    }
+                                })
                             }
+                            
                             return
                         }
                         else {
                             // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
-                            let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                            let jsonStr = NSString(data: data! as Data, encoding: String.Encoding.utf8.rawValue)
                             print("Error could not parse JSON: \(jsonStr)")
                             //postCompleted(succeeded: false, msg: "Error")
                         }
                     }
                 }
-            } catch let error as NSError {
+            }
+                catch let error as NSError {
+                    print("An error occurred: \(error)")
+                }
+            }
+            task.resume()
+        }
+
+    func validateCodeRequest(userName: String, validationCode: String, validationType: String)
+    {
+        let urlString = "http://resources.coo-e.com:8080/cooe/profile/\(userName)/validate/"
+        
+        let params = ["validationCode":validationCode, "validationType":validationType] as Dictionary<String, String>
+        
+        let url: NSURL = NSURL(string: urlString)!
+        
+        let request: NSMutableURLRequest = NSMutableURLRequest(url: url as URL)
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpBody = try! JSONSerialization.data(withJSONObject: params, options: [])
+        
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                DispatchQueue.main.async{
+                    let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:self.view.frame.size.width/2 - 90,y :self.view.frame.size.height-80), size: CGSize(width: 90+90, height: 24)))
+                    toastLabel.backgroundColor = UIColor.black
+                    toastLabel.textColor = UIColor.white
+                    toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 14.5)
+                    toastLabel.textAlignment = NSTextAlignment.center;
+                    toastLabel.text = "No internet connection."
+                    toastLabel.alpha = 1.0
+                    toastLabel.layer.cornerRadius = 4;
+                    toastLabel.layer.borderColor = UIColor.white.cgColor
+                    toastLabel.layer.borderWidth = CGFloat(Float (2.0))
+                    toastLabel.clipsToBounds = true
+                    
+                    self.view.addSubview(toastLabel)
+                    
+                    UIView.animate(withDuration: 2.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
+                        toastLabel.alpha = 0.0
+                    }, completion: nil)
+                }
+                return
+            }
+            
+            print("Response: \(response)")
+            let strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            print("Body: \(strData)")
+            
+            //using local data
+            //let url = Bundle.main.url(forResource: "data", withExtension: "json")
+            //let data = NSData(contentsOf: url!)
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data! as Data, options:.allowFragments)
+                if let dict = json as? NSDictionary {
+                     print(dict)
+                    if(error != nil) {
+                        print(error!.localizedDescription)
+                        let jsonStr = NSString(data: data! as Data, encoding: String.Encoding.utf8.rawValue)
+                        print("Error could not parse JSON: '\(jsonStr)'")
+                    }
+                    else {
+                        if let dict = json as? NSDictionary {
+                            
+                            if let userId = dict["userId"] as? Int {
+                                
+                                UserDefaults.standard.set(userId, forKey:"userId")
+                                UserDefaults.standard.set(dict["userName"], forKey:"userName")
+                                UserDefaults.standard.set(dict["firstName"], forKey:"firstName")
+                                UserDefaults.standard.set(dict["lastName"], forKey:"lastName")
+                                UserDefaults.standard.set(dict["profileUrl"], forKey:"profileUrl")
+                                UserDefaults.standard.set(dict["emailAddress"], forKey:"emailAddress")
+                                UserDefaults.standard.set(dict["loginTypeFlag"], forKey:"loginTypeFlag")
+                                UserDefaults.standard.set(dict["dirtyPassword"], forKey:"dirtyPassword")
+                                UserDefaults.standard.set(dict["avatarUrl"], forKey:"avatarUrl")
+                                
+                                if let matchingPrivacy = dict["matchingPrivacy"] as? [String: AnyObject] {
+                                    if let matchingPrivacyId = matchingPrivacy["matchingPrivacyId"] as? Int {
+                                        UserDefaults.standard.set(matchingPrivacyId, forKey:"matchingPrivacyId")
+                                    }
+                                    if let email = matchingPrivacy["email"] as? String {
+                                        UserDefaults.standard.set(email, forKey:"matchingPrivacy_email")
+                                    }
+                                    if let phoneNumber = matchingPrivacy["phoneNumber"] as? String {
+                                        UserDefaults.standard.set(phoneNumber, forKey:"matchingPrivacy_phoneNumber")
+                                    }
+                                    if let profilePicture = matchingPrivacy["profilePicture"] as? String {
+                                        UserDefaults.standard.set(profilePicture, forKey:"matchingPrivacy_profilePicture")
+                                    }
+                                    if let firstName = matchingPrivacy["firstName"] as? String {
+                                        UserDefaults.standard.set(firstName, forKey:"matchingPrivacy_firstName")
+                                    }
+                                    if let lastName = matchingPrivacy["lastName"] as? String {
+                                        UserDefaults.standard.set(lastName, forKey:"matchingPrivacy_lastName")
+                                    }
+                                }
+                                if let publicPrivacy = dict["publicPrivacy"] as? [String: AnyObject] {
+                                    if let publicPrivacyId = publicPrivacy["publicPrivacyId"] as? Int {
+                                        UserDefaults.standard.set(publicPrivacyId, forKey:"publicPrivacyId")
+                                    }
+                                    if let email = publicPrivacy["email"] as? String {
+                                        UserDefaults.standard.set(email, forKey:"publicPrivacy_email")
+                                    }
+                                    if let phoneNumber = publicPrivacy["phoneNumber"] as? String {
+                                        UserDefaults.standard.set(phoneNumber, forKey:"publicPrivacy_phoneNumber")
+                                    }
+                                    if let profilePicture = publicPrivacy["profilePicture"] as? String {
+                                        UserDefaults.standard.set(profilePicture, forKey:"publicPrivacy_profilePicture")
+                                    }
+                                    if let firstName = publicPrivacy["firstName"] as? String {
+                                        UserDefaults.standard.set(firstName, forKey:"publicPrivacy_firstName")
+                                    }
+                                    if let lastName = publicPrivacy["lastName"] as? String {
+                                        UserDefaults.standard.set(lastName, forKey:"publicPrivacy_lastName")
+                                    }
+                                }
+                                if let coordinatorPrivacy = dict["coordinatorPrivacy"] as? [String: AnyObject] {
+                                    if let coordinatorPrivacyId = coordinatorPrivacy["coordinatorPrivacyId"] as? Int {
+                                        UserDefaults.standard.set(coordinatorPrivacyId, forKey:"coordinatorPrivacyId")
+                                    }
+                                    if let email = coordinatorPrivacy["email"] as? String {
+                                        UserDefaults.standard.set(email, forKey:"coordinatorPrivacy_email")
+                                    }
+                                    if let phoneNumber = coordinatorPrivacy["phoneNumber"] as? String {
+                                        UserDefaults.standard.set(phoneNumber, forKey:"coordinatorPrivacy_phoneNumber")
+                                    }
+                                    if let profilePicture = coordinatorPrivacy["profilePicture"] as? String {
+                                        UserDefaults.standard.set(profilePicture, forKey:"coordinatorPrivacy_profilePicture")
+                                    }
+                                    if let firstName = coordinatorPrivacy["firstName"] as? String {
+                                        UserDefaults.standard.set(firstName, forKey:"coordinatorPrivacy_firstName")
+                                    }
+                                    if let lastName = coordinatorPrivacy["lastName"] as? String {
+                                        UserDefaults.standard.set(lastName, forKey:"coordinatorPrivacy_lastName")
+                                    }
+                                }
+                                
+                                let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 140, y: self.view.frame.size.height-80, width: 285, height: 24))
+                                toastLabel.backgroundColor = UIColor.black
+                                toastLabel.textColor = UIColor.white
+                                toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 15)
+                                toastLabel.textAlignment = NSTextAlignment.center;
+                                self.view.addSubview(toastLabel)
+                                
+                                toastLabel.text = "You have been successfully registered."
+                                toastLabel.alpha = 1.0
+                                toastLabel.layer.cornerRadius = 5;
+                                toastLabel.clipsToBounds  =  true
+                                
+                                UIView.animate(withDuration: 4.0, delay: 0.1, options: UIViewAnimationOptions.curveEaseOut, animations:{
+                                    
+                                    toastLabel.alpha = 0.0
+                                    
+                                }, completion: {(completed) in
+                                    
+                                    //let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
+                                    //UIApplication.shared.keyWindow?.rootViewController = viewController
+                                    _ = self.navigationController?.popToRootViewController(animated: true)
+                                })
+                                
+                            }
+                            else if let code = dict["code"] as? String {
+                                DispatchQueue.main.async(execute: {
+                                    if code == "COOE_013" {
+                                        // what do we do now.. hmm
+                                        let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:self.view.frame.size.width/2 - 90,y :self.view.frame.size.height-80), size: CGSize(width: 90+90, height: 24)))
+                                        toastLabel.backgroundColor = UIColor.black
+                                        toastLabel.textColor = UIColor.white
+                                        toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 14.5)
+                                        toastLabel.textAlignment = NSTextAlignment.center;
+                                        toastLabel.text = "Email validation failed"
+                                        toastLabel.alpha = 1.0
+                                        toastLabel.layer.cornerRadius = 4;
+                                        toastLabel.layer.borderColor = UIColor.white.cgColor
+                                        toastLabel.layer.borderWidth = CGFloat(Float (2.0))
+                                        toastLabel.clipsToBounds = true
+                                        
+                                        self.view.addSubview(toastLabel)
+                                        
+                                        UIView.animate(withDuration: 2.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
+                                            toastLabel.alpha = 0.0
+                                        }, completion: nil)
+                                        
+                                    }
+                                })
+                            }
+                            
+                            return
+                        }
+                        else {
+                            // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                            let jsonStr = NSString(data: data! as Data, encoding: String.Encoding.utf8.rawValue)
+                            print("Error could not parse JSON: \(jsonStr)")
+                            //postCompleted(succeeded: false, msg: "Error")
+                        }
+                    }
+                }
+            }
+            catch let error as NSError {
                 print("An error occurred: \(error)")
             }
         }
         task.resume()
     }
-    
+
+
     func isValidEmail(email:String) -> Bool {
         //let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let emailRegEx = "[A-Z0-9a-z._%+-]+@njit+\\.edu"
@@ -391,7 +575,7 @@ class SignUpViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func backButtonClicked(_ sender: AnyObject) {
+    func backButtonClicked(_ sender: AnyObject) {
         _ = navigationController?.popViewController(animated: true)
 
     }

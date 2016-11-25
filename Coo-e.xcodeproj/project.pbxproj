@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B08C2831DB49AE5003F3B7D /* TeeUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B08C2821DB49AE4003F3B7D /* TeeUpViewController.swift */; };
 		3B08C2891DB531A2003F3B7D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B08C2851DB531A1003F3B7D /* FBSDKCoreKit.framework */; };
 		3B08C28A1DB531A2003F3B7D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B08C2861DB531A1003F3B7D /* FBSDKLoginKit.framework */; };
+		3B2A49F71DE10609002A8696 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A49F61DE10608002A8696 /* SidePanelViewController.swift */; };
+		3B2A49F91DE10897002A8696 /* SidePanelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A49F81DE10897002A8696 /* SidePanelCell.swift */; };
+		3B2A4A051DE150DF002A8696 /* ArchiveCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A001DE150DF002A8696 /* ArchiveCustomCell.swift */; };
+		3B2A4A061DE150DF002A8696 /* CoordinatingCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A011DE150DF002A8696 /* CoordinatingCustomCell.swift */; };
+		3B2A4A071DE150DF002A8696 /* InvitedCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A021DE150DF002A8696 /* InvitedCustomCell.swift */; };
+		3B2A4A081DE150DF002A8696 /* MyTeeUpsUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A031DE150DF002A8696 /* MyTeeUpsUITabBarController.swift */; };
+		3B2A4A091DE150DF002A8696 /* MyTeeUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A041DE150DF002A8696 /* MyTeeUpViewController.swift */; };
+		3B2A4A0B1DE7C0A1002A8696 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A0A1DE7C0A0002A8696 /* ModelController.swift */; };
 		3B417AB21DB258A800D14360 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB11DB258A800D14360 /* Reachability.swift */; };
 		3B417AB61DB258D600D14360 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB31DB258D600D14360 /* LoginViewController.swift */; };
 		3B417AB71DB258D600D14360 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB41DB258D600D14360 /* SignUpViewController.swift */; };
 		3B417AB81DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB51DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift */; };
+		3B46C86A1DD7D29D0029B638 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B46C8691DD7D29D0029B638 /* data.json */; };
+		3B4E8D971DDAEBC40044CEC4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E8D961DDAEBC30044CEC4 /* AboutViewController.swift */; };
+		3B4E8D9B1DDBE9590044CEC4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E8D9A1DDBE9590044CEC4 /* SWRevealViewController.m */; };
 		3BA264E61DB6E0B800618764 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA264E51DB6E0B800618764 /* Bolts.framework */; };
 		3BB55B331DA482E5005FD17D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B321DA482E5005FD17D /* AppDelegate.swift */; };
 		3BB55B381DA482E5005FD17D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BB55B361DA482E5005FD17D /* Main.storyboard */; };
@@ -44,13 +54,24 @@
 
 /* Begin PBXFileReference section */
 		288AF51BA08FBDD319A2FBE9 /* Pods-Coo-e.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-e.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-e/Pods-Coo-e.debug.xcconfig"; sourceTree = "<group>"; };
-		3B08C2821DB49AE4003F3B7D /* TeeUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeeUpViewController.swift; path = ViewControllers/TeeUpControllers/TeeUpViewController.swift; sourceTree = "<group>"; };
 		3B08C2851DB531A1003F3B7D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3B08C2861DB531A1003F3B7D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3B2A49F61DE10608002A8696 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidePanelViewController.swift; path = ViewControllers/MenuViewController/SidePanelViewController.swift; sourceTree = "<group>"; };
+		3B2A49F81DE10897002A8696 /* SidePanelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidePanelCell.swift; path = ViewControllers/MenuViewController/SidePanelCell.swift; sourceTree = "<group>"; };
+		3B2A4A001DE150DF002A8696 /* ArchiveCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArchiveCustomCell.swift; path = ViewControllers/MyTeeUpControllers/ArchiveCustomCell.swift; sourceTree = "<group>"; };
+		3B2A4A011DE150DF002A8696 /* CoordinatingCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoordinatingCustomCell.swift; path = ViewControllers/MyTeeUpControllers/CoordinatingCustomCell.swift; sourceTree = "<group>"; };
+		3B2A4A021DE150DF002A8696 /* InvitedCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvitedCustomCell.swift; path = ViewControllers/MyTeeUpControllers/InvitedCustomCell.swift; sourceTree = "<group>"; };
+		3B2A4A031DE150DF002A8696 /* MyTeeUpsUITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyTeeUpsUITabBarController.swift; path = ViewControllers/MyTeeUpControllers/MyTeeUpsUITabBarController.swift; sourceTree = "<group>"; };
+		3B2A4A041DE150DF002A8696 /* MyTeeUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyTeeUpViewController.swift; path = ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift; sourceTree = "<group>"; };
+		3B2A4A0A1DE7C0A0002A8696 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelController.swift; path = Model/ModelController.swift; sourceTree = "<group>"; };
 		3B417AB11DB258A800D14360 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Model/Reachability.swift; sourceTree = "<group>"; };
 		3B417AB31DB258D600D14360 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "ViewControllers/Register|LoginViewControllers/LoginViewController.swift"; sourceTree = "<group>"; };
 		3B417AB41DB258D600D14360 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "ViewControllers/Register|LoginViewControllers/SignUpViewController.swift"; sourceTree = "<group>"; };
 		3B417AB51DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotUsernameOrPasswordVC.swift; path = "ViewControllers/Register|LoginViewControllers/ForgotUsernameOrPasswordVC.swift"; sourceTree = "<group>"; };
+		3B46C8691DD7D29D0029B638 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		3B4E8D961DDAEBC30044CEC4 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = ViewControllers/AboutViewController/AboutViewController.swift; sourceTree = "<group>"; };
+		3B4E8D991DDBE9590044CEC4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ViewControllers/MenuViewController/SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
+		3B4E8D9A1DDBE9590044CEC4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = ViewControllers/MenuViewController/SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		3BA264E21DB6DB6500618764 /* Coo-e-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Coo-e-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BA264E51DB6E0B800618764 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		3BB55B2F1DA482E5005FD17D /* Coo-e.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coo-e.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,18 +123,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B08C2811DB49A6D003F3B7D /* TeeUpControllers */ = {
+		3B08C2811DB49A6D003F3B7D /* MyTeeUpControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3B08C2821DB49AE4003F3B7D /* TeeUpViewController.swift */,
+				3B2A4A001DE150DF002A8696 /* ArchiveCustomCell.swift */,
+				3B2A4A011DE150DF002A8696 /* CoordinatingCustomCell.swift */,
+				3B2A4A021DE150DF002A8696 /* InvitedCustomCell.swift */,
+				3B2A4A031DE150DF002A8696 /* MyTeeUpsUITabBarController.swift */,
+				3B2A4A041DE150DF002A8696 /* MyTeeUpViewController.swift */,
 			);
-			name = TeeUpControllers;
+			name = MyTeeUpControllers;
 			sourceTree = "<group>";
 		};
 		3B417AAF1DB2582700D14360 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				3B417AB11DB258A800D14360 /* Reachability.swift */,
+				3B2A4A0A1DE7C0A0002A8696 /* ModelController.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -121,10 +147,39 @@
 		3B417AB01DB2587700D14360 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3B08C2811DB49A6D003F3B7D /* TeeUpControllers */,
+				3B4E8D951DDAEB830044CEC4 /* AboutViewContoller */,
+				3B4E8D8B1DD903350044CEC4 /* SidePanelViewController */,
+				3B08C2811DB49A6D003F3B7D /* MyTeeUpControllers */,
 				3BE00CB31DB17D84000ACAB7 /* Register|Login */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3B4E8D8B1DD903350044CEC4 /* SidePanelViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3B4E8D981DDBE9310044CEC4 /* SWRevealViewController */,
+				3B2A49F81DE10897002A8696 /* SidePanelCell.swift */,
+				3B2A49F61DE10608002A8696 /* SidePanelViewController.swift */,
+			);
+			name = SidePanelViewController;
+			sourceTree = "<group>";
+		};
+		3B4E8D951DDAEB830044CEC4 /* AboutViewContoller */ = {
+			isa = PBXGroup;
+			children = (
+				3B4E8D961DDAEBC30044CEC4 /* AboutViewController.swift */,
+			);
+			name = AboutViewContoller;
+			sourceTree = "<group>";
+		};
+		3B4E8D981DDBE9310044CEC4 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3B4E8D991DDBE9590044CEC4 /* SWRevealViewController.h */,
+				3B4E8D9A1DDBE9590044CEC4 /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		3BA264E11DB6DACD00618764 /* Bridge-ObjC */ = {
@@ -166,6 +221,7 @@
 				3BB55B321DA482E5005FD17D /* AppDelegate.swift */,
 				3BB55B361DA482E5005FD17D /* Main.storyboard */,
 				3BB55B3E1DA482E5005FD17D /* LaunchScreen.storyboard */,
+				3B46C8691DD7D29D0029B638 /* data.json */,
 				3BB55B411DA482E5005FD17D /* Info.plist */,
 				3BB55B631DA48B1A005FD17D /* GoogleService-Info.plist */,
 				3BB55B391DA482E5005FD17D /* Coo_e.xcdatamodeld */,
@@ -301,6 +357,7 @@
 				TargetAttributes = {
 					3BB55B2E1DA482E5005FD17D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = MQ8Y5WT3X4;
 						LastSwiftMigration = 0800;
 					};
 					3BB55B451DA482E5005FD17D = {
@@ -343,6 +400,7 @@
 				3BB55B401DA482E5005FD17D /* LaunchScreen.storyboard in Resources */,
 				3BB55B641DA48B1A005FD17D /* GoogleService-Info.plist in Resources */,
 				3BB55B3D1DA482E5005FD17D /* Assets.xcassets in Resources */,
+				3B46C86A1DD7D29D0029B638 /* data.json in Resources */,
 				3BB55B381DA482E5005FD17D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,13 +549,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B08C2831DB49AE5003F3B7D /* TeeUpViewController.swift in Sources */,
+				3B2A4A071DE150DF002A8696 /* InvitedCustomCell.swift in Sources */,
+				3B4E8D9B1DDBE9590044CEC4 /* SWRevealViewController.m in Sources */,
 				3B417AB81DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift in Sources */,
 				3B417AB61DB258D600D14360 /* LoginViewController.swift in Sources */,
+				3B2A4A091DE150DF002A8696 /* MyTeeUpViewController.swift in Sources */,
+				3B2A4A0B1DE7C0A1002A8696 /* ModelController.swift in Sources */,
 				3B417AB21DB258A800D14360 /* Reachability.swift in Sources */,
+				3B4E8D971DDAEBC40044CEC4 /* AboutViewController.swift in Sources */,
+				3B2A49F91DE10897002A8696 /* SidePanelCell.swift in Sources */,
+				3B2A4A051DE150DF002A8696 /* ArchiveCustomCell.swift in Sources */,
 				3BB55B3B1DA482E5005FD17D /* Coo_e.xcdatamodeld in Sources */,
 				3BB55B331DA482E5005FD17D /* AppDelegate.swift in Sources */,
+				3B2A49F71DE10609002A8696 /* SidePanelViewController.swift in Sources */,
 				3B417AB71DB258D600D14360 /* SignUpViewController.swift in Sources */,
+				3B2A4A081DE150DF002A8696 /* MyTeeUpsUITabBarController.swift in Sources */,
+				3B2A4A061DE150DF002A8696 /* CoordinatingCustomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +715,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = MQ8Y5WT3X4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -659,6 +727,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Coo-e/Coo-e-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -668,6 +737,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = MQ8Y5WT3X4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -678,6 +748,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Coo-e/Coo-e-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
