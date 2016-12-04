@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+extension UIImageView {
+    public func imageFromUrl(urlString: String) {
+        let task = URLSession.shared.dataTask(with: URL(string: urlString)!) { data, response, error in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.sync() {
+                self.image = UIImage(data: data)
+            }
+        }
+        task.resume()
+    }
+    
+    public func setRounded() {
+        let radius = self.frame.height / 2
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
+}

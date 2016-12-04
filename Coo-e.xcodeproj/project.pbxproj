@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B08C2891DB531A2003F3B7D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B08C2851DB531A1003F3B7D /* FBSDKCoreKit.framework */; };
 		3B08C28A1DB531A2003F3B7D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B08C2861DB531A1003F3B7D /* FBSDKLoginKit.framework */; };
+		3B21BBC51DF3B01700B888B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B21BBC41DF3B01700B888B7 /* Assets.xcassets */; };
 		3B2A49F71DE10609002A8696 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A49F61DE10608002A8696 /* SidePanelViewController.swift */; };
 		3B2A49F91DE10897002A8696 /* SidePanelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A49F81DE10897002A8696 /* SidePanelCell.swift */; };
 		3B2A4A051DE150DF002A8696 /* ArchiveCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A001DE150DF002A8696 /* ArchiveCustomCell.swift */; };
@@ -17,6 +18,7 @@
 		3B2A4A081DE150DF002A8696 /* MyTeeUpsUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A031DE150DF002A8696 /* MyTeeUpsUITabBarController.swift */; };
 		3B2A4A091DE150DF002A8696 /* MyTeeUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A041DE150DF002A8696 /* MyTeeUpViewController.swift */; };
 		3B2A4A0B1DE7C0A1002A8696 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2A4A0A1DE7C0A0002A8696 /* ModelController.swift */; };
+		3B3781781DF3073200F51DD3 /* TeeUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3781771DF3073200F51DD3 /* TeeUpViewController.swift */; };
 		3B417AB21DB258A800D14360 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB11DB258A800D14360 /* Reachability.swift */; };
 		3B417AB61DB258D600D14360 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB31DB258D600D14360 /* LoginViewController.swift */; };
 		3B417AB71DB258D600D14360 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB41DB258D600D14360 /* SignUpViewController.swift */; };
@@ -28,7 +30,6 @@
 		3BB55B331DA482E5005FD17D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B321DA482E5005FD17D /* AppDelegate.swift */; };
 		3BB55B381DA482E5005FD17D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BB55B361DA482E5005FD17D /* Main.storyboard */; };
 		3BB55B3B1DA482E5005FD17D /* Coo_e.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B391DA482E5005FD17D /* Coo_e.xcdatamodeld */; };
-		3BB55B3D1DA482E5005FD17D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BB55B3C1DA482E5005FD17D /* Assets.xcassets */; };
 		3BB55B401DA482E5005FD17D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BB55B3E1DA482E5005FD17D /* LaunchScreen.storyboard */; };
 		3BB55B4B1DA482E5005FD17D /* Coo_eTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B4A1DA482E5005FD17D /* Coo_eTests.swift */; };
 		3BB55B561DA482E5005FD17D /* Coo_eUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B551DA482E5005FD17D /* Coo_eUITests.swift */; };
@@ -56,6 +57,7 @@
 		288AF51BA08FBDD319A2FBE9 /* Pods-Coo-e.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-e.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-e/Pods-Coo-e.debug.xcconfig"; sourceTree = "<group>"; };
 		3B08C2851DB531A1003F3B7D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3B08C2861DB531A1003F3B7D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3B21BBC41DF3B01700B888B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Coo-e/Assets.xcassets"; sourceTree = "<group>"; };
 		3B2A49F61DE10608002A8696 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidePanelViewController.swift; path = ViewControllers/MenuViewController/SidePanelViewController.swift; sourceTree = "<group>"; };
 		3B2A49F81DE10897002A8696 /* SidePanelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidePanelCell.swift; path = ViewControllers/MenuViewController/SidePanelCell.swift; sourceTree = "<group>"; };
 		3B2A4A001DE150DF002A8696 /* ArchiveCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArchiveCustomCell.swift; path = ViewControllers/MyTeeUpControllers/ArchiveCustomCell.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		3B2A4A031DE150DF002A8696 /* MyTeeUpsUITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyTeeUpsUITabBarController.swift; path = ViewControllers/MyTeeUpControllers/MyTeeUpsUITabBarController.swift; sourceTree = "<group>"; };
 		3B2A4A041DE150DF002A8696 /* MyTeeUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyTeeUpViewController.swift; path = ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift; sourceTree = "<group>"; };
 		3B2A4A0A1DE7C0A0002A8696 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelController.swift; path = Model/ModelController.swift; sourceTree = "<group>"; };
+		3B3781771DF3073200F51DD3 /* TeeUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeeUpViewController.swift; path = ViewControllers/MyTeeUpControllers/TeeUpViewController.swift; sourceTree = "<group>"; };
 		3B417AB11DB258A800D14360 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Model/Reachability.swift; sourceTree = "<group>"; };
 		3B417AB31DB258D600D14360 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "ViewControllers/Register|LoginViewControllers/LoginViewController.swift"; sourceTree = "<group>"; };
 		3B417AB41DB258D600D14360 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "ViewControllers/Register|LoginViewControllers/SignUpViewController.swift"; sourceTree = "<group>"; };
@@ -78,7 +81,6 @@
 		3BB55B321DA482E5005FD17D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BB55B371DA482E5005FD17D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BB55B3A1DA482E5005FD17D /* Coo_e.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Coo_e.xcdatamodel; sourceTree = "<group>"; };
-		3BB55B3C1DA482E5005FD17D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BB55B3F1DA482E5005FD17D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BB55B411DA482E5005FD17D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BB55B461DA482E5005FD17D /* Coo-eTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coo-eTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 				3B2A4A021DE150DF002A8696 /* InvitedCustomCell.swift */,
 				3B2A4A031DE150DF002A8696 /* MyTeeUpsUITabBarController.swift */,
 				3B2A4A041DE150DF002A8696 /* MyTeeUpViewController.swift */,
+				3B3781771DF3073200F51DD3 /* TeeUpViewController.swift */,
 			);
 			name = MyTeeUpControllers;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				3BB55B311DA482E5005FD17D /* Coo-e */,
+				3B21BBC41DF3B01700B888B7 /* Assets.xcassets */,
 				3BB55B491DA482E5005FD17D /* Coo-eTests */,
 				3BB55B541DA482E5005FD17D /* Coo-eUITests */,
 				3BB55B301DA482E5005FD17D /* Products */,
@@ -225,7 +229,6 @@
 				3BB55B411DA482E5005FD17D /* Info.plist */,
 				3BB55B631DA48B1A005FD17D /* GoogleService-Info.plist */,
 				3BB55B391DA482E5005FD17D /* Coo_e.xcdatamodeld */,
-				3BB55B3C1DA482E5005FD17D /* Assets.xcassets */,
 			);
 			path = "Coo-e";
 			sourceTree = "<group>";
@@ -399,9 +402,9 @@
 			files = (
 				3BB55B401DA482E5005FD17D /* LaunchScreen.storyboard in Resources */,
 				3BB55B641DA48B1A005FD17D /* GoogleService-Info.plist in Resources */,
-				3BB55B3D1DA482E5005FD17D /* Assets.xcassets in Resources */,
 				3B46C86A1DD7D29D0029B638 /* data.json in Resources */,
 				3BB55B381DA482E5005FD17D /* Main.storyboard in Resources */,
+				3B21BBC51DF3B01700B888B7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +568,7 @@
 				3B417AB71DB258D600D14360 /* SignUpViewController.swift in Sources */,
 				3B2A4A081DE150DF002A8696 /* MyTeeUpsUITabBarController.swift in Sources */,
 				3B2A4A061DE150DF002A8696 /* CoordinatingCustomCell.swift in Sources */,
+				3B3781781DF3073200F51DD3 /* TeeUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

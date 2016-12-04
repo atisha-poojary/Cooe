@@ -12,6 +12,7 @@ class SidePanelViewController: UIViewController, UITableViewDataSource, UITableV
 
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var emailAddress: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var menuListArray: [String] = ["TeeUps", "Discover", "Create My TeeUp", "Contacts", "Profile", "Setting", "Help", "Feedback", "About"]
@@ -20,7 +21,9 @@ class SidePanelViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
 
         profilePicture.imageFromUrl(urlString: (UserDefaults.standard.string(forKey: "profileUrl"))!)
-        userName.text = "\(UserDefaults.standard.string(forKey: "firstName")!) \(UserDefaults.standard.string(forKey: "lastName")!) "
+        profilePicture.setRounded()
+        userName.text = "\(UserDefaults.standard.string(forKey: "firstName")!) \(UserDefaults.standard.string(forKey: "lastName")!)"
+        emailAddress.text = (UserDefaults.standard.string(forKey: "emailAddress"))!
         tableView.reloadData()
         
         // Do any additional setup after loading the view.
@@ -72,22 +75,4 @@ class SidePanelViewController: UIViewController, UITableViewDataSource, UITableV
 
 }
 
-
-extension UIImageView {
-    public func imageFromUrl(urlString: String) {
-        let task = URLSession.shared.dataTask(with: URL(string: urlString)!) { data, response, error in
-            guard let data = data, error == nil else { return }
-            DispatchQueue.main.sync() {
-                self.image = UIImage(data: data)
-            }
-        }
-        task.resume()
-    }
-    
-    public func setRounded() {
-        let radius = self.frame.height / 2
-        self.layer.cornerRadius = radius
-        self.layer.masksToBounds = true
-    }
-}
 
