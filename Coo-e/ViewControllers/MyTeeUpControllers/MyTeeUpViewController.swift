@@ -208,6 +208,17 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         return 0.0;//Choose your custom row height
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TeeUpViewController") as! TeeUpViewController
+    
+        vc.teeUp_id = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "teeup_id") as? String
+        
+        //vc.hidesBottomBarWhenPushed = true
+        self.parent?.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.show(vc, sender: nil)
+    }
     /*
     // MARK: - Navigation
 
