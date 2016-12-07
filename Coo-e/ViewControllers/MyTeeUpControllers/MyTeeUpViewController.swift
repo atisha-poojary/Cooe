@@ -17,6 +17,9 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        navigationController?.navigationBar.barTintColor = UIColor.green
+
         self.reloadTableView("191501201624240508")
     }
 
@@ -38,9 +41,9 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func reloadTableView(_ profile: String)
+    func reloadTableView(_ profile_id: String)
     {
-        let urlString = "http://resources.coo-e.com:8080/cooe/profile/191501201624240508/teeup/"
+        let urlString = ("http://resources.coo-e.com:8080/cooe/profile/\(profile_id)/teeup/")
         let url: URL = URL(string: urlString)!
         
         let request: NSMutableURLRequest = NSMutableURLRequest(url: url)
@@ -198,13 +201,13 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if(segmentedControl.selectedSegmentIndex == 0){
-            return 111.0;
+            return 139.0;
         }
         else if(segmentedControl.selectedSegmentIndex == 1){
-            return 120.0;
+            return 149.0;
         }
         else if(segmentedControl.selectedSegmentIndex == 2){
-            return 120.0;
+            return 149.0;
         }
         return 0.0;//Choose your custom row height
     }
@@ -215,7 +218,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     
         vc.teeUp_id = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "teeup_id") as? String
         
-        //vc.hidesBottomBarWhenPushed = true
+        vc.hidesBottomBarWhenPushed = true
         self.parent?.navigationController?.setNavigationBarHidden(true, animated: false)
         self.navigationController?.show(vc, sender: nil)
     }

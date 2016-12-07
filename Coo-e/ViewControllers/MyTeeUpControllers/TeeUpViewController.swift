@@ -8,15 +8,22 @@
 
 import UIKit
 
-class TeeUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
+class TeeUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIScrollViewDelegate
  {
     var teeUp_id : String!
     var isteeUpOrIndividualStatusChanged = "changeTeeUpStatus"
+    var lastTeeUpStatusSelected : String!
+    var lastIndividualStatusSelected : String!
+    
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var selectedDate: UILabel!
+    
     @IBOutlet weak var teeUpStatusIcon: UIImageView!
     @IBOutlet weak var teeUpStatusLabel: UILabel!
     @IBOutlet weak var individualStatusIcon: UIImageView!
     @IBOutlet weak var individualStatusLabel: UILabel!
+    @IBOutlet weak var peopleScrollView: UIScrollView!
     
     var teeUpStatusArray = ["Planning","It's On","Happening","It's Ended","Canceled"]
     var individualStatusArray = ["Invited","Might Go","Interested","Not Going","On My Way","Arrived"]
@@ -26,6 +33,7 @@ class TeeUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
         print("teeUp_id\(teeUp_id)")
         pickerView.isHidden = true
+        datePicker.isHidden = true
 
         // Do any additional setup after loading the view.
     }
@@ -50,6 +58,17 @@ class TeeUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             isteeUpOrIndividualStatusChanged = "changeIndividualStatus"
         }
         pickerView.reloadAllComponents()
+    }
+    
+    @IBAction func suggestWhenButtonClicked(_ sender: UIButton) {
+        datePicker.isHidden = false
+    }
+    
+     @IBAction func datePickerFunc(_ sender: AnyObject) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        let strDate = dateFormatter.string(from: datePicker.date)
+        selectedDate.text = strDate
     }
     
     //picker view
@@ -82,23 +101,23 @@ class TeeUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     {
         if isteeUpOrIndividualStatusChanged == "changeTeeUpStatus" {
             if(row == 0){
-                teeUpStatusIcon.image = UIImage(named: "planning.png")
+                teeUpStatusIcon.image = UIImage(named: "planning_sym.png")
                 teeUpStatusLabel.text = "Planning"
             }
             if(row == 1){
-                teeUpStatusIcon.image = UIImage(named: "planning.png")
+                teeUpStatusIcon.image = UIImage(named: "planning_sym.png")
                 teeUpStatusLabel.text = "It's On"
             }
             if(row == 2){
-                teeUpStatusIcon.image = UIImage(named: "planning.png")
+                teeUpStatusIcon.image = UIImage(named: "planning_sym.png")
                 teeUpStatusLabel.text = "Happening"
             }
             if(row == 3){
-                teeUpStatusIcon.image = UIImage(named: "planning.png")
+                teeUpStatusIcon.image = UIImage(named: "planning_sym.png")
                 teeUpStatusLabel.text = "It's Ended"
             }
             if(row == 4){
-                teeUpStatusIcon.image = UIImage(named: "planning.png")
+                teeUpStatusIcon.image = UIImage(named: "planning_sym.png")
                 teeUpStatusLabel.text = "Canceled"
             }
         }
@@ -134,6 +153,13 @@ class TeeUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func backButtonClicked(_ sender: AnyObject) {
         _ = self.navigationController?.popViewController(animated: false)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //self.view.endEditing(true)
+        pickerView.isHidden = true
+        datePicker.isHidden = true
+    }
+    
     /*
     // MARK: - Navigation
 
