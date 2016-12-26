@@ -34,6 +34,8 @@
 		3BB55B4B1DA482E5005FD17D /* Coo_eTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B4A1DA482E5005FD17D /* Coo_eTests.swift */; };
 		3BB55B561DA482E5005FD17D /* Coo_eUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB55B551DA482E5005FD17D /* Coo_eUITests.swift */; };
 		3BB55B641DA48B1A005FD17D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB55B631DA48B1A005FD17D /* GoogleService-Info.plist */; };
+		3BF1E0041E10912000D99589 /* SuggestWhenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF1E0031E10911E00D99589 /* SuggestWhenViewController.swift */; };
+		3BF1E0061E10914400D99589 /* SuggestWhereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF1E0051E10914400D99589 /* SuggestWhereViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		3BB55B551DA482E5005FD17D /* Coo_eUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coo_eUITests.swift; sourceTree = "<group>"; };
 		3BB55B571DA482E5005FD17D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BB55B631DA48B1A005FD17D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3BF1E0031E10911E00D99589 /* SuggestWhenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestWhenViewController.swift; path = ViewControllers/MyTeeUpControllers/SuggestWhenViewController.swift; sourceTree = "<group>"; };
+		3BF1E0051E10914400D99589 /* SuggestWhereViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestWhereViewController.swift; path = ViewControllers/MyTeeUpControllers/SuggestWhereViewController.swift; sourceTree = "<group>"; };
 		6B3C822E6202F42717388A17 /* Pods-Coo-eUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eUITests/Pods-Coo-eUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7CFC32A8288C7A3FA2C4E149 /* Pods-Coo-eTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eTests/Pods-Coo-eTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BD785371FA074EADC5AF503D /* Pods-Coo-eTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eTests/Pods-Coo-eTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,12 +132,12 @@
 		3B08C2811DB49A6D003F3B7D /* MyTeeUpControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3B2A4A001DE150DF002A8696 /* ArchiveCustomCell.swift */,
-				3B2A4A011DE150DF002A8696 /* CoordinatingCustomCell.swift */,
-				3B2A4A021DE150DF002A8696 /* InvitedCustomCell.swift */,
+				3BF1E0081E10916700D99589 /* CustomCell */,
 				3B2A4A031DE150DF002A8696 /* MyTeeUpsUITabBarController.swift */,
 				3B2A4A041DE150DF002A8696 /* MyTeeUpViewController.swift */,
 				3B3781771DF3073200F51DD3 /* TeeUpViewController.swift */,
+				3BF1E0031E10911E00D99589 /* SuggestWhenViewController.swift */,
+				3BF1E0051E10914400D99589 /* SuggestWhereViewController.swift */,
 			);
 			name = MyTeeUpControllers;
 			sourceTree = "<group>";
@@ -259,6 +263,16 @@
 				3B417AB51DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift */,
 			);
 			name = "Register|Login";
+			sourceTree = "<group>";
+		};
+		3BF1E0081E10916700D99589 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				3B2A4A001DE150DF002A8696 /* ArchiveCustomCell.swift */,
+				3B2A4A011DE150DF002A8696 /* CoordinatingCustomCell.swift */,
+				3B2A4A021DE150DF002A8696 /* InvitedCustomCell.swift */,
+			);
+			name = CustomCell;
 			sourceTree = "<group>";
 		};
 		3C64ECD4C5EC4367A5580714 /* Frameworks */ = {
@@ -553,6 +567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B2A4A071DE150DF002A8696 /* InvitedCustomCell.swift in Sources */,
+				3BF1E0041E10912000D99589 /* SuggestWhenViewController.swift in Sources */,
 				3B4E8D9B1DDBE9590044CEC4 /* SWRevealViewController.m in Sources */,
 				3B417AB81DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift in Sources */,
 				3B417AB61DB258D600D14360 /* LoginViewController.swift in Sources */,
@@ -564,6 +579,7 @@
 				3B2A4A051DE150DF002A8696 /* ArchiveCustomCell.swift in Sources */,
 				3BB55B3B1DA482E5005FD17D /* Coo_e.xcdatamodeld in Sources */,
 				3BB55B331DA482E5005FD17D /* AppDelegate.swift in Sources */,
+				3BF1E0061E10914400D99589 /* SuggestWhereViewController.swift in Sources */,
 				3B2A49F71DE10609002A8696 /* SidePanelViewController.swift in Sources */,
 				3B417AB71DB258D600D14360 /* SignUpViewController.swift in Sources */,
 				3B2A4A081DE150DF002A8696 /* MyTeeUpsUITabBarController.swift in Sources */,

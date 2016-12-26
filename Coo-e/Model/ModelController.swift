@@ -25,3 +25,19 @@ extension UIImageView {
         self.layer.masksToBounds = true
     }
 }
+
+extension UIView {
+    public func setRoundedCorners() {
+        self.layer.cornerRadius = self.frame.width / 9
+        self.layer.cornerRadius = self.frame.width / 9
+        self.clipsToBounds = true
+    }
+    
+//    public func addShawdow() {
+//        self.layer.masksToBounds = NO;
+//        self.layer.cornerRadius = 8;
+//        self.shadowOffset = CGSizeMake(5.0, 5.0);
+//        self.shadowRadius = 5;
+//        self.shadowOpacity = 0.5;
+//    }
+}

@@ -9,18 +9,23 @@
 import UIKit
 
 class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var segmentedControl:UISegmentedControl!
+    
+    @IBOutlet weak var invitesUnderlined:UILabel!
+    @IBOutlet weak var coordinatingUnderlined:UILabel!
+    @IBOutlet weak var pastUnderlined:UILabel!
     @IBOutlet weak var tableView: UITableView!
     var array: NSArray = []
+    var isCategory : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        navigationController?.navigationBar.barTintColor = UIColor.green
-
         self.reloadTableView("191501201624240508")
+        invitesUnderlined.isHidden=false
+        coordinatingUnderlined.isHidden=true
+        pastUnderlined.isHidden=true
+        isCategory = "Invities"
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,15 +33,30 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func segmentedControlAction(_ sender: Any) {
-        if(segmentedControl.selectedSegmentIndex == 0){
-            self.tableView.reloadData()
-        }
-        else if(segmentedControl.selectedSegmentIndex == 1){
-            self.tableView.reloadData()
+    @IBAction func isTeeUpCategory(_ sender: UIButton) {
+        let buttonTag = sender.tag
+        if(buttonTag == 0){
+            isCategory = "Invities"
             
+            invitesUnderlined.isHidden=false
+            coordinatingUnderlined.isHidden=true
+            pastUnderlined.isHidden=true
+            self.tableView.reloadData()
         }
-        else if(segmentedControl.selectedSegmentIndex == 2){
+        else if(buttonTag == 1){
+            isCategory = "Coordinating"
+            
+            coordinatingUnderlined.isHidden=false
+            invitesUnderlined.isHidden=true
+            pastUnderlined.isHidden=true
+            self.tableView.reloadData()
+        }
+        else if(buttonTag == 2){
+            isCategory = "Past"
+            
+            pastUnderlined.isHidden=false
+            coordinatingUnderlined.isHidden=true
+            invitesUnderlined.isHidden=true
             self.tableView.reloadData()
         }
     }
@@ -162,34 +182,31 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     {
         let cell:InvitedCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "InvitedCustomCell") as! InvitedCustomCell!)
             
-        if(segmentedControl.selectedSegmentIndex == 0){
+        if(isCategory == "Invities"){
             let cell:InvitedCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "InvitedCustomCell") as! InvitedCustomCell!)
             
             if self.array.count != 0 {
                 cell.profilePicture.imageFromUrl(urlString: "http://\((((self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as? NSDictionary)?.object(forKey: "profile_picture_url") as? String)!)")
-                cell.profilePicture.setRounded()
                 
                 cell.title.text = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
                 cell.message.text = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
             }
             return cell
         }
-        else if(segmentedControl.selectedSegmentIndex == 1){
+        else if(isCategory == "Coordinating"){
             let cell:CoordinatingCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "CoordinatingCustomCell") as! CoordinatingCustomCell!)
             if self.array.count != 0 {
                 cell.profilePicture.imageFromUrl(urlString: "http://\((((self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as? NSDictionary)?.object(forKey: "profile_picture_url") as? String)!)")
-                cell.profilePicture.setRounded()
                 
                 cell.title.text = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
             }
             
             return cell
         }
-        else if(segmentedControl.selectedSegmentIndex == 2){
+        else if(isCategory == "Past"){
             let cell:ArchiveCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "ArchiveCustomCell") as! ArchiveCustomCell!)
             if self.array.count != 0 {
                 cell.profilePicture.imageFromUrl(urlString: "http://\((((self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as? NSDictionary)?.object(forKey: "profile_picture_url") as? String)!)")
-                cell.profilePicture.setRounded()
                 
                 cell.title.text = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
             }
@@ -200,14 +217,14 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        if(segmentedControl.selectedSegmentIndex == 0){
-            return 139.0;
+        if(isCategory == "Invities"){
+            return 132.0;
         }
-        else if(segmentedControl.selectedSegmentIndex == 1){
-            return 149.0;
+        else if(isCategory == "Coordinating"){
+            return 132.0;
         }
-        else if(segmentedControl.selectedSegmentIndex == 2){
-            return 149.0;
+        else if(isCategory == "Past"){
+            return 132.0;
         }
         return 0.0;//Choose your custom row height
     }
@@ -216,10 +233,12 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TeeUpViewController") as! TeeUpViewController
     
-        vc.teeUp_id = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "teeup_id") as? String
+        vc.teeUp_id = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "teeup_id")! as! Int
+        vc.teeUp_title = ((self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String)!
         
         vc.hidesBottomBarWhenPushed = true
-        self.parent?.navigationController?.setNavigationBarHidden(true, animated: false)
+        //self.parent?.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationItem.title = ""
         self.navigationController?.show(vc, sender: nil)
     }
     /*
