@@ -18,10 +18,16 @@ class CoordinatingCustomCell: UITableViewCell {
     @IBOutlet weak var numberOfPeopleInvited: UILabel!
     @IBOutlet weak var whenLabel: UILabel!
     @IBOutlet weak var whereLabel: UILabel!
+    @IBOutlet weak var createdByLabel: UILabel!
+    @IBOutlet weak var eventStatusView: UIView!
+    @IBOutlet weak var myStatusView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        profilePicture.setRounded()
+        eventStatusView.setRoundedCorners()
+        myStatusView.setRoundedCorners()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

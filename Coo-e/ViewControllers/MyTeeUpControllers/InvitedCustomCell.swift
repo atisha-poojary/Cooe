@@ -13,11 +13,13 @@ class InvitedCustomCell: UITableViewCell {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var lastUpdate: UILabel!
     @IBOutlet weak var invitedBy: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        profilePicture.setRounded()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
