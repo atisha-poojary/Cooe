@@ -8,11 +8,8 @@
 
 import UIKit
 
-class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate
- {
-    
-    
-    
+class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
+
     var teeUp_id : Int!
     var teeUp_title : String!
     @IBOutlet weak var teeUpTitleLabel:UILabel!
@@ -34,6 +31,11 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
     @IBOutlet weak var individualStatusIcon: UIImageView!
     @IBOutlet weak var individualStatusLabel: UILabel!
     @IBOutlet weak var peopleScrollView: UIScrollView!
+    
+    @IBOutlet weak var when_like_countLabel:UILabel!
+    @IBOutlet weak var when_dislike_countLabel:UILabel!
+    @IBOutlet weak var where_like_countLabel:UILabel!
+    @IBOutlet weak var where_dislike_countLabel:UILabel!
     
     var teeUpStatusArray = ["Planning","It's On","Happening","It's Ended","Canceled"]
     var individualStatusArray = ["Invited","Might Go","Interested","Not Going","On My Way","Arrived"]
@@ -197,9 +199,21 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
         //datePicker.isHidden = true
     }
     
-    @IBAction func backButtonClicked(_ sender: AnyObject) {
-        //self.parent?.navigationController?.setNavigationBarHidden(true, animated: false)
-        _ = self.navigationController?.popViewController(animated: false)
+  
+    @IBAction func when_LikeDislike(_ sender: UIButton) {
+        let buttonTag = sender.tag
+        if buttonTag == 0{
+        }
+        else if buttonTag == 1{
+        }
+    }
+    
+    @IBAction func where_LikeDislike(_ sender: UIButton) {
+        let buttonTag = sender.tag
+        if buttonTag == 0{
+        }
+        else if buttonTag == 1{
+        }
     }
 
     
