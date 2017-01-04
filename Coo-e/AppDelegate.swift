@@ -18,19 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        //UINavigationBar.appearance().barTintColor = UIColor(red: 53.0/255.0, green: 73.0/255.0, blue: 79.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
-        let user_id = UserDefaults.standard.integer(forKey: "userId")
+        print("HTTPCookieStorage.shared.cookies \(HTTPCookieStorage.shared.cookies)")
         
-//        if (user_id != 0) {
-//            let containerViewController = MyTeeUpsUITabBarController()
-//            window!.rootViewController = containerViewController
-//            window!.makeKeyAndVisible()
-//        }
+        let cookies = HTTPCookieStorage.shared.cookies
+        for cookie in cookies! {
+            print("name: \(cookie.name) value: \(cookie.value)")
+            if (cookie.name != "" && cookie.value != ""){
+                let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
+                self.window?.rootViewController = viewController
+            }
+        }
         
         //FIRApp.configure()
         // Override point for customization after application launch.

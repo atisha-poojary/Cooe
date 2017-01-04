@@ -15,9 +15,11 @@ class MyTeeUpsUITabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menuButton.target = self.revealViewController()
-        menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-        //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+        }
+                //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     

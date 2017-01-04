@@ -14,7 +14,8 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var coordinatingUnderlined:UILabel!
     @IBOutlet weak var pastUnderlined:UILabel!
     @IBOutlet weak var tableView: UITableView!
-    var array: NSArray = []
+    @IBOutlet weak var no_teeUp_message: UILabel!
+    var teeup_array: NSArray = []
     var isCategory : String!
     
     override func viewDidLoad() {
@@ -22,8 +23,8 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         // Do any additional setup after loading the view.
         
         self.reloadTableView("191501201624240508")
-        invitesUnderlined.isHidden=false
-        coordinatingUnderlined.isHidden=true
+        invitesUnderlined.isHidden=true
+        coordinatingUnderlined.isHidden=false
         pastUnderlined.isHidden=true
         isCategory = "Invities"
     }
@@ -41,7 +42,15 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             invitesUnderlined.isHidden=false
             coordinatingUnderlined.isHidden=true
             pastUnderlined.isHidden=true
-            self.tableView.reloadData()
+            
+            if self.teeup_array.count == 0{
+                no_teeUp_message.isHidden = false
+                no_teeUp_message.text = "You haven't been invited to anything yet, try creating a Tee-Up with your friends"
+            }
+            else{
+                no_teeUp_message.isHidden = true
+                self.tableView.reloadData()
+            }
         }
         else if(buttonTag == 1){
             isCategory = "Coordinating"
@@ -49,7 +58,15 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             coordinatingUnderlined.isHidden=false
             invitesUnderlined.isHidden=true
             pastUnderlined.isHidden=true
-            self.tableView.reloadData()
+            
+            if self.teeup_array.count == 0{
+                no_teeUp_message.isHidden = false
+                no_teeUp_message.text = "You're not coordinating anything yet, try creating a Tee-Up with your friends"
+            }
+            else{
+                no_teeUp_message.isHidden = true
+                self.tableView.reloadData()
+            }
         }
         else if(buttonTag == 2){
             isCategory = "Past"
@@ -57,13 +74,21 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             pastUnderlined.isHidden=false
             coordinatingUnderlined.isHidden=true
             invitesUnderlined.isHidden=true
-            self.tableView.reloadData()
+            
+            if self.teeup_array.count == 0{
+                no_teeUp_message.isHidden = false
+                no_teeUp_message.text = "You have not made plans with people yet, get started by creating a Tee-Up with your friends"
+            }
+            else{
+                no_teeUp_message.isHidden = true
+                self.tableView.reloadData()
+            }
         }
     }
     
     func reloadTableView(_ profile_id: String)
     {
-        let urlString = ("http://resources.coo-e.com:8080/cooe/profile/\(profile_id)/teeup/")
+        let urlString = ("http://69.164.208.35:8080/api/teeups")
         let url: URL = URL(string: urlString)!
         
         let request: NSMutableURLRequest = NSMutableURLRequest(url: url)
@@ -71,7 +96,6 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpMethod = "GET"
         _ = URLSession.shared
-    
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
@@ -103,38 +127,47 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                 return
             }
             
-            //print("Response: \(response)")
-            //let strData = NSString(data: data!, encoding:String.Encoding.utf8.rawValue)
-            //print("Body: \(strData)")
+            print("Response: \(response)")
+            let strData = NSString(data: data!, encoding:String.Encoding.utf8.rawValue)
+            print("Body: \(strData)")
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
-                if let array = json as? NSArray {
-                    // ... process the data
-                    print(array)
-                    //var msg = "No message"
+                if let dict = json as? NSDictionary {
+                    
+                    print("dict:'\(dict)")
                     
                     // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
                     if(error != nil) {
                         print(error!.localizedDescription)
                         let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                         print("Error could not parse JSON: '\(jsonStr)'")
-                        //postCompleted(succeeded: false, msg: "Error")
                     }
                     else {
                         
                         // The JSONObjectWithData constructor didn't return an error. But, we should still
                         // check and make sure that json has a value using optional binding.
-                        if let array = json as? NSArray {
+                        if let dict = json as? NSDictionary {
                             // Okay, the parsedJSON is here, let's get the value for 'success' out of it
-                            self.array = array
-                            print("self.array '\(self.array.count)'")
-                             DispatchQueue.main.async(execute: {
-                                
-                            //self.tableView.estimatedRowHeight = 130;
-                            //self.tableView.rowHeight = UITableViewAutomaticDimension;
-                            self.tableView.reloadData()
-                             })
+                            if let status = dict["status"] as? Int {
+                                print("status: \(status)")
+                                DispatchQueue.main.async{
+                                    if status == 200 {
+                                        self.teeup_array = (dict["teeups"] as? NSArray)!
+                                        if self.teeup_array.count == 0 {
+                                            self.tableView.isHidden = true
+                                            self.no_teeUp_message.isHidden = false
+                                        }
+                                        else {
+                                            self.no_teeUp_message.isHidden = true
+                                            self.tableView.isHidden = false
+                                            self.tableView.estimatedRowHeight = 130;
+                                            self.tableView.rowHeight = UITableViewAutomaticDimension;
+                                            self.tableView.reloadData()
+                                        }
+                                    }
+                                }
+                            }
                             return
                         }
                         else {
@@ -180,8 +213,9 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
+       
         let cell:InvitedCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "InvitedCustomCell") as! InvitedCustomCell!)
-            
+        /*
         if(isCategory == "Invities"){
             let cell:InvitedCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "InvitedCustomCell") as! InvitedCustomCell!)
             
@@ -212,6 +246,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             }
             return cell
         }
+ */
         return cell
     }
     
@@ -230,16 +265,16 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "TeeUpViewController") as! TeeUpViewController
-    
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TeeUpViewController") as! TeeUpViewController
+    /*
         vc.teeUp_id = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "teeup_id")! as! Int
         vc.teeUp_title = ((self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String)!
-        
-        vc.hidesBottomBarWhenPushed = true
-        //self.parent?.navigationController?.setNavigationBarHidden(true, animated: false)
-        self.navigationItem.title = ""
-        self.navigationController?.show(vc, sender: nil)
+ */
+//        
+//        vc.hidesBottomBarWhenPushed = true
+//        //self.parent?.navigationController?.setNavigationBarHidden(true, animated: false)
+//        self.navigationItem.title = ""
+//        self.navigationController?.show(vc, sender: nil)
     }
     /*
     // MARK: - Navigation

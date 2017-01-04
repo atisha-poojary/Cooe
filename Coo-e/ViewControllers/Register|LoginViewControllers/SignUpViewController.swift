@@ -55,19 +55,16 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpButtonClicked(sender: AnyObject) {
         
         let username = username_textField.text!
-        let firstName = firstName_textField.text!
-        let lastName = lastName_textField.text!
-        let email = email_textField.text!
-        let mobilePhone = mobilePhone_textField.text!
         let password = password_textField.text!
         let retypePassword = retypePassword_textField.text!
+        let email = email_textField.text!
+        let firstName = firstName_textField.text!
+        let lastName = lastName_textField.text!
         
-        if username == "" && firstName == "" && lastName == "" && email == "" && mobilePhone == "" && password == "" && retypePassword == ""{
+        if username == "" && password == "" && email == "" && firstName == "" && lastName == ""{
             
             //test
-            let avatarId = "5"
-            let profilePic = ""
-            self.signUpFunc(username: username, email: email, avatarId: avatarId, password: password, firstName: firstName, lastName: lastName, profilePic: profilePic)
+            self.signUpFunc(username: username, password: password, email: email, firstName: firstName, lastName: lastName )
             
             self.messageLabel.isHidden = false
             
@@ -107,7 +104,7 @@ class SignUpViewController: UIViewController {
             //return
         }
             
-        else if username == "" || firstName == "" || lastName == "" && email == "" || mobilePhone == "" || password == "" || retypePassword == ""{
+         if username == "" || password == "" || email == "" || firstName == "" || lastName == ""{
             
             if !isValidEmail(email: email){
                
@@ -130,11 +127,7 @@ class SignUpViewController: UIViewController {
             else{
                 self.retypePassword_errorLabel.isHidden = true
             }
-            
-            if mobilePhone == "" {
-                self.mobilePhone_errorLabel.isHidden = false
-            }
-            
+        
             if password != retypePassword{
                 if password != "" && retypePassword == ""{
                     self.retypePassword_errorLabel.isHidden = false
@@ -160,7 +153,8 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
-        else if username != "" && firstName != "" && lastName != "" && email != "" && mobilePhone != "" && password != "" && retypePassword != "" {
+        
+        else if username != "" && password != "" && email != "" && firstName != "" && lastName != ""{
             if password != retypePassword{
                 if password != "" && retypePassword == ""{
                     self.retypePassword_errorLabel.isHidden = false
@@ -174,28 +168,17 @@ class SignUpViewController: UIViewController {
                 }
             }
             else{
-                let avatarId = "5"
-                let profilePic = ""
-                self.signUpFunc(username: username, email: email, avatarId: avatarId, password: password, firstName: firstName, lastName: lastName, profilePic: profilePic)
+                self.signUpFunc(username: username, password: password, email: email, firstName: firstName, lastName: lastName )
             }
         }
     }
 
-    func signUpFunc(username: String, email: String, avatarId: String, password: String, firstName: String, lastName: String, profilePic: String)
+    func signUpFunc(username: String, password: String, email: String, firstName: String, lastName: String)
     {
-        let urlString = "http://resources.coo-e.com:8080/cooe/profile/"
+        let urlString = "http://69.164.208.35:8080/auth/signup"
         
-        //let params = ["userName":"hiralp009", "password":"84317672"] as Dictionary<String, String>
-        
-        let username = "atisha-poojary"
-        let email = "atishyam@gmail.com"
-        let avatarId = "5"
-        let password = "atisha19"
-        let firstName = "Atisha"
-        let lastName = "Poojary"
-        let profilePic = ""
-        
-        let params = ["userName":username, "email":email, "avatarId":  avatarId, "password":password, "firstName":firstName, "lastName":lastName, "profilePic":profilePic] as Dictionary<String, String>
+        //let params = ["username":username, "password":password, "email":email,  "firstName":firstName, "lastName":lastName] as Dictionary<String, String>
+        let params = ["username":"atisha", "password":"19atisha", "email":"atishapoojary@gmail.com",  "firstName":"Atisha", "lastName":"Poojary"] as Dictionary<String, String>
         
         let url: NSURL = NSURL(string: urlString)!
         

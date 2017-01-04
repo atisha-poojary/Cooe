@@ -54,7 +54,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var password_textField: UITextField!
     
     @IBAction func signInClicked(sender: AnyObject){
-        if Reachability.isConnectedToNetwork() == true {
+        
+       // let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
+       // UIApplication.shared.keyWindow?.rootViewController = viewController
+        //_ = self.navigationController?.popToRootViewController(animated: true)
+        
+        //return
+        
+        if Reachability()?.modifiedReachabilityChanged() == true{
             self.signInFunc()
         }
         else{
@@ -140,22 +147,103 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         else if username != "" && password != "" {
             
-            let urlString = "http://resources.coo-e.com:8080/cooe/profile/validateCredential/"
-            let url: NSURL = NSURL(string: urlString)!
+            let url: NSURL = NSURL(string:"http://69.164.208.35:8080/auth/login")!
             
+            let params = ["username":"atisha", "password":"19atisha"] as Dictionary<String, String>
+
             let request: NSMutableURLRequest = NSMutableURLRequest(url: url as URL)
             request.httpMethod = "POST"
-            let session = URLSession.shared
-            
-            //let params = ["userName":username, "password":password] as Dictionary<String, String>
-            let params = ["userName":"SaurabhT", "password":"saurabh123"] as Dictionary<String, String>
-            
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.httpBody = try! JSONSerialization.data(withJSONObject: params, options: [])
             
+            let configuration = URLSessionConfiguration.default
+            var session = URLSession.shared
+            session = URLSession(configuration: configuration)
+            
             let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
                 
+                if let httpResponse = response as? HTTPURLResponse, let _ = httpResponse.allHeaderFields as? [String : String] {
+    
+                    if(httpResponse.statusCode == 200) {
+                        self.setCookies(response: response!)
+                    
+                        do {
+                            let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
+                            if let dict = json as? NSDictionary {
+                               
+                                print("dict:'\(dict)")
+                                
+                                // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+                                if(error != nil) {
+                                    print(error!.localizedDescription)
+                                    let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                                    print("Error could not parse JSON: '\(jsonStr)'")
+                                }
+                                else {
+                                    
+                                    // The JSONObjectWithData constructor didn't return an error. But, we should still
+                                    // check and make sure that json has a value using optional binding.
+                                    if let dict = json as? NSDictionary {
+                                        // Okay, the parsedJSON is here, let's get the value for 'success' out of it
+                                        if let status = dict["status"] as? Int {
+                                            print("status: \(status)")
+                                            DispatchQueue.main.async{
+                                                if status == 200 {
+                                                    UserDefaults.standard.set(dict["firstName"], forKey:"firstName")
+                                                    UserDefaults.standard.set(dict["lastName"], forKey:"lastName")
+                                                    UserDefaults.standard.set(dict["id"], forKey:"id")
+                                                    
+                                                    let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
+                                                    UIApplication.shared.keyWindow?.rootViewController = viewController
+                                                    _ = self.navigationController?.popToRootViewController(animated: true)
+                                                    
+                                                }
+                                                else if status == 2 {
+                                                    let message = "Invalid credential"
+                                                    let stringWidth = message.widthOfString(usingFont: UIFont.systemFont(ofSize: 14.5)) + 16
+                                                    
+                                                    let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:self.view.frame.size.width/2 - ((stringWidth+5)/2),y :self.view.frame.size.height-85), size: CGSize(width: stringWidth+5, height: 24)))
+                                                    toastLabel.backgroundColor = UIColor.black
+                                                    toastLabel.textColor = UIColor.white
+                                                    toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 14.5)
+                                                    toastLabel.textAlignment = NSTextAlignment.center;
+                                                    toastLabel.text = message
+                                                    toastLabel.alpha = 1.0
+                                                    toastLabel.layer.cornerRadius = 4;
+                                                    toastLabel.layer.borderColor = UIColor.white.cgColor
+                                                    toastLabel.layer.borderWidth = CGFloat(Float (1.0))
+                                                    toastLabel.clipsToBounds = true
+                                                    
+                                                    self.view.addSubview(toastLabel)
+                                                    
+                                                    UIView.animate(withDuration: 3.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
+                                                        
+                                                        toastLabel.alpha = 0.0
+                                                        
+                                                    }, completion: nil)
+                                                }
+                                            }
+                                        }
+                                        
+                                        return
+                                    }
+                                    else {
+                                        // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                                        let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                                        print("Error could not parse JSON: \(jsonStr)")
+                                        //postCompleted(succeeded: false, msg: "Error")
+                                    }
+                                }
+                            }
+                            
+                        } catch let error as NSError {
+                            print("An error occurred: \(error)")
+                        }
+                    }
+                }
+                
+                /*
                 if error != nil {
                     print("error=\(error)")
                     DispatchQueue.main.async {
@@ -181,127 +269,34 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             }, completion: nil)
                     }
                     return
-                }
+                }*/
                 
-                print("Response: \(response)")
-                let strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                print("Body: \(strData)")
+               
                 
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
-                    if let dict = json as? NSDictionary {
-                        // ... process the data
-                        print(dict)
-                        //var msg = "No message"
-                        
-                        // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
-                        if(error != nil) {
-                            print(error!.localizedDescription)
-                            let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                            print("Error could not parse JSON: '\(jsonStr)'")
-                            //postCompleted(succeeded: false, msg: "Error")
-                        }
-                        else {
-                            
-                            // The JSONObjectWithData constructor didn't return an error. But, we should still
-                            // check and make sure that json has a value using optional binding.
-                            if let dict = json as? NSDictionary {
-                                // Okay, the parsedJSON is here, let's get the value for 'success' out of it
-                                if let code = dict["code"] as? String {
-                                    print("code: \(code)")
-                                    DispatchQueue.main.async{
-                                        
-                                        if code == "COOE_011" {
-                                         //authentication failed (invalid credential)
-                                            
-                                                let message = "Invalid credential"
-                                                let stringWidth = message.widthOfString(usingFont: UIFont.systemFont(ofSize: 14.5)) + 16
-                                                
-                                                let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:self.view.frame.size.width/2 - ((stringWidth+5)/2),y :self.view.frame.size.height-85), size: CGSize(width: stringWidth+5, height: 24)))
-                                                toastLabel.backgroundColor = UIColor.black
-                                                toastLabel.textColor = UIColor.white
-                                                toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 14.5)
-                                                toastLabel.textAlignment = NSTextAlignment.center;
-                                                toastLabel.text = message
-                                                toastLabel.alpha = 1.0
-                                                toastLabel.layer.cornerRadius = 4;
-                                                toastLabel.layer.borderColor = UIColor.white.cgColor
-                                                toastLabel.layer.borderWidth = CGFloat(Float (1.0))
-                                                toastLabel.clipsToBounds = true
-                                                
-                                                self.view.addSubview(toastLabel)
-                                                
-                                                UIView.animate(withDuration: 3.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
-                                                    
-                                                    toastLabel.alpha = 0.0
-                                                    
-                                                    }, completion: nil)
-                                           
-                                        }
-                                        else if code == "COOE_012" {
-                                            //"dirty password on account
-                                        }
-                                        else if code == "COOE_010" {
-                                            //email isn't validated
-                                        }
-                                        else if code == "COOE_011" {
-                                            //"authentication failed (invalid credential)
-                                        }
-                                        
-                                        
-                                        /*
-                                        else if response_code == 5 {
-                                            self.password_textField.becomeFirstResponder()
-                                            self.password_errorLabel.isHidden = false
-                                            self.password_errorLabel.text = "Password miss match"
-                                        }
-                                        else if response_code == 1 {
-                                            UserDefaults.standard.set(dict["uid"], forKey:"currentUser")
-                                            UserDefaults.standard.set(dict["authorization"], forKey:"authorization")
-                                            
-                                            UserDefaults.standard.set(true, forKey: "isFirstTimeLogin")
-                                            
-                                            
-                                            let viewController: UITabBarController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsFeedTabBarController") as? UITabBarController
-                                            //self.window?.rootViewController = viewController
-                                            
-                                            UIApplication.shared.keyWindow?.rootViewController = viewController
-                                            //////self.navigationController?.popToRootViewController(animated: true)
-                                            
-                                            /*
-                                             self.newsfeedTabbarController = UIStoryboard.centerViewController()
-                                             self.newsfeedNavigationController = UINavigationController(rootViewController: self.newsfeedTabbarController)
-                                             self.view.addSubview(self.newsfeedNavigationController.view)
-                                             self.addChildViewController(self.newsfeedNavigationController)
-                                             UIApplication.sharedApplication().keyWindow?.rootViewController = self.newsfeedTabbarController;
-                                             */
-                                        }
-                                        else if response_code == -1 {
-                                            
-                                        }
- */
-                                        
-                                    }
-                                }
-                                
-                                return
-                            }
-                            else {
-                                // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
-                                let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                                print("Error could not parse JSON: \(jsonStr)")
-                                //postCompleted(succeeded: false, msg: "Error")
-                            }
-                        }
-                    }
-                } catch let error as NSError {
-                    print("An error occurred: \(error)")
-                }
+                
             })
         
             task.resume()
         }
-        
+    }
+    
+    func setCookies(response: URLResponse) {
+        if let httpResponse = response as? HTTPURLResponse {
+            let cookies = HTTPCookie.cookies(withResponseHeaderFields: httpResponse.allHeaderFields as! [String : String], for: response.url!)
+            for cookie in cookies {
+                var cookieProperties = [HTTPCookiePropertyKey:Any]()
+                cookieProperties[HTTPCookiePropertyKey.name] = cookie.name
+                cookieProperties[HTTPCookiePropertyKey.value] = cookie.value
+                cookieProperties[HTTPCookiePropertyKey.path] = cookie.path
+                cookieProperties[HTTPCookiePropertyKey.domain] = cookie.domain
+                cookieProperties[HTTPCookiePropertyKey.version] = NSNumber(value: cookie.version)
+                cookieProperties[HTTPCookiePropertyKey.expires] = Date().addingTimeInterval(31536000)
+                let cookie = HTTPCookie(properties: cookieProperties)
+                HTTPCookieStorage.shared.setCookie(cookie!)
+                
+                print("name: \(cookie?.name) value: \(cookie?.value)")
+            }
+        }
     }
     
 //    func isValidusername(username:String) -> Bool {
@@ -426,7 +421,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-
     /*
     // MARK: - Navigation
 
@@ -453,3 +447,4 @@ extension String {
         return size.height
     }
 }
+
