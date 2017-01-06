@@ -27,7 +27,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         coordinatingUnderlined.isHidden=false
         pastUnderlined.isHidden=true
         self.tableView.isHidden=true
-        isCategory = "Invities"
+        isCategory = "Coordinating"
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,29 +101,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             data, response, error in
             
             if error != nil {
-                print("error=\(error)")
-                DispatchQueue.main.async(execute: {
-                    
-                    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 90, y: self.view.frame.size.height-320, width: 90+90, height: 24))
-                    toastLabel.backgroundColor = UIColor.black
-                    toastLabel.textColor = UIColor.white
-                    toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 14.5)
-                    toastLabel.textAlignment = NSTextAlignment.center;
-                    toastLabel.text = "No internet connection."
-                    toastLabel.alpha = 1.0
-                    toastLabel.layer.cornerRadius = 4;
-                    toastLabel.layer.borderColor = UIColor.white.cgColor
-                    toastLabel.layer.borderWidth = CGFloat(Float (2.0))
-                    toastLabel.clipsToBounds = true
-                    
-                    self.view.addSubview(toastLabel)
-                    
-                    UIView.animate(withDuration: 2.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
-                        
-                        toastLabel.alpha = 0.0
-                        
-                    }, completion: nil)
-                })
+              ModelController().showToastMessage(message: "No internet connection.", view: self.view)
                 return
             }
             
@@ -202,7 +180,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
 //                return self.array.count
 //            }
 //        }
-        return 8
+        return self.teeup_array.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int
@@ -214,38 +192,43 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     {
        
         let cell:InvitedCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "InvitedCustomCell") as! InvitedCustomCell!)
-        /*
+        
         if(isCategory == "Invities"){
             let cell:InvitedCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "InvitedCustomCell") as! InvitedCustomCell!)
             
-            if self.array.count != 0 {
-                cell.profilePicture.imageFromUrl(urlString: "http://\((((self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as? NSDictionary)?.object(forKey: "profile_picture_url") as? String)!)")
+            if self.teeup_array.count != 0 {
+                cell.title.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
+                cell.message.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
                 
-                cell.title.text = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
-                cell.message.text = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
+//                let createdByString = "Created by \((((self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \(((self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
+//                cell.createdByLabel.text = createdByString
+
             }
             return cell
         }
         else if(isCategory == "Coordinating"){
             let cell:CoordinatingCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "CoordinatingCustomCell") as! CoordinatingCustomCell!)
-            if self.array.count != 0 {
-                cell.profilePicture.imageFromUrl(urlString: "http://\((((self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as? NSDictionary)?.object(forKey: "profile_picture_url") as? String)!)")
+            if self.teeup_array.count != 0 {
+                cell.title.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
+                cell.message.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
                 
-                cell.title.text = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
+                cell.profilePicture.imageFromUrl(urlString: "http://scontent.cdninstagram.com/t51.2885-19/s150x150/15276748_1238248896241231_7045268600633950208_a.jpg")
+                
+                let createdByString = "Created by \((((self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \((((self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
+                cell.createdByLabel.text = createdByString
             }
-            
             return cell
         }
         else if(isCategory == "Past"){
             let cell:ArchiveCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "ArchiveCustomCell") as! ArchiveCustomCell!)
-            if self.array.count != 0 {
-                cell.profilePicture.imageFromUrl(urlString: "http://\((((self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as? NSDictionary)?.object(forKey: "profile_picture_url") as? String)!)")
-                
-                cell.title.text = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
+            if self.teeup_array.count != 0 {
+                cell.title.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
+                //cell.message.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
+                //cell.createdByLabel.text = ((self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String
             }
             return cell
         }
- */
+ 
         return cell
     }
     
@@ -287,3 +270,8 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
 }
 
 
+//0 is creator
+//
+//1 is organizer
+//
+//2 is just regular participant

@@ -19,13 +19,11 @@ class SidePanelViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-//        profilePicture.imageFromUrl(urlString: "https://www.google.com/search?q=atisha+poojary+avatar&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjP0fK2oKPRAhVHeSYKHX6vCE0Q_AUICCgB&biw=1106&bih=566#tbm=isch&q=atisha+poojary&imgrc=y9AicfGWT4VWsM%3A")
-//        profilePicture.setRounded()
-//        userName.text = "\(UserDefaults.standard.string(forKey: "firstName")!) \(UserDefaults.standard.string(forKey: "lastName")!)"
-//        emailAddress.text = (UserDefaults.standard.string(forKey: "emailAddress"))!
-//        tableView.reloadData()
+        profilePicture.imageFromUrl(urlString: "http://scontent.cdninstagram.com/t51.2885-19/s150x150/15276748_1238248896241231_7045268600633950208_a.jpg")
+        profilePicture.setRounded()
+        userName.text = "\(UserDefaults.standard.string(forKey: "firstName")!) \(UserDefaults.standard.string(forKey: "lastName")!)"
+        emailAddress.text = (UserDefaults.standard.string(forKey: "email"))!
         
         // Do any additional setup after loading the view.
     }
@@ -45,9 +43,27 @@ class SidePanelViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    @IBAction func showAlert(sender: AnyObject) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        alertController.addAction(UIAlertAction(title: "Logout", style: .default , handler:{ (UIAlertAction)in
+            for cookie in HTTPCookieStorage.shared.cookies! {
+                HTTPCookieStorage.shared.deleteCookie(cookie)
+            }
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            UserDefaults.standard.synchronize()
+            
+            let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController")
+            UIApplication.shared.keyWindow?.rootViewController = viewController
+        }))
         
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler:{ (UIAlertAction)in
+            
+            
+        }))
+        self.present(alertController, animated: true) {
+            // ...
+        }
     }
     
     override func didReceiveMemoryWarning() {

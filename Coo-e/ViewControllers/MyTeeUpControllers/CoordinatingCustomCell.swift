@@ -12,8 +12,11 @@ class CoordinatingCustomCell: UITableViewCell {
 
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var statusOfTheEvent: UIButton!
-    @IBOutlet weak var statusOfTheInvitee: UIButton!
+    @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var teeupStatus: UILabel!
+    @IBOutlet weak var teeupStatus_icon: UIImageView!
+    @IBOutlet weak var userStatus: UILabel!
+    @IBOutlet weak var userStatus_icon: UIImageView!
     @IBOutlet weak var numberOfPeopleGoing: UILabel!
     @IBOutlet weak var numberOfPeopleInvited: UILabel!
     @IBOutlet weak var whenLabel: UILabel!

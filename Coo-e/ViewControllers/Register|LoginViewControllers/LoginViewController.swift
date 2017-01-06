@@ -193,10 +193,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                             print("status: \(status)")
                                             DispatchQueue.main.async{
                                                 if status == 200 {
-                                                    
-                                                    UserDefaults.standard.set(dict["firstName"], forKey:"firstName")
-                                                    UserDefaults.standard.set(dict["lastName"], forKey:"lastName")
-                                                    UserDefaults.standard.set(dict["id"], forKey:"id")
+                                                    UserDefaults.standard.set(((dict["user"] as AnyObject).object(forKey: "firstName")!), forKey:"firstName")
+                                                    UserDefaults.standard.set(((dict["user"] as AnyObject).object(forKey: "lastName")!), forKey:"lastName")
+                                                    UserDefaults.standard.set(((dict["user"] as AnyObject).object(forKey: "email")!), forKey:"email")
+                                                    UserDefaults.standard.set(((dict["user"] as AnyObject).object(forKey: "id")!), forKey:"id")
                                                     
                                                     let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
                                                     UIApplication.shared.keyWindow?.rootViewController = viewController
