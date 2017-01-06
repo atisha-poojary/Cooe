@@ -26,6 +26,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         invitesUnderlined.isHidden=true
         coordinatingUnderlined.isHidden=false
         pastUnderlined.isHidden=true
+        self.tableView.isHidden=true
         isCategory = "Invities"
     }
 
@@ -95,8 +96,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpMethod = "GET"
-        _ = URLSession.shared
-        
+
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
             
@@ -150,7 +150,6 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                         if let dict = json as? NSDictionary {
                             // Okay, the parsedJSON is here, let's get the value for 'success' out of it
                             if let status = dict["status"] as? Int {
-                                print("status: \(status)")
                                 DispatchQueue.main.async{
                                     if status == 200 {
                                         self.teeup_array = (dict["teeups"] as? NSArray)!

@@ -606,7 +606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hB-bY-Axm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1504" y="-1814"/>
+            <point key="canvasLocation" x="-1435" y="-1788"/>
         </scene>
         <!--My TeeUps-->
         <scene sceneID="Asc-2y-HUU">
@@ -1731,7 +1731,7 @@ follow the instruction.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIn-X3-0Wj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1539" y="-732"/>
+            <point key="canvasLocation" x="929" y="-1009"/>
         </scene>
         <!--More-->
         <scene sceneID="Tme-al-FJx">
@@ -1817,7 +1817,7 @@ follow the instruction.</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZm-pg-biE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="837" y="-1129"/>
+            <point key="canvasLocation" x="-4" y="-1049"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KAK-cn-uoR">
@@ -1888,7 +1888,7 @@ follow the instruction.</string>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Write a message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wzc-AQ-KGF">
-                                <rect key="frame" x="50" y="218" width="317" height="42"/>
+                                <rect key="frame" x="50" y="202" width="317" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -1913,7 +1913,7 @@ follow the instruction.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZy-tv-vEl">
-                                <rect key="frame" x="50" y="267" width="317" height="2"/>
+                                <rect key="frame" x="50" y="251" width="317" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1929,7 +1929,7 @@ follow the instruction.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFV-6a-g7J">
-                                <rect key="frame" x="0.0" y="294" width="375" height="2"/>
+                                <rect key="frame" x="0.0" y="278" width="375" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1937,7 +1937,7 @@ follow the instruction.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kC4-e2-O6f">
-                                <rect key="frame" x="0.0" y="350" width="375" height="2"/>
+                                <rect key="frame" x="0.0" y="334" width="375" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1945,7 +1945,7 @@ follow the instruction.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20j-Yp-OJ3">
-                                <rect key="frame" x="0.0" y="407" width="375" height="2"/>
+                                <rect key="frame" x="0.0" y="391" width="375" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1953,7 +1953,7 @@ follow the instruction.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJt-a6-Zu1">
-                                <rect key="frame" x="0.0" y="465" width="375" height="2"/>
+                                <rect key="frame" x="0.0" y="449" width="375" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1977,7 +1977,7 @@ follow the instruction.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xe-6Z-R7c">
-                                <rect key="frame" x="8" y="304" width="351" height="38"/>
+                                <rect key="frame" x="8" y="288" width="351" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Suggest When (Optional)">
@@ -1985,11 +1985,11 @@ follow the instruction.</string>
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="suggestWhen" translatesAutoresizingMaskIntoConstraints="NO" id="ipX-Bc-8iq">
-                                <rect key="frame" x="8" y="304" width="36" height="38"/>
+                                <rect key="frame" x="8" y="288" width="36" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hD-c9-ZSq">
-                                <rect key="frame" x="16" y="360" width="343" height="38"/>
+                                <rect key="frame" x="16" y="344" width="343" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Suggest Where (Optional)">
@@ -1997,7 +1997,7 @@ follow the instruction.</string>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8D-lP-qok">
-                                <rect key="frame" x="16" y="417" width="343" height="38"/>
+                                <rect key="frame" x="16" y="401" width="343" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Tee-Up Options">
@@ -2005,7 +2005,7 @@ follow the instruction.</string>
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="teeupOptions" translatesAutoresizingMaskIntoConstraints="NO" id="e2A-Od-sxZ">
-                                <rect key="frame" x="8" y="417" width="36" height="38"/>
+                                <rect key="frame" x="8" y="401" width="36" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hA-Og-y5J">
@@ -2015,6 +2015,9 @@ follow the instruction.</string>
                                 <state key="normal" title="Send Invitation">
                                     <color key="titleColor" red="0.19215686269999999" green="0.58823529409999997" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendInvitationClickedWithSender:" destination="Yg7-rY-QZa" eventType="touchUpInside" id="FR6-28-Yo5"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="contact" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-uJ-bHf">
                                 <rect key="frame" x="331" y="119" width="36" height="38"/>
@@ -2025,11 +2028,11 @@ follow the instruction.</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="suggestWhere" translatesAutoresizingMaskIntoConstraints="NO" id="By4-Yh-RuG">
-                                <rect key="frame" x="8" y="359" width="36" height="38"/>
+                                <rect key="frame" x="8" y="343" width="36" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invitational Mesage (Optional)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3T-hS-Uib">
-                                <rect key="frame" x="190" y="266" width="181" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invitation Mesage (Optional)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3T-hS-Uib">
+                                <rect key="frame" x="190" y="250" width="181" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

@@ -22,17 +22,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-
+        
+          print("HTTPCookieStorage.shared.cookies \(HTTPCookieStorage.shared.cookies)")
+//        let cookies = HTTPCookieStorage.shared.cookies
+//        for cookie in cookies! {
+//            print("name: \(cookie.name) value: \(cookie.value)")
+//            if (cookie.name != "" && cookie.value != ""){
+//                let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
+//                self.window?.rootViewController = viewController
+//            }
+//        }
+    
+        
+        let data = UserDefaults.standard.data(forKey: "cookies")
+        if let cookies: [HTTPCookie] = NSKeyedUnarchiver.unarchiveObject(with: data!) as! [HTTPCookie]? {
+            for cookie in cookies  {
+                var cookieProperties = [HTTPCookiePropertyKey:Any]()
+                cookieProperties[HTTPCookiePropertyKey.name] = cookie.name
+                cookieProperties[HTTPCookiePropertyKey.value] = cookie.value
+                cookieProperties[HTTPCookiePropertyKey.path] = cookie.path
+                cookieProperties[HTTPCookiePropertyKey.domain] = cookie.domain
+                cookieProperties[HTTPCookiePropertyKey.version] = NSNumber(value: cookie.version)
+                cookieProperties[HTTPCookiePropertyKey.expires] = Date().addingTimeInterval(31536000)
+                HTTPCookieStorage.shared.setCookie(HTTPCookie(properties: cookieProperties)!)
+                
+                print("name: \(cookie.name) value: \(cookie.value)")
+            }
+            let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
+            self.window?.rootViewController = viewController
+        }
+        
         print("HTTPCookieStorage.shared.cookies \(HTTPCookieStorage.shared.cookies)")
         
-        let cookies = HTTPCookieStorage.shared.cookies
-        for cookie in cookies! {
-            print("name: \(cookie.name) value: \(cookie.value)")
-            if (cookie.name != "" && cookie.value != ""){
-                let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
-                self.window?.rootViewController = viewController
-            }
-        }
+
         
         //FIRApp.configure()
         // Override point for customization after application launch.

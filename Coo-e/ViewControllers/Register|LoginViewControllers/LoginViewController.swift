@@ -55,11 +55,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBAction func signInClicked(sender: AnyObject){
         
-       // let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
-       // UIApplication.shared.keyWindow?.rootViewController = viewController
-        //_ = self.navigationController?.popToRootViewController(animated: true)
-        
-        //return
+//        let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
+//        UIApplication.shared.keyWindow?.rootViewController = viewController
+//        _ = self.navigationController?.popToRootViewController(animated: true)
+//        
+//        return
         
         if Reachability()?.modifiedReachabilityChanged() == true{
             self.signInFunc()
@@ -158,8 +158,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             request.httpBody = try! JSONSerialization.data(withJSONObject: params, options: [])
             
             let configuration = URLSessionConfiguration.default
-            var session = URLSession.shared
-            session = URLSession(configuration: configuration)
+            let session = URLSession(configuration: configuration)
             
             let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
                 
@@ -167,7 +166,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
                     if(httpResponse.statusCode == 200) {
                         self.setCookies(response: response!)
-                    
+                        
+                        print("Response: \(response)")
+                        let strData = NSString(data: data!, encoding:String.Encoding.utf8.rawValue)
+                        print("Body: \(strData)")
+                        
                         do {
                             let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
                             if let dict = json as? NSDictionary {
@@ -190,6 +193,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                             print("status: \(status)")
                                             DispatchQueue.main.async{
                                                 if status == 200 {
+                                                    
                                                     UserDefaults.standard.set(dict["firstName"], forKey:"firstName")
                                                     UserDefaults.standard.set(dict["lastName"], forKey:"lastName")
                                                     UserDefaults.standard.set(dict["id"], forKey:"id")
@@ -282,7 +286,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func setCookies(response: URLResponse) {
         if let httpResponse = response as? HTTPURLResponse {
+
             let cookies = HTTPCookie.cookies(withResponseHeaderFields: httpResponse.allHeaderFields as! [String : String], for: response.url!)
+           
+            let archivedObject = NSKeyedArchiver.archivedData(withRootObject: cookies as NSArray)
+            let userDefaults = UserDefaults.standard
+            UserDefaults.standard.set(archivedObject, forKey:"cookies")
+            userDefaults.synchronize()
+            
             for cookie in cookies {
                 var cookieProperties = [HTTPCookiePropertyKey:Any]()
                 cookieProperties[HTTPCookiePropertyKey.name] = cookie.name
@@ -291,11 +302,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 cookieProperties[HTTPCookiePropertyKey.domain] = cookie.domain
                 cookieProperties[HTTPCookiePropertyKey.version] = NSNumber(value: cookie.version)
                 cookieProperties[HTTPCookiePropertyKey.expires] = Date().addingTimeInterval(31536000)
-                let cookie = HTTPCookie(properties: cookieProperties)
-                HTTPCookieStorage.shared.setCookie(cookie!)
+                HTTPCookieStorage.shared.setCookie(HTTPCookie(properties: cookieProperties)!)
                 
-                print("name: \(cookie?.name) value: \(cookie?.value)")
+                print("name: \(cookie.name) value: \(cookie.value)")
             }
+            
         }
     }
     
@@ -431,20 +442,5 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     */
 
-}
-
-extension String {
-    
-    func widthOfString(usingFont font: UIFont) -> CGFloat {
-        let fontAttributes = [NSFontAttributeName: font]
-        let size = self.size(attributes: fontAttributes)
-        return size.width
-    }
-    
-    func heightOfString(usingFont font: UIFont) -> CGFloat {
-        let fontAttributes = [NSFontAttributeName: font]
-        let size = self.size(attributes: fontAttributes)
-        return size.height
-    }
 }
 

@@ -243,54 +243,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
-            timestampString = "505212953.363124"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "setCookies(response:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Coo_e.LoginViewController.setCookies (response : __ObjC.URLResponse) -&gt; ()"
-                  moduleName = "Coo-e"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/LoginViewController.swift"
-                  timestampString = "505249171.683259"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "284"
-                  endingLineNumber = "284"
-                  offsetFromSymbolStart = "19">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Coo_e.LoginViewController.setCookies (response : __ObjC.URLResponse) -&gt; ()"
-                  moduleName = "Coo-e"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/LoginViewController.swift"
-                  timestampString = "505249171.68581"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "284"
-                  endingLineNumber = "284"
-                  offsetFromSymbolStart = "167">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/SignUpViewController.swift"
             timestampString = "504914568.281843"
             startingColumnNumber = "9223372036854775807"
@@ -324,29 +276,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
-            timestampString = "505212953.363124"
+            timestampString = "505381930.297078"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "setCookies(response:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Coo-e/AppDelegate.swift"
-            timestampString = "505048209.430705"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
-            landmarkType = "7">
+            startingLineNumber = "315"
+            endingLineNumber = "315"
+            landmarkName = "LoginViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -372,93 +308,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift"
-            timestampString = "505249897.188758"
+            timestampString = "505304304.365416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Coo-e/ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift"
-            timestampString = "505249897.188758"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "reloadTableView(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Coo-e/ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift"
-            timestampString = "505249897.188758"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "reloadTableView(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Coo-e/ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift"
-            timestampString = "505249897.188758"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "reloadTableView(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Coo_e.MyTeeUpViewController.(reloadTableView (Swift.String) -&gt; ()).(closure #1)"
-                  moduleName = "Coo-e"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift"
-                  timestampString = "505249171.716108"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "5528">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Coo_e.MyTeeUpViewController.(reloadTableView (Swift.String) -&gt; ()).(closure #1).(closure #2)"
-                  moduleName = "Coo-e"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift"
-                  timestampString = "505249171.719545"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "131"
-                  endingLineNumber = "131"
-                  offsetFromSymbolStart = "23">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -483,60 +339,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
-            timestampString = "505221569.142813"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "signInFunc()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Coo_e.LoginViewController.(signInFunc () -&gt; ()).(closure #2)"
-                  moduleName = "Coo-e"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/LoginViewController.swift"
-                  timestampString = "505249171.731658"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "191"
-                  endingLineNumber = "191"
-                  offsetFromSymbolStart = "4174">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Coo_e.LoginViewController.(signInFunc () -&gt; ()).(closure #2).(closure #1)"
-                  moduleName = "Coo-e"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/LoginViewController.swift"
-                  timestampString = "505249171.733783"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "192"
-                  endingLineNumber = "192"
-                  offsetFromSymbolStart = "23">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift"
-            timestampString = "505249897.188758"
+            timestampString = "505304304.365416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "reloadTableView(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -547,13 +355,221 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
-            timestampString = "505222104.906518"
+            filePath = "Coo-e/ViewControllers/CreateTeeUpViewController/CreateTeeUpViewController.swift"
+            timestampString = "505252143.734743"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "sendInvitationClicked(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Coo-e/ViewControllers/CreateTeeUpViewController/CreateTeeUpViewController.swift"
+            timestampString = "505276557.192181"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "sendInvitationClicked(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Coo-e/ViewControllers/CreateTeeUpViewController/CreateTeeUpViewController.swift"
+            timestampString = "505276693.537045"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "sendInvitationClicked(sender:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Coo_e.CreateTeeUpViewController.(sendInvitationClicked (sender : Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "Coo-e"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/CreateTeeUpViewController/CreateTeeUpViewController.swift"
+                  timestampString = "505381495.752039"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "4350">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Coo_e.CreateTeeUpViewController.(sendInvitationClicked (sender : Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "Coo-e"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/CreateTeeUpViewController/CreateTeeUpViewController.swift"
+                  timestampString = "505381495.753985"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "5160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
+            timestampString = "505297659.974311"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "signInFunc()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Coo-e/ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift"
+            timestampString = "505343386.503492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
+            timestampString = "505367449.181636"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "setCookies(response:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
+            timestampString = "505367497.496751"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "signInFunc()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Coo_e.LoginViewController.signInFunc () -&gt; ()"
+                  moduleName = "Coo-e"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/LoginViewController.swift"
+                  timestampString = "505381495.770161"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "5157">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Coo_e.LoginViewController.(signInFunc () -&gt; ()).(closure #2)"
+                  moduleName = "Coo-e"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/LoginViewController.swift"
+                  timestampString = "505381495.772137"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
+            timestampString = "505381930.297078"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "309"
+            endingLineNumber = "309"
+            landmarkName = "setCookies(response:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Coo-e/ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift"
+            timestampString = "505380203.960857"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "reloadTableView(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Coo-e/AppDelegate.swift"
+            timestampString = "505381495.321732"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
