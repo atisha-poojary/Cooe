@@ -224,9 +224,9 @@ class SignUpViewController: UIViewController {
             let strData = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print("Body: \(strData)")
             
-            //using local data
-            let url = Bundle.main.url(forResource: "data", withExtension: "json")
-            let data = NSData(contentsOf: url!)
+//            //using local data
+//            let url = Bundle.main.url(forResource: "data", withExtension: "json")
+//            let data = NSData(contentsOf: url!)
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data! as Data, options:.allowFragments)

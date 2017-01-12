@@ -1,121 +1,55 @@
 {
     "status": 200,
-    "message": "Successfully retrieved teeups",
-    "teeups": [
-               {
-               "createdAt": "2017-01-03T03:46:52.231Z",
-               "createdBy": "a47537c7-958c-424c-81bb-d1d0612c0f9e",
-               "creator": {
-               "createdAt": "2017-01-01T05:38:44.792Z",
-               "firstName": "Deep",
-               "id": "a47537c7-958c-424c-81bb-d1d0612c0f9e",
-               "lastName": "Patel",
-               "username": "deeperthanyou",
-               "profile": {},
-               "privacy": {
-               "Bio": 0,
-               "Dob": 0,
-               "gender": 0,
-               "nationality": 0,
-               "nativeLanguage": 0,
-               "hometown": 0,
-               "school": 0,
-               "studentType": 0,
-               "majors": 0,
-               "campusOrganizations": 0
-               },
-               "settings": {
-               "notifications": true,
-               "loginMethod": 0
-               }
-               },
-               "gamePlanWhen": {
-               "createdAt": "2017-01-03T07:14:24.244Z",
-               "createdBy": "a47537c7-958c-424c-81bb-d1d0612c0f9e",
-               "fromDate": "2016-12-29T08:43:52.000Z",
-               "id": "32aee301-cd33-4b18-8356-952c7d242ee6",
-               "teeupId": "1b546bc4-1981-4b05-afab-fbced8922cd6",
-               "thumbsDown": [
-                              "a47537c7-958c-424c-81bb-d1d0612c0f9e"
-                              ],
-               "thumbsUp": [],
-               "toDate": "2016-12-29T09:34:07.000Z",
-               "thumbsUpCount": 0,
-               "thumbsDownCount": 1
-               },
-               "gamePlanWhenId": "32aee301-cd33-4b18-8356-952c7d242ee6",
-               "id": "1b546bc4-1981-4b05-afab-fbced8922cd6",
-               "message": "Message",
-               "participants": [
-                                {
-                                "id": "cdbb52d1-a31b-443e-b34d-c49b70ed5aa8",
-                                "inviteDate": "2017-01-03T03:46:52.266Z",
-                                "role": 0,
-                                "status": 3,
-                                "teeupId": "1b546bc4-1981-4b05-afab-fbced8922cd6",
-                                "userId": "a47537c7-958c-424c-81bb-d1d0612c0f9e"
-                                }
-                                ],
-               "settings": {
-               "decideGamePlan": false,
-               "invite": true,
-               "isPublic": false,
-               "join": false,
-               "modifyRow": false,
-               "suggest": true
-               },
-               "status": 1,
-               "title": "Title"
-               },
-               {
-               "createdAt": "2017-01-04T06:01:53.481Z",
-               "createdBy": "a47537c7-958c-424c-81bb-d1d0612c0f9e",
-               "creator": {
-               "createdAt": "2017-01-01T05:38:44.792Z",
-               "firstName": "Deep",
-               "id": "a47537c7-958c-424c-81bb-d1d0612c0f9e",
-               "lastName": "Patel",
-               "username": "deeperthanyou",
-               "profile": {},
-               "privacy": {
-               "Bio": 0,
-               "Dob": 0,
-               "gender": 0,
-               "nationality": 0,
-               "nativeLanguage": 0,
-               "hometown": 0,
-               "school": 0,
-               "studentType": 0,
-               "majors": 0,
-               "campusOrganizations": 0
-               },
-               "settings": {
-               "notifications": true,
-               "loginMethod": 0
-               }
-               },
-               "id": "bacdcf62-0cb9-40ba-acda-581605c943f2",
-               "message": "21 sav",
-               "participants": [
-                                {
-                                "id": "5172e469-3a15-4838-a8de-337f9ac6fda4",
-                                "inviteDate": "2017-01-04T06:01:53.490Z",
-                                "role": 0,
-                                "status": 3,
-                                "teeupId": "bacdcf62-0cb9-40ba-acda-581605c943f2",
-                                "userId": "a47537c7-958c-424c-81bb-d1d0612c0f9e"
-                                }
-                                ],
-               "settings": {
-               "decideGamePlan": false,
-               "invite": true,
-               "isPublic": false,
-               "join": false,
-               "modifyRow": false,
-               "suggest": true
-               },
-               "status": 0,
-               "title": "I made this shit on my phone"
-               }
-               ]
+    "teeup": {
+        "createdAt": "2017-01-04T09:14:53.955Z",
+        "createdBy": "a47537c7-958c-424c-81bb-d1d0612c0f9e",
+        "id": "f003bfba-acf7-4c60-a99a-c476dce0a124",
+        "message": "Message",
+        "participants": [
+                         {
+                         "id": "effc6830-62b0-4028-9051-8b3bc3e2d906",
+                         "inviteDate": "2017-01-04T09:14:53.987Z",
+                         "role": 0,
+                         "status": 3,
+                         "teeupId": "f003bfba-acf7-4c60-a99a-c476dce0a124",
+                         "userId": "a47537c7-958c-424c-81bb-d1d0612c0f9e",
+                         "userInfo": {
+                         "createdAt": "2017-01-01T05:38:44.792Z",
+                         "firstName": "Deep",
+                         "id": "a47537c7-958c-424c-81bb-d1d0612c0f9e",
+                         "lastName": "Patel",
+                         "username": "deeperthanyou",
+                         "profile": {},
+                         "privacy": {
+                         "Bio": 0,
+                         "Dob": 0,
+                         "gender": 0,
+                         "nationality": 0,
+                         "nativeLanguage": 0,
+                         "hometown": 0,
+                         "school": 0,
+                         "studentType": 0,
+                         "majors": 0,
+                         "campusOrganizations": 0
+                         },
+                         "settings": {
+                         "notifications": true,
+                         "loginMethod": 0
+                         }
+                         }
+                         }
+                         ],
+        "settings": {
+            "decideGamePlan": false,
+            "invite": true,
+            "isPublic": false,
+            "join": false,
+            "modifyRow": false,
+            "suggest": true
+        },
+        "status": 0,
+        "title": "Title",
+        "whenSuggestions": [],
+        "whereSuggestions": []
+    }
 }

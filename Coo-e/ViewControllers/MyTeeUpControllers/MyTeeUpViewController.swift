@@ -15,19 +15,20 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var pastUnderlined:UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var no_teeUp_message: UILabel!
-    var teeup_array: NSArray = []
+    var myTeeupArray: NSArray = []
     var isCategory : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        self.reloadTableView("191501201624240508")
+                
         invitesUnderlined.isHidden=true
         coordinatingUnderlined.isHidden=false
         pastUnderlined.isHidden=true
         self.tableView.isHidden=true
         isCategory = "Coordinating"
+        
+        self.getMyTeeups()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +45,12 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             coordinatingUnderlined.isHidden=true
             pastUnderlined.isHidden=true
             
-            if self.teeup_array.count == 0{
+            self.tableView.isHidden=true
+            no_teeUp_message.isHidden = false
+            no_teeUp_message.text = "You haven't been invited to anything yet, try creating a Tee-Up with your friends"
+            
+            /*
+            if self.myTeeupArray.count == 0{
                 no_teeUp_message.isHidden = false
                 no_teeUp_message.text = "You haven't been invited to anything yet, try creating a Tee-Up with your friends"
             }
@@ -52,6 +58,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                 no_teeUp_message.isHidden = true
                 self.tableView.reloadData()
             }
+ */
         }
         else if(buttonTag == 1){
             isCategory = "Coordinating"
@@ -60,7 +67,12 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             invitesUnderlined.isHidden=true
             pastUnderlined.isHidden=true
             
-            if self.teeup_array.count == 0{
+            self.tableView.isHidden=true
+            no_teeUp_message.isHidden = false
+            no_teeUp_message.text = "You're not coordinating anything yet, try creating a Tee-Up with your friends"
+            
+            
+            if self.myTeeupArray.count == 0{
                 no_teeUp_message.isHidden = false
                 no_teeUp_message.text = "You're not coordinating anything yet, try creating a Tee-Up with your friends"
             }
@@ -68,6 +80,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                 no_teeUp_message.isHidden = true
                 self.tableView.reloadData()
             }
+ 
         }
         else if(buttonTag == 2){
             isCategory = "Past"
@@ -76,7 +89,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             coordinatingUnderlined.isHidden=true
             invitesUnderlined.isHidden=true
             
-            if self.teeup_array.count == 0{
+            if self.myTeeupArray.count == 0{
                 no_teeUp_message.isHidden = false
                 no_teeUp_message.text = "You have not made plans with people yet, get started by creating a Tee-Up with your friends"
             }
@@ -87,7 +100,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func reloadTableView(_ profile_id: String)
+    func getMyTeeups()
     {
         let urlString = ("http://69.164.208.35:8080/api/teeups")
         let url: URL = URL(string: urlString)!
@@ -109,29 +122,28 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             let strData = NSString(data: data!, encoding:String.Encoding.utf8.rawValue)
             print("Body: \(strData)")
             
+            //using local data
+//            let url = Bundle.main.url(forResource: "data", withExtension: "json")
+//            let data = NSData(contentsOf: url!)!
+            
             do {
-                let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
+                let json = try JSONSerialization.jsonObject(with: data! as Data, options:.allowFragments)
                 if let dict = json as? NSDictionary {
                     
                     print("dict:'\(dict)")
                     
-                    // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
                     if(error != nil) {
                         print(error!.localizedDescription)
-                        let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                        let jsonStr = NSString(data: data! as Data, encoding: String.Encoding.utf8.rawValue)
                         print("Error could not parse JSON: '\(jsonStr)'")
                     }
                     else {
-                        
-                        // The JSONObjectWithData constructor didn't return an error. But, we should still
-                        // check and make sure that json has a value using optional binding.
                         if let dict = json as? NSDictionary {
-                            // Okay, the parsedJSON is here, let's get the value for 'success' out of it
                             if let status = dict["status"] as? Int {
                                 DispatchQueue.main.async{
                                     if status == 200 {
-                                        self.teeup_array = (dict["teeups"] as? NSArray)!
-                                        if self.teeup_array.count == 0 {
+                                        self.myTeeupArray = (dict["teeups"] as? NSArray)!
+                                        if self.myTeeupArray.count == 0 {
                                             self.tableView.isHidden = true
                                             self.no_teeUp_message.isHidden = false
                                         }
@@ -148,10 +160,8 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                             return
                         }
                         else {
-                            // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
-                            let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                            let jsonStr = NSString(data: data! as Data, encoding: String.Encoding.utf8.rawValue)
                             print("Error could not parse JSON: \(jsonStr)")
-                            //postCompleted(succeeded: false, msg: "Error")
                         }
                     }
                 }
@@ -165,26 +175,13 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: - Tableview Delegate & Datasource
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
-//        if(segmentedControl.selectedSegmentIndex == 0){
-//            if self.array.count != 0{
-//                return self.array.count
-//            }
-//        }
-//        else if(segmentedControl.selectedSegmentIndex == 1){
-//            if self.array.count != 0{
-//                return self.array.count
-//            }
-//        }
-//        else if(segmentedControl.selectedSegmentIndex == 2){
-//            if self.array.count != 0{
-//                return self.array.count
-//            }
-//        }
-        return self.teeup_array.count
+        if self.myTeeupArray.count != 0{
+            return self.myTeeupArray.count
+        }
+        else {return 0}
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int
-    {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
@@ -196,11 +193,11 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         if(isCategory == "Invities"){
             let cell:InvitedCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "InvitedCustomCell") as! InvitedCustomCell!)
             
-            if self.teeup_array.count != 0 {
-                cell.title.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
-                cell.message.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
+            if self.myTeeupArray.count != 0 {
+                cell.title.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
+                cell.message.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
                 
-//                let createdByString = "Created by \((((self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \(((self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
+//                let createdByString = "Created by \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \(((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
 //                cell.createdByLabel.text = createdByString
 
             }
@@ -208,23 +205,56 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         else if(isCategory == "Coordinating"){
             let cell:CoordinatingCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "CoordinatingCustomCell") as! CoordinatingCustomCell!)
-            if self.teeup_array.count != 0 {
-                cell.title.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
-                cell.message.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
+            if self.myTeeupArray.count != 0 {
+                cell.title.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
+                cell.message.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
                 
                 cell.profilePicture.imageFromUrl(urlString: "http://scontent.cdninstagram.com/t51.2885-19/s150x150/15276748_1238248896241231_7045268600633950208_a.jpg")
                 
-                let createdByString = "Created by \((((self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \((((self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
+                let createdByString = "Created by \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
                 cell.createdByLabel.text = createdByString
+                
+                if let gamePlanWhenDict = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhen") as AnyObject) as? NSDictionary {
+                    cell.whenLabel.text = "\(timeStringFromUnixTime ((gamePlanWhenDict.object(forKey: "fromDate") as? String)!)) -\n\(timeStringFromUnixTime ((gamePlanWhenDict.object(forKey: "toDate") as? String)!))"
+                    cell.whenLabel.adjustsFontSizeToFitWidth = true
+
+                    if ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? Int)! == 0 {
+                        
+                    }
+                    
+                    switch ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? Int)! {
+                    case 0:
+                        cell.teeupStatus.text = "Planing"
+                    case 1:
+                        cell.teeupStatus.text = "It's On"
+                    case 2:
+                        cell.teeupStatus.text = "Happening"
+                    case 3:
+                        cell.teeupStatus.text = "It's Ended"
+                    case 4:
+                        cell.teeupStatus.text = "Cancelled"
+                        
+                    default:
+                        break
+                    }
+                    
+//                    cell.numberOfPeopleGoing.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as AnyObject).count
+                   
+                    
+                    
+                }
+                else {
+                    cell.whenLabel.text = "No time set"
+                }
             }
             return cell
         }
         else if(isCategory == "Past"){
             let cell:ArchiveCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "ArchiveCustomCell") as! ArchiveCustomCell!)
-            if self.teeup_array.count != 0 {
-                cell.title.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
-                //cell.message.text = (self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
-                //cell.createdByLabel.text = ((self.teeup_array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String
+            if self.myTeeupArray.count != 0 {
+                cell.title.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
+                //cell.message.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
+                //cell.createdByLabel.text = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String
             }
             return cell
         }
@@ -246,17 +276,36 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         return 0.0;//Choose your custom row height
     }
     
+    func timeStringFromUnixTime(_ unixTime: String) -> String {
+        //let date = Date(timeIntervalSince1970:(unixTime)/1000)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.AAAZ"
+        dateFormatter.timeZone = NSTimeZone(name: "GMT") as TimeZone!
+        let myDate: Date = dateFormatter.date(from: unixTime)!
+
+        //myDate = NSDate(timeIntervalSinceReferenceDate: -3_938_698_800.0) as Date
+        dateFormatter.dateFormat = "MMM dd, YY h:mm"
+        return dateFormatter.string(from: myDate)
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TeeUpViewController") as! TeeUpViewController
-    /*
-        vc.teeUp_id = (self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "teeup_id")! as! Int
-        vc.teeUp_title = ((self.array.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String)!
- */
-//        
-//        vc.hidesBottomBarWhenPushed = true
-//        //self.parent?.navigationController?.setNavigationBarHidden(true, animated: false)
-//        self.navigationItem.title = ""
-//        self.navigationController?.show(vc, sender: nil)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TeeUpViewController") as! TeeUpViewController
+    
+        vc.teeUp_id = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "id") as? String
+        
+        vc.hidesBottomBarWhenPushed = true
+        
+        self.title = ""
+        self.navigationItem.title = ""
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationController?.show(vc, sender: nil)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationItem.title = ""
     }
     /*
     // MARK: - Navigation

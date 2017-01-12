@@ -10,13 +10,13 @@ import UIKit
 
 class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
 
-    var teeUp_id : Int!
-    var teeUp_title : String!
+    var teeUp_id : String!
     @IBOutlet weak var teeUpTitleLabel:UILabel!
     
     var isteeUpOrIndividualStatusChanged = "changeTeeUpStatus"
     var lastTeeUpStatusSelected : String!
     var lastIndividualStatusSelected : String!
+    var teeUpDictionary : NSDictionary!
     
     
     //@IBOutlet weak var pickerView: UIPickerView!
@@ -30,21 +30,19 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
     @IBOutlet weak var teeUpStatusLabel: UILabel!
     @IBOutlet weak var individualStatusIcon: UIImageView!
     @IBOutlet weak var individualStatusLabel: UILabel!
-    @IBOutlet weak var peopleScrollView: UIScrollView!
+    @IBOutlet weak var participantsScrollView: UIScrollView!
     
     @IBOutlet weak var when_like_countLabel:UILabel!
     @IBOutlet weak var when_dislike_countLabel:UILabel!
     @IBOutlet weak var where_like_countLabel:UILabel!
     @IBOutlet weak var where_dislike_countLabel:UILabel!
     
-    var teeUpStatusArray = ["Planning","It's On","Happening","It's Ended","Canceled"]
+    var teeUpStatusArray = ["Planning","It's On","Happening","It's Ended","Cancelled"]
     var individualStatusArray = ["Invited","Might Go","Interested","Not Going","On My Way","Arrived"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("teeUp_id\(self.teeUp_id!)")
-        teeUpTitleLabel.text = teeUp_title
         //pickerView.isHidden = true
         //datePicker.isHidden = true
         
@@ -53,8 +51,8 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
         
         self.teeUpStatusTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.individualStatusTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-
-        // Do any additional setup after loading the view.
+    
+        self.getTeeUp(self.teeUp_id!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,6 +67,138 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationItem.title = ""
     }
+    
+    func getTeeUp(_ teeUp_id: String)
+    {
+        let urlString = ("http://69.164.208.35:8080/api/teeups/\(teeUp_id)")
+        let url: URL = URL(string: urlString)!
+        
+        let request: NSMutableURLRequest = NSMutableURLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            if error != nil {
+                ModelController().showToastMessage(message: "No internet connection.", view: self.view)
+                return
+            }
+            
+            print("Response: \(response)")
+            let strData = NSString(data: data!, encoding:String.Encoding.utf8.rawValue)
+            print("Body: \(strData)")
+            
+            //using local data
+//            let url = Bundle.main.url(forResource: "data", withExtension: "json")
+//            let data = NSData(contentsOf: url!)!
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data! as Data, options:.allowFragments)
+                if let dict = json as? NSDictionary {
+                    
+                    print("dict:'\(dict)")
+                    
+                    if(error != nil) {
+                        print(error!.localizedDescription)
+                        let jsonStr = NSString(data: data! as Data, encoding: String.Encoding.utf8.rawValue)
+                        print("Error could not parse JSON: '\(jsonStr)'")
+                    }
+                    else {
+                        if let dict = json as? NSDictionary {
+                            if let status = dict["status"] as? Int {
+                                DispatchQueue.main.async{
+                                    if status == 200 {
+                                        self.teeUpDictionary = dict["teeup"] as! NSDictionary
+                                        self.teeUpTitleLabel.text = (dict["teeup"] as AnyObject).object(forKey: "title") as? String
+                                        
+                                        switch ((dict["teeup"] as AnyObject).object(forKey: "status") as? Int)! {
+                                        case 0:
+                                            self.teeUpStatusLabel.text = "Planning"
+                                        case 1:
+                                            self.teeUpStatusLabel.text = "It's On"
+                                        case 2:
+                                            self.teeUpStatusLabel.text = "Happening"
+                                        case 3:
+                                            self.teeUpStatusLabel.text = "It's Ended"
+                                        case 4:
+                                            self.teeUpStatusLabel.text = "Cancelled"
+                                            
+                                        default:
+                                            break
+                                        }
+                                        
+                                        
+                                        self.addParticipantsToScrollView(((dict["teeup"] as AnyObject).object(forKey: "participants") as! NSArray).count)
+
+                                    }
+                                    else if status == 404{
+                                        
+                                    }
+                                }
+                            }
+                            return
+                        }
+                        else {
+                            let jsonStr = NSString(data: data! as Data, encoding: String.Encoding.utf8.rawValue)
+                            print("Error could not parse JSON: \(jsonStr)")
+                        }
+                    }
+                }
+            }catch let error as NSError {
+                print("An error occurred: \(error)")
+            }
+        }
+        task.resume()
+    }
+    
+    func addParticipantsToScrollView(_ numberOfParticipants: Int) {
+        
+        for i in 0..<numberOfParticipants {
+            let participantView = UIView(frame: CGRect(x: i*80 + 10, y: 15, width: 70, height: 70))
+            self.participantsScrollView.addSubview(participantView)
+            
+            let profilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+            profilePicture.imageFromUrl(urlString: "http://scontent.cdninstagram.com/t51.2885-19/s150x150/15276748_1238248896241231_7045268600633950208_a.jpg")
+            profilePicture.setRounded()
+            
+            let statusOfParticipantImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+            
+            let viewParticipantsDetailScreenButton = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+            viewParticipantsDetailScreenButton.addTarget(self, action: #selector(showParticipantsDetailScreen), for: .touchUpInside)
+            
+            switch ((self.teeUpDictionary["participants"] as! NSArray).object(at: 0) as AnyObject).object(forKey: "status") as! Int {
+            case 0:
+                self.individualStatusLabel.text = "Invited"
+                statusOfParticipantImageView.image = UIImage(named: "going.png")
+            case 1:
+                self.individualStatusLabel.text = "Might Go"
+                statusOfParticipantImageView.image = UIImage(named: "invited.png")
+            case 2:
+                self.individualStatusLabel.text = "Interested"
+                statusOfParticipantImageView.image = UIImage(named: "interested.png")
+            case 3:
+                self.individualStatusLabel.text = "Not Going"
+                statusOfParticipantImageView.image = UIImage(named: "going.png")
+            case 4:
+                self.individualStatusLabel.text = "On My Way"
+                statusOfParticipantImageView.image = UIImage(named: "on my way.png")
+            case 4:
+                self.individualStatusLabel.text = "Arrived"
+                statusOfParticipantImageView.image = UIImage(named: "going.png")
+                
+            default:
+                break
+            }
+            
+            print("self.individualStatusLabel.text \(self.individualStatusLabel.text)")
+            participantView.addSubview(profilePicture)
+            participantView.addSubview(statusOfParticipantImageView)
+            participantView.addSubview(viewParticipantsDetailScreenButton)
+        }
+    }
+    
     
     @IBAction func statusButtonClicked(_ sender: UIButton) {
         //pickerView.isHidden = false
@@ -89,6 +219,7 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
         //pickerView.reloadAllComponents()
     }
     
+    
 //    @IBAction func suggestWhenButtonClicked(_ sender: UIButton) {
 //        datePicker.isHidden = false
 //    }
@@ -102,9 +233,7 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
     
     
     
-    func addPeopleToScrollView() {
     
-    }
     
     // MARK: - TableView
     func numberOfSections(in tableView: UITableView) -> Int{
@@ -198,7 +327,6 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
         individualStatusTable.isHidden = true
         //datePicker.isHidden = true
     }
-    
   
     @IBAction func when_LikeDislike(_ sender: UIButton) {
         let buttonTag = sender.tag
@@ -216,6 +344,14 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
         }
     }
 
+    func showParticipantsDetailScreen(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ParticipantsViewController") as! ParticipantsViewController
+        vc.participantsArray = (self.teeUpDictionary["participants"] as! NSArray)
+        self.navigationItem.title = ""
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationController?.show(vc, sender: nil)
+    }
+    
     
     /*
      // MARK: - PickerView

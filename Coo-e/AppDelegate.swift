@@ -38,19 +38,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         if cookieData != nil {
             if let cookies: [HTTPCookie] = NSKeyedUnarchiver.unarchiveObject(with: cookieData!) as! [HTTPCookie]? {
-                for cookie in cookies  {
-                    var cookieProperties = [HTTPCookiePropertyKey:Any]()
-                    cookieProperties[HTTPCookiePropertyKey.name] = cookie.name
-                    cookieProperties[HTTPCookiePropertyKey.value] = cookie.value
-                    cookieProperties[HTTPCookiePropertyKey.path] = cookie.path
-                    cookieProperties[HTTPCookiePropertyKey.domain] = cookie.domain
-                    cookieProperties[HTTPCookiePropertyKey.version] = NSNumber(value: cookie.version)
-                    cookieProperties[HTTPCookiePropertyKey.expires] = Date().addingTimeInterval(31536000)
-                    HTTPCookieStorage.shared.setCookie(HTTPCookie(properties: cookieProperties)!)
-                    
+                if cookies.count != 0 {
+                    for cookie in cookies  {
+                        var cookieProperties = [HTTPCookiePropertyKey:Any]()
+                        cookieProperties[HTTPCookiePropertyKey.name] = cookie.name
+                        cookieProperties[HTTPCookiePropertyKey.value] = cookie.value
+                        cookieProperties[HTTPCookiePropertyKey.path] = cookie.path
+                        cookieProperties[HTTPCookiePropertyKey.domain] = cookie.domain
+                        cookieProperties[HTTPCookiePropertyKey.version] = NSNumber(value: cookie.version)
+                        cookieProperties[HTTPCookiePropertyKey.expires] = Date().addingTimeInterval(31536000)
+                        HTTPCookieStorage.shared.setCookie(HTTPCookie(properties: cookieProperties)!)
+                        
+                    }
+                    let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
+                    self.window?.rootViewController = viewController
                 }
-                let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
-                self.window?.rootViewController = viewController
             }
         }
         

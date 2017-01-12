@@ -10,14 +10,33 @@ import UIKit
 
 class SuggestWhenViewController: UIViewController {
 
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var dateSelected: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = "When Suggestions"
+        datePicker.isHidden = true
         
         //navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func suggestWhenButtonClicked(_ sender: UIButton) {
+        datePicker.isHidden = false
+    }
+    
+    @IBAction func datePickerFunc(_ sender: AnyObject) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm a"
+        let strDate = dateFormatter.string(from: datePicker.date)
+        dateSelected.text = strDate
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        datePicker.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
