@@ -10,6 +10,7 @@ import UIKit
 
 class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var invitesUnderlined:UILabel!
     @IBOutlet weak var coordinatingUnderlined:UILabel!
     @IBOutlet weak var pastUnderlined:UILabel!
@@ -21,7 +22,12 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-                
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+        }
+        
         invitesUnderlined.isHidden=true
         coordinatingUnderlined.isHidden=false
         pastUnderlined.isHidden=true
@@ -304,9 +310,14 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = "TeeUps"
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationItem.title = ""
     }
+        
     /*
     // MARK: - Navigation
 

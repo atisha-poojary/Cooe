@@ -438,7 +438,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="0kC-W0-WTH" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="MeR-sL-7HY"/>
+                                            <segue destination="SOb-k9-y78" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="dc0-gX-GO0"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Discover" id="IoI-ne-t8W">
@@ -618,10 +618,10 @@
             </objects>
             <point key="canvasLocation" x="-1435.5" y="-1788.5"/>
         </scene>
-        <!--My TeeUps-->
+        <!--TeeUps-->
         <scene sceneID="Asc-2y-HUU">
             <objects>
-                <viewController id="m8x-fW-vdX" customClass="MyTeeUpViewController" customModule="Coo_e" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CenterViewController" id="m8x-fW-vdX" customClass="MyTeeUpViewController" customModule="Coo_e" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bM9-sl-8vy"/>
                         <viewControllerLayoutGuide type="bottom" id="FGF-MI-Eq7"/>
@@ -666,7 +666,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raR-b0-nIt">
-                                        <rect key="frame" x="-1" y="39" width="125" height="4"/>
+                                        <rect key="frame" x="0.0" y="39" width="125" height="4"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -707,7 +707,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="111" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T4x-YW-EmY">
-                                <rect key="frame" x="0.0" y="53" width="375" height="501"/>
+                                <rect key="frame" x="0.0" y="53" width="375" height="550"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InvitedCustomCell" rowHeight="139" id="pj2-oM-Vtc" customClass="InvitedCustomCell" customModule="Coo_e" customModuleProvider="target">
@@ -747,7 +747,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hiral invited you and 5 other people" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyI-zQ-pH9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Atisha invited you and 5 other people" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyI-zQ-pH9">
                                                     <rect key="frame" x="109" y="36" width="250" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -843,7 +843,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by Hiral Patel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdF-CU-byY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by Atisha Poojary" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdF-CU-byY">
                                                     <rect key="frame" x="13" y="91" width="93" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -851,7 +851,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMy-oL-bEv">
-                                                    <rect key="frame" x="114" y="33" width="108" height="27"/>
+                                                    <rect key="frame" x="114" y="30" width="108" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="planning_sym" translatesAutoresizingMaskIntoConstraints="NO" id="rdw-6O-fBG">
@@ -869,7 +869,7 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tZv-p8-Ed8">
-                                                    <rect key="frame" x="239" y="33" width="110" height="27"/>
+                                                    <rect key="frame" x="232" y="30" width="110" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="going_sym" translatesAutoresizingMaskIntoConstraints="NO" id="Azt-Wl-oSu">
@@ -1052,8 +1052,8 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by Hiral Patel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SyG-or-Cui">
-                                                    <rect key="frame" x="15" y="88" width="77" height="35"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Created by Atisha Poojary" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SyG-or-Cui">
+                                                    <rect key="frame" x="15" y="88" width="93" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1120,17 +1120,20 @@
                             <constraint firstItem="cke-IU-w3B" firstAttribute="leading" secondItem="Bhj-9b-NMM" secondAttribute="leading" id="HoY-gz-ztz"/>
                             <constraint firstItem="yeX-SE-w1d" firstAttribute="centerX" secondItem="Bhj-9b-NMM" secondAttribute="centerX" id="OPf-ik-yv1"/>
                             <constraint firstItem="T4x-YW-EmY" firstAttribute="top" secondItem="cke-IU-w3B" secondAttribute="bottom" constant="10" id="R4t-t7-4Au"/>
-                            <constraint firstItem="FGF-MI-Eq7" firstAttribute="top" secondItem="yeX-SE-w1d" secondAttribute="bottom" constant="274" id="bqG-qn-vPj"/>
+                            <constraint firstItem="FGF-MI-Eq7" firstAttribute="top" secondItem="yeX-SE-w1d" secondAttribute="bottom" constant="323" id="bqG-qn-vPj"/>
                             <constraint firstItem="yeX-SE-w1d" firstAttribute="top" secondItem="cke-IU-w3B" secondAttribute="bottom" constant="186" id="iOn-mJ-GPs"/>
                             <constraint firstItem="T4x-YW-EmY" firstAttribute="leading" secondItem="Bhj-9b-NMM" secondAttribute="leading" id="lSv-c9-799"/>
                             <constraint firstAttribute="trailing" secondItem="cke-IU-w3B" secondAttribute="trailing" id="oqi-if-6Od"/>
                             <constraint firstItem="FGF-MI-Eq7" firstAttribute="top" secondItem="T4x-YW-EmY" secondAttribute="bottom" id="xxQ-Fd-4em"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My TeeUps" image="myTeeups" id="gz1-5j-cSD"/>
+                    <navigationItem key="navigationItem" title="TeeUps" id="Vhb-al-QMq">
+                        <barButtonItem key="leftBarButtonItem" image="more" id="oBn-TI-Bjt"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="coordinatingUnderlined" destination="Sr4-tf-hMu" id="qPY-4v-Y9R"/>
                         <outlet property="invitesUnderlined" destination="raR-b0-nIt" id="mVh-lO-p68"/>
+                        <outlet property="menuButton" destination="oBn-TI-Bjt" id="JQY-tl-lVp"/>
                         <outlet property="no_teeUp_message" destination="yeX-SE-w1d" id="CYl-XB-8If"/>
                         <outlet property="pastUnderlined" destination="StW-38-bXK" id="K8j-Pe-xRU"/>
                         <outlet property="tableView" destination="T4x-YW-EmY" id="UrF-6E-Ftm"/>
@@ -1138,7 +1141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Psv-iB-JiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="633" y="-1906"/>
+            <point key="canvasLocation" x="-686.5" y="-913.5"/>
         </scene>
         <!--Tee Up View Controller-->
         <scene sceneID="o95-Z6-8xx">
@@ -2320,54 +2323,12 @@ follow the instruction.</string>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <segue destination="QJb-FW-V3e" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="sxp-6J-ACq"/>
-                        <segue destination="0kC-W0-WTH" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="j8b-Lw-UwM"/>
+                        <segue destination="SOb-k9-y78" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="OKC-Hy-A1D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAN-Yr-RrO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2031" y="-1736"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="cX8-ER-HgF">
-            <objects>
-                <navigationController storyboardIdentifier="teeUp_NavController" id="0kC-W0-WTH" sceneMemberID="viewController">
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="6ai-aH-eme">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.20784313730000001" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="3Lt-2m-g8U" kind="relationship" relationship="rootViewController" id="wte-G2-HgF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="om1-LV-CfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1208" y="-880"/>
-        </scene>
-        <!--My TeeUps-->
-        <scene sceneID="wY8-Rj-SuY">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jZm-pg-biE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBarController storyboardIdentifier="CenterViewController" id="3Lt-2m-g8U" customClass="MyTeeUpsUITabBarController" customModule="Coo_e" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="My TeeUps" id="S7C-Np-qgF">
-                        <barButtonItem key="leftBarButtonItem" image="more" id="ryR-ez-MjE"/>
-                    </navigationItem>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="4og-HX-8XB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </tabBar>
-                    <connections>
-                        <outlet property="menuButton" destination="ryR-ez-MjE" id="hvd-Rf-7AU"/>
-                        <segue destination="m8x-fW-vdX" kind="relationship" relationship="viewControllers" id="WV7-fH-O06"/>
-                    </connections>
-                </tabBarController>
-            </objects>
-            <point key="canvasLocation" x="-529" y="-1275"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KAK-cn-uoR">
@@ -2388,7 +2349,7 @@ follow the instruction.</string>
             </objects>
             <point key="canvasLocation" x="-1776" y="213"/>
         </scene>
-        <!--Create Tee-Up-->
+        <!--Create TeeUp-->
         <scene sceneID="mUY-EA-sde">
             <objects>
                 <viewController id="Yg7-rY-QZa" customClass="CreateTeeUpViewController" customModule="Coo_e" customModuleProvider="target" sceneMemberID="viewController">
@@ -2597,7 +2558,7 @@ follow the instruction.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Tee-Up" id="qZz-o7-07c">
+                    <navigationItem key="navigationItem" title="Create TeeUp" id="qZz-o7-07c">
                         <barButtonItem key="leftBarButtonItem" image="more" id="kCW-Nr-vnh"/>
                     </navigationItem>
                     <connections>
@@ -2630,6 +2591,27 @@ follow the instruction.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hc4-sm-yck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1078" y="-2657"/>
+        </scene>
+        <!--My TeeUps-->
+        <scene sceneID="y7m-yE-uHZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SOb-k9-y78" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My TeeUps" image="myTeeups" id="gz1-5j-cSD"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="8Tf-Zc-ckB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.23921568630000001" green="0.3294117647" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="m8x-fW-vdX" kind="relationship" relationship="rootViewController" id="feK-iY-8g1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hcp-jt-gvp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1245" y="-912"/>
         </scene>
     </scenes>
     <resources>
@@ -2675,8 +2657,8 @@ follow the instruction.</string>
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xGJ-U4-0t5"/>
-        <segue reference="akS-n0-74i"/>
-        <segue reference="j8b-Lw-UwM"/>
+        <segue reference="OKC-Hy-A1D"/>
+        <segue reference="EOP-J3-wsI"/>
+        <segue reference="Bac-XC-qZ0"/>
     </inferredMetricsTieBreakers>
 </document>
