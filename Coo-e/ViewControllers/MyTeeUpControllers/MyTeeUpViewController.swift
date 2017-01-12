@@ -34,6 +34,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.isHidden=true
         isCategory = "Coordinating"
         
+        no_teeUp_message.text = ""
         self.getMyTeeups()
     }
 
@@ -62,6 +63,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             }
             else{
                 no_teeUp_message.isHidden = true
+                self.getMyTeeups()
                 self.tableView.reloadData()
             }
  */
@@ -74,9 +76,6 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             pastUnderlined.isHidden=true
             
             self.tableView.isHidden=true
-            no_teeUp_message.isHidden = false
-            no_teeUp_message.text = "You're not coordinating anything yet, try creating a Tee-Up with your friends"
-            
             
             if self.myTeeupArray.count == 0{
                 no_teeUp_message.isHidden = false
@@ -84,6 +83,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             }
             else{
                 no_teeUp_message.isHidden = true
+                self.getMyTeeups()
                 self.tableView.reloadData()
             }
  
@@ -95,14 +95,21 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             coordinatingUnderlined.isHidden=true
             invitesUnderlined.isHidden=true
             
+            self.tableView.isHidden=true
+            no_teeUp_message.isHidden = false
+            no_teeUp_message.text = "You have not made plans with people yet, get started by creating a Tee-Up with your friends"
+            
+            /*
             if self.myTeeupArray.count == 0{
                 no_teeUp_message.isHidden = false
                 no_teeUp_message.text = "You have not made plans with people yet, get started by creating a Tee-Up with your friends"
             }
             else{
                 no_teeUp_message.isHidden = true
+                self.getMyTeeups()
                 self.tableView.reloadData()
             }
+ */
         }
     }
     
@@ -215,6 +222,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                 cell.title.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
                 cell.message.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
                 
+                //change to the url you get from the response
                 cell.profilePicture.imageFromUrl(urlString: "http://scontent.cdninstagram.com/t51.2885-19/s150x150/15276748_1238248896241231_7045268600633950208_a.jpg")
                 
                 let createdByString = "Created by \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"

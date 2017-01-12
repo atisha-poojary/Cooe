@@ -35,6 +35,7 @@ class ParticipantsViewController: UIViewController, UITableViewDelegate, UITable
             let statusOfParticipantImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
             
             let profilePicture = UIImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+            //change to the url you get from the response
             profilePicture.imageFromUrl(urlString: "http://scontent.cdninstagram.com/t51.2885-19/s150x150/15276748_1238248896241231_7045268600633950208_a.jpg")
             profilePicture.setRounded()
             
@@ -81,6 +82,7 @@ class ParticipantsViewController: UIViewController, UITableViewDelegate, UITable
     {
         let cell:ParticipantsCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "ParticipantsCustomCell") as! ParticipantsCustomCell!)
         cell.selectionStyle = UITableViewCellSelectionStyle.none
+        //change to the url you get from the response
         cell.profilePicture.imageFromUrl(urlString: "http://scontent.cdninstagram.com/t51.2885-19/s150x150/15276748_1238248896241231_7045268600633950208_a.jpg")
         
         return cell
