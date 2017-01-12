@@ -18,6 +18,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var no_teeUp_message: UILabel!
     var myTeeupArray: NSArray = []
     var isCategory : String!
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,13 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         isCategory = "Coordinating"
         
         no_teeUp_message.text = ""
+        
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(MyTeeUpViewController.refresh(_:)), for: UIControlEvents.valueChanged)
+        self.tableView.addSubview(refreshControl)
+        
         self.getMyTeeups()
     }
 
@@ -303,6 +311,15 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         return dateFormatter.string(from: myDate)
     }
     
+    func refresh(_ sender:AnyObject){
+        if Reachability()?.modifiedReachabilityChanged() == true {
+            self.getMyTeeups()
+        }
+        else{
+            ModelController().showToastMessage(message: "No internet connection.", view: self.view)
+        }
+        refreshControl.endRefreshing()
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TeeUpViewController") as! TeeUpViewController
