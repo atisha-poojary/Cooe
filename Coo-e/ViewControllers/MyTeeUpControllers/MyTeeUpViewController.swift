@@ -236,34 +236,25 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                 let createdByString = "Created by \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
                 cell.createdByLabel.text = createdByString
                 
+                switch ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "status") as? Int)! {
+                case 0:
+                    cell.teeupStatus.text = "Planning"
+                case 1:
+                    cell.teeupStatus.text = "It's On"
+                case 2:
+                    cell.teeupStatus.text = "Happening"
+                case 3:
+                    cell.teeupStatus.text = "It's Ended"
+                case 4:
+                    cell.teeupStatus.text = "Cancelled"
+                    
+                default:
+                    break
+                }
+
                 if let gamePlanWhenDict = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhen") as AnyObject) as? NSDictionary {
                     cell.whenLabel.text = "\(timeStringFromUnixTime ((gamePlanWhenDict.object(forKey: "fromDate") as? String)!)) -\n\(timeStringFromUnixTime ((gamePlanWhenDict.object(forKey: "toDate") as? String)!))"
                     cell.whenLabel.adjustsFontSizeToFitWidth = true
-
-                    if ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? Int)! == 0 {
-                        
-                    }
-                    
-                    switch ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? Int)! {
-                    case 0:
-                        cell.teeupStatus.text = "Planing"
-                    case 1:
-                        cell.teeupStatus.text = "It's On"
-                    case 2:
-                        cell.teeupStatus.text = "Happening"
-                    case 3:
-                        cell.teeupStatus.text = "It's Ended"
-                    case 4:
-                        cell.teeupStatus.text = "Cancelled"
-                        
-                    default:
-                        break
-                    }
-                    
-//                    cell.numberOfPeopleGoing.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as AnyObject).count
-                   
-                    
-                    
                 }
                 else {
                     cell.whenLabel.text = "No time set"
