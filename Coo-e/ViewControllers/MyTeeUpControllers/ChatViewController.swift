@@ -23,7 +23,31 @@ final class ChatViewController: JSQMessagesViewController{
     
     var messages = [JSQMessage]()
     
-    
+    func formatTimestamp() -> String{
+        let myFormatter = DateFormatter()
+        let date = Date()
+        let cal = Calendar.current
+        let year = cal.component(.year,from:date)
+        let month = cal.component(.month, from:date)
+        let day = cal.component(.day, from:date)
+        let hour = cal.component(.hour, from:date)
+        let minute = cal.component(.minute, from:date)
+        let second = cal.component(.second, from:date)
+        var timeStampDateComponent = DateComponents()
+        timeStampDateComponent.year = year
+        timeStampDateComponent.month = month
+        timeStampDateComponent.day = day
+        timeStampDateComponent.hour = hour
+        timeStampDateComponent.minute = minute
+        timeStampDateComponent.second = second
+        timeStampDateComponent.timeZone = TimeZone(identifier: "America/New_York")
+        let stringifyDate = cal.date(from:timeStampDateComponent)!
+        myFormatter.dateStyle = .medium
+        myFormatter.timeStyle = .long
+        let finalStringDate = myFormatter.string(from:stringifyDate)
+        return finalStringDate
+    }
+
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
