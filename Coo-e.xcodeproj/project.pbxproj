@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B08C2891DB531A2003F3B7D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B08C2851DB531A1003F3B7D /* FBSDKCoreKit.framework */; };
 		3B08C28A1DB531A2003F3B7D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B08C2861DB531A1003F3B7D /* FBSDKLoginKit.framework */; };
+		3B0DC0B51E2863A100661F55 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0DC0B41E2863A100661F55 /* AddContactViewController.swift */; };
 		3B1434DF1E1CBE3400325138 /* CreateTeeUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1434DE1E1CBE3300325138 /* CreateTeeUpViewController.swift */; };
 		3B1434E11E1CC54500325138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B1434E01E1CC54500325138 /* Assets.xcassets */; };
 		3B1434E31E1CCA1D00325138 /* Reachability_swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1434E21E1CCA1D00325138 /* Reachability_swift.swift */; };
@@ -62,6 +63,7 @@
 		288AF51BA08FBDD319A2FBE9 /* Pods-Coo-e.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-e.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-e/Pods-Coo-e.debug.xcconfig"; sourceTree = "<group>"; };
 		3B08C2851DB531A1003F3B7D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3B08C2861DB531A1003F3B7D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		3B0DC0B41E2863A100661F55 /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddContactViewController.swift; path = ViewControllers/CreateTeeUpViewController/AddContactViewController.swift; sourceTree = "<group>"; };
 		3B1434DE1E1CBE3300325138 /* CreateTeeUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateTeeUpViewController.swift; path = ViewControllers/CreateTeeUpViewController/CreateTeeUpViewController.swift; sourceTree = "<group>"; };
 		3B1434E01E1CC54500325138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		3B1434E21E1CCA1D00325138 /* Reachability_swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability_swift.swift; path = Model/Reachability_swift.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				3B1434DE1E1CBE3300325138 /* CreateTeeUpViewController.swift */,
+				3B0DC0B41E2863A100661F55 /* AddContactViewController.swift */,
 			);
 			name = CreateTeeUpViewController;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				3B417AB71DB258D600D14360 /* SignUpViewController.swift in Sources */,
 				3B2A4A081DE150DF002A8696 /* MyTeeUpsUITabBarController.swift in Sources */,
 				3B2A4A061DE150DF002A8696 /* CoordinatingCustomCell.swift in Sources */,
+				3B0DC0B51E2863A100661F55 /* AddContactViewController.swift in Sources */,
 				3BA4BB591E232E37001F0B79 /* ParticipantsCustomCell.swift in Sources */,
 				3B3781781DF3073200F51DD3 /* TeeUpViewController.swift in Sources */,
 			);

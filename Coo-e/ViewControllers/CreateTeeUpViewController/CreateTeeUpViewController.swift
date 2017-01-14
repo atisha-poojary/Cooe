@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Contacts
 
 class CreateTeeUpViewController: UIViewController, UITextFieldDelegate {
 
@@ -14,18 +15,55 @@ class CreateTeeUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var message_textView: UITextView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    override func viewDidLoad() {
+    var store = CNContactStore()
+    var contacts: [CNContact] = []
+
+        override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-        }
-        //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-
-        // Do any additional setup after loading the view.
+            if self.revealViewController() != nil {
+                menuButton.target = self.revealViewController()
+                menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            }
+            //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+            AppDelegate.sharedDelegate().checkAccessStatus(completionHandler: { (accessGranted) -> Void in
+                print(accessGranted)
+            })
+            let keysToFetch = [CNContactGivenNameKey, CNContactFamilyNameKey]
+            
+            let predicate: NSPredicate = CNContact.predicateForContacts(matchingName: "Atisha Poojary")
+            self.contacts = try! self.store.unifiedContacts(matching: predicate, keysToFetch:keysToFetch as [CNKeyDescriptor])
+            
     }
-
+    
+    func findContactsWithName(name: String) {
+        AppDelegate.sharedDelegate().checkAccessStatus(completionHandler: { (accessGranted) -> Void in
+            if accessGranted {
+                DispatchQueue.main.async(execute: { () -> Void in
+                    do {
+                        
+                    }
+                    catch {
+                        print("Unable to refetch the selected contact.")
+                    }
+                })
+            }
+        })
+    }
+    
+    func showMessage(message: String) {
+        let alertController = UIAlertController(title: "Coo-e", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) -> Void in
+        }
+        
+        alertController.addAction(dismissAction)        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.title_textField.becomeFirstResponder()
