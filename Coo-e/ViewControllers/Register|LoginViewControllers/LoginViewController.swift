@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Firebase
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     /*!
@@ -149,7 +150,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             let url: NSURL = NSURL(string:"http://69.164.208.35:8080/auth/login")!
             
-            let params = ["username":"atisha", "password":"19atisha"] as Dictionary<String, String>
+            let params = ["username":username, "password":password] as Dictionary<String, String>
 
             let request: NSMutableURLRequest = NSMutableURLRequest(url: url as URL)
             request.httpMethod = "POST"
@@ -197,6 +198,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                                     UserDefaults.standard.set(((dict["user"] as AnyObject).object(forKey: "lastName")!), forKey:"lastName")
                                                     UserDefaults.standard.set(((dict["user"] as AnyObject).object(forKey: "email")!), forKey:"email")
                                                     UserDefaults.standard.set(((dict["user"] as AnyObject).object(forKey: "id")!), forKey:"id")
+                                                    //UserDefaults.standard.set(((dict["user"] as AnyObject).object(forKey:"password")!),forkey:"password")
                                                     
                                                     let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
                                                     UIApplication.shared.keyWindow?.rootViewController = viewController
@@ -279,7 +281,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 
             })
-        
+            
             task.resume()
         }
     }

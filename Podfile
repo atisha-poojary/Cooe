@@ -3,6 +3,10 @@
 
 target 'Coo-e' do
   pod 'Firebase'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'JSQMessagesViewController'
   use_frameworks!
 
   # Pods for Coo-e

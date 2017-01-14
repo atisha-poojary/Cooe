@@ -7,60 +7,141 @@
 //
 
 import UIKit
+import Firebase
+import JSQMessagesViewController
 
-class ChatViewController: UIViewController, UITextFieldDelegate {
+final class ChatViewController: JSQMessagesViewController{
+
 
     @IBOutlet weak var chatTextField: UITextField!
     @IBOutlet var textFieldBottomConstraint: NSLayoutConstraint?
+    //b4f6fabf-3406-40c1-a6dd-a1adc7b0627d should be replaced by teeupID currently hardcoded
+    private lazy var messageRef: FIRDatabaseReference = FIRDatabase.database().reference().child("teeups").child("b4f6fabf-3406-40c1-a6dd-a1adc7b0627d").child("messages")
+    private var newMessageRefHandle: FIRDatabaseHandle?
+    
+    lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
+    lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
+    
+    var messages = [JSQMessage]()
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.navigationItem.title = "Conversation"
-        
-        NotificationCenter.default.addObserver(self, selector:#selector(ChatViewController.handleKeyboardNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector:#selector(ChatViewController.handleKeyboardNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
+        return messages[indexPath.item]
     }
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
+        let message = messages[indexPath.item] // 1
+        if message.senderId == senderId { // 2
+            return outgoingBubbleImageView
+        } else { // 3
+            return incomingBubbleImageView
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
+        let bubbleImageFactory = JSQMessagesBubbleImageFactory()
+        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+    }
+    
+    private func setupIncomingBubble() -> JSQMessagesBubbleImage {
+        let bubbleImageFactory = JSQMessagesBubbleImageFactory()
+        return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
+    }
+    override func viewWillAppear(_ animated: Bool) {
+                super.viewWillAppear(animated)
+    }
+    
+    func setUp(){
+        self.senderId = FIRAuth.auth()?.currentUser?.uid
+        self.senderDisplayName = FIRAuth.auth()?.currentUser?.displayName ?? "HugeCock"
+    }
+    
+    private func addMessage(withId id: String, name: String, text: String) {
+        if let message = JSQMessage(senderId: id, displayName: name, text: text) {
+            messages.append(message)
+        }
+    }
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
+        return nil
+    }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
+        let message = messages[indexPath.item]
+        
+        if message.senderId == senderId {
+            cell.textView?.textColor = UIColor.white
+        } else {
+            cell.textView?.textColor = UIColor.black
+        }
+        return cell
+    }
+    
+    private func observeMessages() {
+        //messageRef = messageRef!.child("teeups").child("b4f6fabf-3406-40c1-a6dd-a1adc7b0627d").child("messages")
+        // 1.
+        let messageQuery = messageRef.queryLimited(toLast:25)
+        
+        // 2. We can use the observe method to listen for new
+        // messages being written to the Firebase DB
+        newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
+            // 3
+            let messageData = snapshot.value as! Dictionary<String, String>
+            
+            if let id = messageData["senderId"] as String!, let name = messageData["senderName"] as String!, let text = messageData["text"] as String!, text.characters.count > 0 {
+                // 4
+                self.addMessage(withId: id, name: name, text: text)
+                
+                // 5
+                self.finishReceivingMessage()
+            } else {
+                print("Error! Could not decode message data")
+            }
+        })
+    }
+       override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setUp()
+        observeMessages()
+        // No avatars
+        collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
+        collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+        
+        self.navigationItem.title = "Conversation"
+//        
+//        NotificationCenter.default.addObserver(self, selector:#selector(ChatViewController.handleKeyboardNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        NotificationCenter.default.addObserver(self, selector:#selector(ChatViewController.handleKeyboardNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: Gesture recognizer
-    func handleTap(_ recognizer: UITapGestureRecognizer){
-        self.chatTextField.endEditing(true)
-    }
-    
-    @IBAction func sendButtonClicked(_ sender: AnyObject) {
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        let itemRef = messageRef.childByAutoId() // 1
+        let messageItem = [ // 2
+            "senderId": senderId!,
+            "senderName": senderDisplayName!,
+            "text": text!,
+            ]
         
-    }
-    
-    func handleKeyboardNotification (_ notification: Notification){
-        if //let userInfo = (notification as NSNotification).userInfo{
-            //let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue)?.cgRectValue
-            let keyboardFrame = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            
-            let isKeyboardShowing = notification.name == NSNotification.Name.UIKeyboardWillShow
-            
-            self.textFieldBottomConstraint!.constant = isKeyboardShowing ? (keyboardFrame.height) : 0
-            
-            UIView.animate(withDuration: 0, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations:self.view.layoutIfNeeded, completion: {(completed) in
-                
-                if isKeyboardShowing {
-                    /*
-                     if (self.reverseArray.count != 0){
-                     let indexPath = NSIndexPath(forItem: self.reverseArray.count-1, inSection: 1)
-                     self.commentsTableView?.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Bottom, animated: true)
-                     }
-                     
-                     */
-                }
-            })
-        }
+        itemRef.setValue(messageItem) // 3
+        
+        JSQSystemSoundPlayer.jsq_playMessageSentSound() // 4
+        
+        finishSendingMessage() // 5
     }
 
+
+
+    
+  
     /*
     // MARK: - Navigation
 

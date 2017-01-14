@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-//import Firebase
+import Firebase
 import FBSDKCoreKit
 
 @UIApplicationMain
@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        FIRApp.configure()
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
@@ -60,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         
-        //FIRApp.configure()
+        
         // Override point for customization after application launch.
         return true
     }
