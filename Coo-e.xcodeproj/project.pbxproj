@@ -108,6 +108,7 @@
 		6B3C822E6202F42717388A17 /* Pods-Coo-eUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eUITests/Pods-Coo-eUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7CFC32A8288C7A3FA2C4E149 /* Pods-Coo-eTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eTests/Pods-Coo-eTests.debug.xcconfig"; sourceTree = "<group>"; };
 		93F984B1AE82F3864F206FB7 /* Pods_Coo_e.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coo_e.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		975D29EA1E2A587E007B2A9B /* Coo-e.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Coo-e.entitlements"; sourceTree = "<group>"; };
 		BD785371FA074EADC5AF503D /* Pods-Coo-eTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eTests/Pods-Coo-eTests.release.xcconfig"; sourceTree = "<group>"; };
 		D5C97AC6F38CF54AF507CF4E /* Pods-Coo-e.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-e.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-e/Pods-Coo-e.release.xcconfig"; sourceTree = "<group>"; };
 		FE703F4952B25F0010DB1EEE /* Pods-Coo-eUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eUITests/Pods-Coo-eUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -247,6 +248,7 @@
 		3BB55B311DA482E5005FD17D /* Coo-e */ = {
 			isa = PBXGroup;
 			children = (
+				975D29EA1E2A587E007B2A9B /* Coo-e.entitlements */,
 				3B1434E01E1CC54500325138 /* Assets.xcassets */,
 				3BA264E11DB6DACD00618764 /* Bridge-ObjC */,
 				3B417AB01DB2587700D14360 /* Controllers */,
@@ -411,9 +413,17 @@
 				TargetAttributes = {
 					3BB55B2E1DA482E5005FD17D = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = HA4V9Y6ECA;
+						DevelopmentTeam = HPW65V3AM8;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					3BB55B451DA482E5005FD17D = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -896,8 +906,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Coo-e/Coo-e.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = HA4V9Y6ECA;
+				DEVELOPMENT_TEAM = HPW65V3AM8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -919,8 +930,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Coo-e/Coo-e.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = HA4V9Y6ECA;
+				DEVELOPMENT_TEAM = HPW65V3AM8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
