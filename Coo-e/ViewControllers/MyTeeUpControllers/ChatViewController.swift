@@ -13,8 +13,7 @@ import JSQMessagesViewController
 final class ChatViewController: JSQMessagesViewController{
 
 
-    @IBOutlet weak var chatTextField: UITextField!
-    @IBOutlet var textFieldBottomConstraint: NSLayoutConstraint?
+
     //b4f6fabf-3406-40c1-a6dd-a1adc7b0627d should be replaced by teeupID currently hardcoded
     private lazy var messageRef: FIRDatabaseReference = FIRDatabase.database().reference().child("teeups").child("b4f6fabf-3406-40c1-a6dd-a1adc7b0627d").child("messages")
     private var newMessageRefHandle: FIRDatabaseHandle?
