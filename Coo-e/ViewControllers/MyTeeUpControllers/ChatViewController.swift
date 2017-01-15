@@ -88,6 +88,13 @@ final class ChatViewController: JSQMessagesViewController{
             messages.append(message)
         }
     }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+        let message = messages[indexPath.item]
+        let senderDisplayName = message.senderDisplayName + "•" + self.formatTimestamp()
+        return NSAttributedString(string: senderDisplayName)
+    }
+
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
     }
@@ -152,6 +159,7 @@ final class ChatViewController: JSQMessagesViewController{
             "senderId": senderId!,
             "senderName": senderDisplayName!,
             "text": text!,
+            "timeStamp":self.formatTimestamp()
             ]
         
         itemRef.setValue(messageItem) // 3
