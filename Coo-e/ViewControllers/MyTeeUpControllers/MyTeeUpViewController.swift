@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -23,7 +23,9 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        FIRAuth.auth()?.signIn(withEmail: "hazard1@srihari.guru", password: "password") { (user, error) in
+            print(user!)
+        }
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))

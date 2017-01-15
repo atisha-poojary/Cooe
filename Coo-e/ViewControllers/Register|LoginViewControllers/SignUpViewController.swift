@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
 
@@ -18,9 +19,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var mobilePhone_textField: UITextField!
     @IBOutlet weak var password_textField: UITextField!
     @IBOutlet weak var retypePassword_textField: UITextField!
-
     @IBOutlet weak var messageLabel: UILabel!
-    
     @IBOutlet weak var username_errorLabel: UILabel!
     @IBOutlet weak var firstName_errorLabel: UILabel!
     @IBOutlet weak var lastName_errorLabel: UILabel!
@@ -168,6 +167,12 @@ class SignUpViewController: UIViewController {
                 }
             }
             else{
+                FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+                    
+                     print(user!)
+
+                    
+                }
                 self.signUpFunc(username: username, password: password, email: email, firstName: firstName, lastName: lastName )
             }
         }
@@ -177,8 +182,8 @@ class SignUpViewController: UIViewController {
     {
         let urlString = "http://69.164.208.35:8080/auth/signup"
         
-        //let params = ["username":username, "password":password, "email":email,  "firstName":firstName, "lastName":lastName] as Dictionary<String, String>
-        let params = ["username":"atisha", "password":"19atisha", "email":"atishapoojary@gmail.com",  "firstName":"Atisha", "lastName":"Poojary"] as Dictionary<String, String>
+        let params = ["username":username, "password":password, "email":email,  "firstName":firstName, "lastName":lastName] as Dictionary<String, String>
+        //let params = ["username":"atisha", "password":"19atisha", "email":"atishapoojary@gmail.com",  "firstName":"Atisha", "lastName":"Poojary"] as Dictionary<String, String>
         
         let url: NSURL = NSURL(string: urlString)!
         

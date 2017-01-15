@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>133914774125-5veg18cm4s30ksnfrdkugev865e05bt3.apps.googleusercontent.com</string>
+	<string>984631161614-des4h9rplluqtre2tqdraegvgck3hr2a.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.133914774125-5veg18cm4s30ksnfrdkugev865e05bt3</string>
+	<string>com.googleusercontent.apps.984631161614-des4h9rplluqtre2tqdraegvgck3hr2a</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDm24TjmpglsO0N41nQZnqYoLI_1pbcpaI</string>
+	<string>AIzaSyBH-y4rNE6rc-1m4JAKy3niDLFNtCJu7kE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>133914774125</string>
+	<string>984631161614</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>edu.atisha.coo-e</string>
+	<string>com.coo-e.coordinator</string>
 	<key>PROJECT_ID</key>
-	<string>coo-e-aadfc</string>
+	<string>coordinator-1326</string>
 	<key>STORAGE_BUCKET</key>
-	<string>coo-e-aadfc.appspot.com</string>
+	<string>coordinator-1326.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:133914774125:ios:6a3153a34fe76efc</string>
+	<string>1:984631161614:ios:060e90add9609a75</string>
 	<key>DATABASE_URL</key>
-	<string>https://coo-e-aadfc.firebaseio.com</string>
+	<string>https://coordinator-1326.firebaseio.com</string>
 </dict>
 </plist>
