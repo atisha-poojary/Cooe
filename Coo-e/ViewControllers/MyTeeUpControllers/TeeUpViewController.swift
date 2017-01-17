@@ -82,7 +82,7 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
             data, response, error in
             
             if error != nil {
-                ModelController().showToastMessage(message: "No internet connection.", view: self.view)
+                ModelController().showToastMessage(message: "No internet connection.", view: self.view, y_coordinate: self.view.frame.size.height-85)
                 return
             }
             

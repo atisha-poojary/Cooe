@@ -9,10 +9,10 @@
 import Foundation
 
 public class ModelController{
-    func showToastMessage(message: String, view: UIView) {
+    func showToastMessage(message: String, view: UIView, y_coordinate: CGFloat) {
         DispatchQueue.main.async {
             let stringWidth = message.widthOfString(usingFont: UIFont.systemFont(ofSize: 14.5)) + 16
-            let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:view.frame.size.width/2 - ((stringWidth+5)/2),y :view.frame.size.height-85), size: CGSize(width: stringWidth+5, height: 24)))
+            let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:view.frame.size.width/2 - ((stringWidth+5)/2),y : y_coordinate), size: CGSize(width: stringWidth+5, height: 24)))
             toastLabel.backgroundColor = UIColor.black
             toastLabel.textColor = UIColor.white
             toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 14.5)

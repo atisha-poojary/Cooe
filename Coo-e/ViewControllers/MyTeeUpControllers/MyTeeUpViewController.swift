@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+
 class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -137,7 +139,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             data, response, error in
             
             if error != nil {
-              ModelController().showToastMessage(message: "No internet connection.", view: self.view)
+              ModelController().showToastMessage(message: "No internet connection.", view: self.view, y_coordinate: self.view.frame.size.height-85)
                 return
             }
             
@@ -309,7 +311,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             self.getMyTeeups()
         }
         else{
-            ModelController().showToastMessage(message: "No internet connection.", view: self.view)
+            ModelController().showToastMessage(message: "No internet connection.", view: self.view, y_coordinate: view.frame.size.height-85)
         }
         refreshControl.endRefreshing()
     }
