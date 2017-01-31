@@ -8,11 +8,14 @@
 
 import UIKit
 
+@available(iOS 10.0, *)
 class SuggestWhenViewController: UIViewController {
-
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateSelected: UILabel!
-
+    @IBOutlet weak var startDateAndTime_textField: UITextField!
+    @IBOutlet weak var endDateAndTime_textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,8 +23,23 @@ class SuggestWhenViewController: UIViewController {
         datePicker.isHidden = true
         
         //navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-
-        // Do any additional setup after loading the view.
+        startDateAndTime_textField.addTarget(self, action: #selector(updateLabel), for: .editingChanged)
+        endDateAndTime_textField.addTarget(self, action: #selector(updateLabel), for: .editingChanged)
+    }
+    
+    func updateLabel(whichTextFiled: Int) {
+        let chrono = Chrono.shared
+        let date = chrono.dateFrom(naturalLanguageString: inputField.text!)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .long
+        
+        guard let discoveredDate = date else {
+            //discoveredDateLabel.text = ""
+            return
+        }
+        //discoveredDateLabel.text = dateFormatter.string(from: discoveredDate)
     }
     
     @IBAction func suggestWhenButtonClicked(_ sender: UIButton) {

@@ -10,13 +10,16 @@ import UIKit
 
 class ParticipantsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var teeUpTitle: String!
     var participantsArray: NSArray!
+    @IBOutlet weak var teeUpTitleLabel:UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var participantsScrollView: UIScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "People"
+        teeUpTitleLabel.text = teeUpTitle
         self.addParticipantsToScrollView(self.participantsArray.count)
     }
 

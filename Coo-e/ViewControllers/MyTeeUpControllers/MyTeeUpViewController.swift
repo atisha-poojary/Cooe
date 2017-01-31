@@ -41,7 +41,6 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         
         no_teeUp_message.text = ""
         
-        
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(MyTeeUpViewController.refresh(_:)), for: UIControlEvents.valueChanged)
@@ -136,7 +135,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         request.httpMethod = "GET"
 
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
-            data, response, error in
+            data, response, error in 
             
             if error != nil {
               ModelController().showToastMessage(message: "No internet connection.", view: self.view, y_coordinate: self.view.frame.size.height-85)
@@ -171,6 +170,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                                         if self.myTeeupArray.count == 0 {
                                             self.tableView.isHidden = true
                                             self.no_teeUp_message.isHidden = false
+                                            self.no_teeUp_message.text = "You're not coordinating anything yet, try creating a Tee-Up with your friends"
                                         }
                                         else {
                                             self.no_teeUp_message.isHidden = true

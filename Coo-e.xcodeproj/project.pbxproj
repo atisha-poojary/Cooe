@@ -40,6 +40,9 @@
 		3BB55B641DA48B1A005FD17D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BB55B631DA48B1A005FD17D /* GoogleService-Info.plist */; };
 		3BF1E0041E10912000D99589 /* SuggestWhenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF1E0031E10911E00D99589 /* SuggestWhenViewController.swift */; };
 		3BF1E0061E10914400D99589 /* SuggestWhereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF1E0051E10914400D99589 /* SuggestWhereViewController.swift */; };
+		3BFF9F981E3D605F0084893C /* Chrono.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF9F951E3D605F0084893C /* Chrono.swift */; };
+		3BFF9F9A1E3D605F0084893C /* ChronoParsedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF9F971E3D605F0084893C /* ChronoParsedResult.swift */; };
+		3BFF9F9C1E3D612A0084893C /* chrono.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 3BFF9F9B1E3D612A0084893C /* chrono.min.js */; };
 		7661352444D04B81EC606033 /* Pods_Coo_eUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311AA7F59CC1040B467A90DE /* Pods_Coo_eUITests.framework */; };
 		92C01F1A3BBD06135E96860C /* Pods_Coo_e.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F984B1AE82F3864F206FB7 /* Pods_Coo_e.framework */; };
 		C493A428A59853A3CE25DEDE /* Pods_Coo_eTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4103ED37859328ECB4FDB8E9 /* Pods_Coo_eTests.framework */; };
@@ -106,6 +109,9 @@
 		3BB55B631DA48B1A005FD17D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BF1E0031E10911E00D99589 /* SuggestWhenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestWhenViewController.swift; path = ViewControllers/MyTeeUpControllers/SuggestWhenViewController.swift; sourceTree = "<group>"; };
 		3BF1E0051E10914400D99589 /* SuggestWhereViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestWhereViewController.swift; path = ViewControllers/MyTeeUpControllers/SuggestWhereViewController.swift; sourceTree = "<group>"; };
+		3BFF9F951E3D605F0084893C /* Chrono.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chrono.swift; path = ViewControllers/Chrono/Chrono.swift; sourceTree = "<group>"; };
+		3BFF9F971E3D605F0084893C /* ChronoParsedResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChronoParsedResult.swift; path = ViewControllers/Chrono/ChronoParsedResult.swift; sourceTree = "<group>"; };
+		3BFF9F9B1E3D612A0084893C /* chrono.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = chrono.min.js; path = ViewControllers/Chrono/ChronoJS/chrono.min.js; sourceTree = "<group>"; };
 		4103ED37859328ECB4FDB8E9 /* Pods_Coo_eTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coo_eTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B3C822E6202F42717388A17 /* Pods-Coo-eUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eUITests/Pods-Coo-eUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7CFC32A8288C7A3FA2C4E149 /* Pods-Coo-eTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coo-eTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coo-eTests/Pods-Coo-eTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +189,7 @@
 		3B417AB01DB2587700D14360 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3BFF9F901E3D5D3A0084893C /* Chrono */,
 				3BE00CB31DB17D84000ACAB7 /* Register|Login */,
 				3B4E8D951DDAEB830044CEC4 /* AboutViewContoller */,
 				3B4E8D8B1DD903350044CEC4 /* SidePanelViewController */,
@@ -304,6 +311,16 @@
 				3BA4BB581E232E37001F0B79 /* ParticipantsCustomCell.swift */,
 			);
 			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		3BFF9F901E3D5D3A0084893C /* Chrono */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF9F951E3D605F0084893C /* Chrono.swift */,
+				3BFF9F9B1E3D612A0084893C /* chrono.min.js */,
+				3BFF9F971E3D605F0084893C /* ChronoParsedResult.swift */,
+			);
+			name = Chrono;
 			sourceTree = "<group>";
 		};
 		3C64ECD4C5EC4367A5580714 /* Frameworks */ = {
@@ -470,6 +487,7 @@
 				3B46C86A1DD7D29D0029B638 /* data.json in Resources */,
 				3BB55B381DA482E5005FD17D /* Main.storyboard in Resources */,
 				3B1434E11E1CC54500325138 /* Assets.xcassets in Resources */,
+				3BFF9F9C1E3D612A0084893C /* chrono.min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,8 +761,10 @@
 				3B4E8D9B1DDBE9590044CEC4 /* SWRevealViewController.m in Sources */,
 				3B417AB81DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift in Sources */,
 				3BA4BB571E23214A001F0B79 /* ParticipantsViewController.swift in Sources */,
+				3BFF9F9A1E3D605F0084893C /* ChronoParsedResult.swift in Sources */,
 				3B417AB61DB258D600D14360 /* LoginViewController.swift in Sources */,
 				3B2A4A091DE150DF002A8696 /* MyTeeUpViewController.swift in Sources */,
+				3BFF9F981E3D605F0084893C /* Chrono.swift in Sources */,
 				3B2A4A0B1DE7C0A1002A8696 /* ModelController.swift in Sources */,
 				3B4E8D971DDAEBC40044CEC4 /* AboutViewController.swift in Sources */,
 				3B1434E31E1CCA1D00325138 /* Reachability_swift.swift in Sources */,
@@ -918,6 +938,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Coo-e/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.atisha.coo-e";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -942,6 +963,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Coo-e/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.atisha.coo-e";
 				PRODUCT_NAME = "$(TARGET_NAME)";

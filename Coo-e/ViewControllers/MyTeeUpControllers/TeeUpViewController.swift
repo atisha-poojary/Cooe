@@ -14,13 +14,12 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
     @IBOutlet weak var teeUpTitleLabel:UILabel!
     
     var isteeUpOrIndividualStatusChanged = "changeTeeUpStatus"
-    var lastTeeUpStatusSelected : String!
-    var lastIndividualStatusSelected : String!
-    var teeUpDictionary : NSDictionary!
-    
+    var lastTeeUpStatusSelected: String!
+    var lastIndividualStatusSelected: String!
+    var teeUpDictionary: NSDictionary!
+
     
     //@IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var teeUpStatusTable: UITableView!
     @IBOutlet weak var individualStatusTable: UITableView!
     
@@ -31,7 +30,7 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
     @IBOutlet weak var individualStatusIcon: UIImageView!
     @IBOutlet weak var individualStatusLabel: UILabel!
     @IBOutlet weak var participantsScrollView: UIScrollView!
-    
+    @IBOutlet weak var showDetailChatScreenButton: UIButton!
     @IBOutlet weak var when_like_countLabel:UILabel!
     @IBOutlet weak var when_dislike_countLabel:UILabel!
     @IBOutlet weak var where_like_countLabel:UILabel!
@@ -52,6 +51,8 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
         self.teeUpStatusTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.individualStatusTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     
+        showDetailChatScreenButton.addTarget(self, action: #selector(showConversationScreen(_:)), for: .touchUpInside)
+        
         self.getTeeUp(self.teeUp_id!)
     }
 
@@ -347,8 +348,16 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
     func showParticipantsDetailScreen(_ sender: UIButton) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ParticipantsViewController") as! ParticipantsViewController
         vc.participantsArray = (self.teeUpDictionary["participants"] as! NSArray)
+        vc.teeUpTitle = self.teeUpTitleLabel.text
         self.navigationItem.title = ""
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationController?.show(vc, sender: nil)
+    }
+
+    
+    func showConversationScreen(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        print("self.teeUp_id! \(self.teeUp_id!)")
+        vc.teeUp_id = self.teeUp_id!
         self.navigationController?.show(vc, sender: nil)
     }
     
