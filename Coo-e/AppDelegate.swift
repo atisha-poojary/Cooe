@@ -11,6 +11,7 @@ import CoreData
 import Firebase
 import FBSDKCoreKit
 import Contacts
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyCZFHih8lJSLpjilmHokNT394Vf1haClh4")
         
           print("HTTPCookieStorage.shared.cookies \(HTTPCookieStorage.shared.cookies)")
 //        let cookies = HTTPCookieStorage.shared.cookies

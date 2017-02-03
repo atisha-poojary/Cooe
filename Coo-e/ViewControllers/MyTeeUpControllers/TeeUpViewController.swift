@@ -17,20 +17,19 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
     var lastTeeUpStatusSelected: String!
     var lastIndividualStatusSelected: String!
     var teeUpDictionary: NSDictionary!
-
+    var whereSuggestionDictionary: NSDictionary!
     
     //@IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var teeUpStatusTable: UITableView!
     @IBOutlet weak var individualStatusTable: UITableView!
-    
-    @IBOutlet weak var selectedDate: UILabel!
-    
     @IBOutlet weak var teeUpStatusIcon: UIImageView!
     @IBOutlet weak var teeUpStatusLabel: UILabel!
     @IBOutlet weak var individualStatusIcon: UIImageView!
     @IBOutlet weak var individualStatusLabel: UILabel!
     @IBOutlet weak var participantsScrollView: UIScrollView!
     @IBOutlet weak var showDetailChatScreenButton: UIButton!
+    @IBOutlet weak var showWhenSuggestion: UIButton!
+    @IBOutlet weak var showWhereSuggestion: UIButton!
     @IBOutlet weak var when_like_countLabel:UILabel!
     @IBOutlet weak var when_dislike_countLabel:UILabel!
     @IBOutlet weak var where_like_countLabel:UILabel!
@@ -52,6 +51,8 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
         self.individualStatusTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     
         showDetailChatScreenButton.addTarget(self, action: #selector(showConversationScreen(_:)), for: .touchUpInside)
+        showWhenSuggestion.addTarget(self, action: #selector(showWhenSuggestionScreen(_:)), for: .touchUpInside)
+        showWhereSuggestion.addTarget(self, action: #selector(showWhereSuggestionScreen(_:)), for: .touchUpInside)
         
         self.getTeeUp(self.teeUp_id!)
     }
@@ -130,10 +131,18 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
                                             break
                                         }
                                         
-                                        
                                         self.addParticipantsToScrollView(((dict["teeup"] as AnyObject).object(forKey: "participants") as! NSArray).count)
+                                    
+                                        if (self.teeUpDictionary["whenSuggestions"] as! NSArray).count > 0{
+                                            self.updateWhenWidget((self.teeUpDictionary["whenSuggestions"] as! NSArray).object(at: 0) as! NSDictionary)
+                                        }
+                                        
+                                        if (self.teeUpDictionary["whereSuggestions"] as! NSArray).count > 0{
+                                            self.updateWhereWidget((self.teeUpDictionary["whereSuggestions"] as! NSArray).object(at: 0) as! NSDictionary)
+                                        }
 
                                     }
+                                        
                                     else if status == 404{
                                         
                                     }
@@ -200,6 +209,30 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
         }
     }
     
+    func updateWhenWidget(_ whenSuggestionsDict: NSDictionary){
+        let date = whenSuggestionsDict.object(forKey: "fromDate")
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        if let date = dateFormatter.date(from: date as! String) {
+            print(date)  // "2015-05-15 21:58:00 +0000"
+            
+            dateFormatter.dateFormat = "EEE, MMM d, yyyy-h:mm a"
+            let stringOfDate = dateFormatter.string(from: date)
+            showWhenSuggestion.setTitle(stringOfDate.replacingOccurrences(of: "-", with: "\n"),for: .normal)
+            
+            when_like_countLabel.text = "\((whenSuggestionsDict.object(forKey: "thumbsUpCount") as? Int)!)"
+            
+            when_dislike_countLabel.text = "\((whenSuggestionsDict.object(forKey: "thumbsDownCount") as? Int)!)"
+        }
+    }
+    
+    func updateWhereWidget(_ whenSuggestionsDict: NSDictionary){
+        where_like_countLabel.text = "\((whenSuggestionsDict.object(forKey: "thumbsUpCount") as? Int)!)"
+        where_dislike_countLabel.text =
+            "\((whenSuggestionsDict.object(forKey: "thumbsDownCount") as? Int)!)"
+    }
     
     @IBAction func statusButtonClicked(_ sender: UIButton) {
         //pickerView.isHidden = false
@@ -217,24 +250,7 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
             teeUpStatusTable.isHidden = true
             individualStatusTable.reloadData()
         }
-        //pickerView.reloadAllComponents()
     }
-    
-    
-//    @IBAction func suggestWhenButtonClicked(_ sender: UIButton) {
-//        datePicker.isHidden = false
-//    }
-//    
-//     @IBAction func datePickerFunc(_ sender: AnyObject) {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-//        let strDate = dateFormatter.string(from: datePicker.date)
-//        selectedDate.text = strDate
-//    }
-    
-    
-    
-    
     
     // MARK: - TableView
     func numberOfSections(in tableView: UITableView) -> Int{
@@ -352,12 +368,23 @@ class TeeUpViewController: UIViewController, UIScrollViewDelegate, UITableViewDa
         self.navigationItem.title = ""
         self.navigationController?.show(vc, sender: nil)
     }
-
     
     func showConversationScreen(_ sender: UIButton) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         print("self.teeUp_id! \(self.teeUp_id!)")
         vc.teeUp_id = self.teeUp_id!
+        self.navigationController?.show(vc, sender: nil)
+    }
+    
+    func showWhenSuggestionScreen(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SuggestWhenViewController") as! SuggestWhenViewController
+        vc.teeUp_id = self.teeUp_id!
+        self.navigationController?.show(vc, sender: nil)
+    }
+    
+    func showWhereSuggestionScreen(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SuggestWhereViewController") as! SuggestWhereViewController
+        //vc.teeUp_id = self.teeUp_id!
         self.navigationController?.show(vc, sender: nil)
     }
     

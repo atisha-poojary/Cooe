@@ -13,7 +13,6 @@ import FirebaseAuth
 import JSQMessagesViewController
 
 
-
 final class ChatViewController: JSQMessagesViewController{
 
     //b4f6fabf-3406-40c1-a6dd-a1adc7b0627d should be replaced by teeupID currently hardcoded

@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import Coo_e
 
 class Coo_eTests: XCTestCase {
     

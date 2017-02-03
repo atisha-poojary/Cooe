@@ -24,6 +24,7 @@
 		3B417AB61DB258D600D14360 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB31DB258D600D14360 /* LoginViewController.swift */; };
 		3B417AB71DB258D600D14360 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB41DB258D600D14360 /* SignUpViewController.swift */; };
 		3B417AB81DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB51DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift */; };
+		3B43A12E1E449D8C00F5A0DD /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43A12D1E449D8C00F5A0DD /* ResultsViewController.swift */; };
 		3B46C86A1DD7D29D0029B638 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B46C8691DD7D29D0029B638 /* data.json */; };
 		3B4E8D971DDAEBC40044CEC4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E8D961DDAEBC30044CEC4 /* AboutViewController.swift */; };
 		3B4E8D9B1DDBE9590044CEC4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E8D9A1DDBE9590044CEC4 /* SWRevealViewController.m */; };
@@ -85,6 +86,7 @@
 		3B417AB31DB258D600D14360 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "ViewControllers/Register|LoginViewControllers/LoginViewController.swift"; sourceTree = "<group>"; };
 		3B417AB41DB258D600D14360 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "ViewControllers/Register|LoginViewControllers/SignUpViewController.swift"; sourceTree = "<group>"; };
 		3B417AB51DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotUsernameOrPasswordVC.swift; path = "ViewControllers/Register|LoginViewControllers/ForgotUsernameOrPasswordVC.swift"; sourceTree = "<group>"; };
+		3B43A12D1E449D8C00F5A0DD /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultsViewController.swift; path = ViewControllers/MyTeeUpControllers/WhereSuggestion/ResultsViewController.swift; sourceTree = "<group>"; };
 		3B46C8691DD7D29D0029B638 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		3B4E8D961DDAEBC30044CEC4 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = ViewControllers/AboutViewController/AboutViewController.swift; sourceTree = "<group>"; };
 		3B4E8D991DDBE9590044CEC4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ViewControllers/MenuViewController/SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
@@ -161,8 +163,6 @@
 				3B2A4A041DE150DF002A8696 /* MyTeeUpViewController.swift */,
 				3B3781771DF3073200F51DD3 /* TeeUpViewController.swift */,
 				3BA4BB561E23214A001F0B79 /* ParticipantsViewController.swift */,
-				3BF1E0031E10911E00D99589 /* SuggestWhenViewController.swift */,
-				3BF1E0051E10914400D99589 /* SuggestWhereViewController.swift */,
 				3BA4BB5A1E235734001F0B79 /* ChatViewController.swift */,
 			);
 			name = MyTeeUpControllers;
@@ -193,10 +193,29 @@
 				3BE00CB31DB17D84000ACAB7 /* Register|Login */,
 				3B4E8D951DDAEB830044CEC4 /* AboutViewContoller */,
 				3B4E8D8B1DD903350044CEC4 /* SidePanelViewController */,
+				3B43A12C1E449CEB00F5A0DD /* WhereSuggestion */,
+				3B43A12B1E449CD900F5A0DD /* WhenSuggestion */,
 				3B08C2811DB49A6D003F3B7D /* MyTeeUpControllers */,
 				3B1434DD1E1CBD8D00325138 /* CreateTeeUpViewController */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3B43A12B1E449CD900F5A0DD /* WhenSuggestion */ = {
+			isa = PBXGroup;
+			children = (
+				3BF1E0031E10911E00D99589 /* SuggestWhenViewController.swift */,
+			);
+			name = WhenSuggestion;
+			sourceTree = "<group>";
+		};
+		3B43A12C1E449CEB00F5A0DD /* WhereSuggestion */ = {
+			isa = PBXGroup;
+			children = (
+				3BF1E0051E10914400D99589 /* SuggestWhereViewController.swift */,
+				3B43A12D1E449D8C00F5A0DD /* ResultsViewController.swift */,
+			);
+			name = WhereSuggestion;
 			sourceTree = "<group>";
 		};
 		3B4E8D8B1DD903350044CEC4 /* SidePanelViewController */ = {
@@ -778,6 +797,7 @@
 				3B2A4A081DE150DF002A8696 /* MyTeeUpsUITabBarController.swift in Sources */,
 				3B2A4A061DE150DF002A8696 /* CoordinatingCustomCell.swift in Sources */,
 				3B0DC0B51E2863A100661F55 /* AddContactViewController.swift in Sources */,
+				3B43A12E1E449D8C00F5A0DD /* ResultsViewController.swift in Sources */,
 				3BA4BB591E232E37001F0B79 /* ParticipantsCustomCell.swift in Sources */,
 				3B3781781DF3073200F51DD3 /* TeeUpViewController.swift in Sources */,
 			);

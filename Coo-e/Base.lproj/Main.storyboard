@@ -1370,20 +1370,6 @@
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suggest when" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJ3-cq-UNw">
-                                <rect key="frame" x="102" y="482" width="178" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suggest where" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUJ-6w-b3a">
-                                <rect key="frame" x="102" y="555" width="178" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22D-ZR-Fbx">
                                 <rect key="frame" x="279" y="464" width="40" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1460,19 +1446,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="newChat"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6w0-qt-ps2">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="6w0-qt-ps2">
                                 <rect key="frame" x="101" y="548" width="171" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <segue destination="n8V-3Q-cga" kind="push" id="akS-n0-74i"/>
-                                </connections>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Suggest where">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFX-bc-gBE">
-                                <rect key="frame" x="100" y="477" width="171" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="BFX-bc-gBE">
+                                <rect key="frame" x="101" y="473" width="170" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <segue destination="sfi-qB-vCH" kind="push" id="xGJ-U4-0t5"/>
-                                </connections>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <state key="normal" title="Suggest when">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULJ-54-XbN">
                                 <rect key="frame" x="0.0" y="230" width="376" height="196"/>
@@ -1507,17 +1495,22 @@
                         <outlet property="individualStatusLabel" destination="XE3-LI-h7u" id="s4s-du-JHN"/>
                         <outlet property="individualStatusTable" destination="SXg-Jp-k42" id="Gap-0n-Eyt"/>
                         <outlet property="participantsScrollView" destination="07d-mO-2jX" id="dlB-Cs-B6T"/>
-                        <outlet property="selectedDate" destination="CJ3-cq-UNw" id="Nh7-2g-4WD"/>
                         <outlet property="showDetailChatScreenButton" destination="ULJ-54-XbN" id="tX7-CU-jcw"/>
+                        <outlet property="showWhenSuggestion" destination="BFX-bc-gBE" id="1aQ-s0-dDZ"/>
+                        <outlet property="showWhereSuggestion" destination="6w0-qt-ps2" id="BYX-89-AWH"/>
                         <outlet property="teeUpStatusIcon" destination="v43-hB-wPf" id="uls-RT-SO3"/>
                         <outlet property="teeUpStatusLabel" destination="hXy-zz-Ovo" id="2bZ-N4-4ZT"/>
                         <outlet property="teeUpStatusTable" destination="eOd-eS-VMg" id="z9S-qk-3fV"/>
                         <outlet property="teeUpTitleLabel" destination="hZ4-uW-J2S" id="V5g-CV-5c6"/>
+                        <outlet property="when_dislike_countLabel" destination="CAb-1P-Ehv" id="11r-1R-TsS"/>
+                        <outlet property="when_like_countLabel" destination="LU9-ZG-h19" id="aWl-CW-1O5"/>
+                        <outlet property="where_dislike_countLabel" destination="Ylh-Rl-fvB" id="jxC-mb-hFL"/>
+                        <outlet property="where_like_countLabel" destination="02R-iL-01e" id="WPz-On-rk6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wT3-jT-Tzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="746" y="-3164"/>
+            <point key="canvasLocation" x="745.5" y="-3164.5"/>
         </scene>
         <!--Participants View Controller-->
         <scene sceneID="OkV-ud-Cok">
@@ -1778,7 +1771,7 @@
         <!--Suggest When View Controller-->
         <scene sceneID="ZmQ-4t-Pr5">
             <objects>
-                <viewController id="sfi-qB-vCH" customClass="SuggestWhenViewController" customModule="Coo_e" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SuggestWhenViewController" id="sfi-qB-vCH" customClass="SuggestWhenViewController" customModule="Coo_e" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Udd-Ya-owo"/>
                         <viewControllerLayoutGuide type="bottom" id="QZ7-Oc-3g8"/>
@@ -1808,16 +1801,9 @@
                                         <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PY3-wY-etm">
-                                        <rect key="frame" x="74" y="13" width="190" height="21"/>
+                                        <rect key="frame" x="74" y="14" width="190" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q76-ID-uej">
-                                        <rect key="frame" x="74" y="36" width="190" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1856,6 +1842,13 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdH-eQ-FBf">
+                                        <rect key="frame" x="74" y="34" width="190" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -1880,21 +1873,22 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="sfi-qB-vCH" id="x5y-Uo-HA0"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ADD START DATE AND TIME:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbU-a6-mgk">
-                                <rect key="frame" x="23" y="125" width="231" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ENTER DATE AND TIME:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbU-a6-mgk">
+                                <rect key="frame" x="23" y="125" width="192" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="68a-Rt-cpk">
-                                <rect key="frame" x="0.0" y="387" width="375" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="L8m-Tg-ETu"/>
-                                </constraints>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="68a-Rt-cpk">
+                                <rect key="frame" x="0.0" y="292" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="505650249.494524">
                                     <!--2017-01-09 10:24:09 +0000-->
                                 </date>
@@ -1902,48 +1896,53 @@
                                     <action selector="datePickerFunc:" destination="sfi-qB-vCH" eventType="valueChanged" id="d9X-kE-XNM"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ADD END DATE AND TIME:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQE-Rj-fOm">
-                                <rect key="frame" x="23" y="216" width="212" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XW4-NA-UzV">
+                                <rect key="frame" x="0.0" y="543" width="178" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="CANCEL">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel_or_suggestButtonClicked:" destination="sfi-qB-vCH" eventType="touchUpInside" id="PHD-0K-8ya"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lP-9o-8uM">
+                                <rect key="frame" x="196" y="546" width="170" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="SUGGEST">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel_or_suggestButtonClicked:" destination="sfi-qB-vCH" eventType="touchUpInside" id="ZS2-gT-YO3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffA-C7-2ld">
+                                <rect key="frame" x="186" y="555" width="2" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3Z-nP-bSc">
+                                <rect key="frame" x="0.0" y="545" width="375" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="No4-l8-Kzk">
-                                <rect key="frame" x="24" y="245" width="326" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="suggestWhen" translatesAutoresizingMaskIntoConstraints="NO" id="DZl-Ib-qqw">
-                                        <rect key="frame" x="272" y="4" width="45" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0f-K6-Ic4">
-                                        <rect key="frame" x="277" y="6" width="40" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="suggestWhenButtonClicked:" destination="sfi-qB-vCH" eventType="touchUpInside" id="gdo-QY-a5z"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vm-fc-vaR">
-                                        <rect key="frame" x="8" y="12" width="261" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="68a-Rt-cpk" firstAttribute="leading" secondItem="ZwJ-oP-3EE" secondAttribute="leading" id="O8a-EA-GOo"/>
-                            <constraint firstAttribute="trailing" secondItem="68a-Rt-cpk" secondAttribute="trailing" id="Sa6-NR-fjy"/>
-                            <constraint firstItem="QZ7-Oc-3g8" firstAttribute="top" secondItem="68a-Rt-cpk" secondAttribute="bottom" id="fHo-yz-wvm"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="25d-ge-v6U"/>
                     <connections>
+                        <outlet property="dateLabel" destination="PY3-wY-etm" id="Ohj-9L-TdG"/>
                         <outlet property="datePicker" destination="68a-Rt-cpk" id="QKs-Nr-amx"/>
+                        <outlet property="timeLabel" destination="OdH-eQ-FBf" id="eCd-S6-ofn"/>
+                        <outlet property="whenDateAndTime_textField" destination="de0-aT-Ecs" id="LYg-eS-zcH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h35-EG-Ula" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1953,7 +1952,7 @@
         <!--Suggest Where View Controller-->
         <scene sceneID="G36-px-xMK">
             <objects>
-                <viewController id="n8V-3Q-cga" customClass="SuggestWhereViewController" customModule="Coo_e" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SuggestWhereViewController" id="n8V-3Q-cga" customClass="SuggestWhereViewController" customModule="Coo_e" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pIt-4O-WRj"/>
                         <viewControllerLayoutGuide type="bottom" id="D4x-sk-V4p"/>
@@ -2663,8 +2662,6 @@ follow the instruction.</string>
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="akS-n0-74i"/>
-        <segue reference="xGJ-U4-0t5"/>
         <segue reference="OKC-Hy-A1D"/>
     </inferredMetricsTieBreakers>
 </document>

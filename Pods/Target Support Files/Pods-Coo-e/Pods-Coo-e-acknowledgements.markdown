@@ -33,7 +33,19 @@ Copyright 2016 Google
 
 Copyright 2016 Google
 
+## GoogleMaps
+
+Copyright 2016 Google
+
 ## GoogleNetworkingUtilities
+
+Copyright 2016 Google
+
+## GooglePlacePicker
+
+Copyright 2016 Google
+
+## GooglePlaces
 
 Copyright 2016 Google
 
