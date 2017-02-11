@@ -14,6 +14,7 @@ class SidePanelViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var emailAddress: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    var cache: NSCache<AnyObject, AnyObject>!
     
     var menuListArray = ["TeeUps", "Discover", "Create My TeeUp", "Contacts", "Profile", "Setting", "Help", "Feedback", "About"]
     
@@ -21,14 +22,87 @@ class SidePanelViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         
         //change to the url you get from the response
-        profilePicture.imageFromUrl(urlString: "http://scontent.cdninstagram.com/t51.2885-19/s150x150/15276748_1238248896241231_7045268600633950208_a.jpg")
+        //profilePicture.imageFromUrl(urlString: "http://resources.coo-e.com:3000/api/image/\((UserDefaults.standard.string(forKey: "imageId")))")
+       
         profilePicture.setRounded()
         userName.text = "\(UserDefaults.standard.string(forKey: "firstName")!) \(UserDefaults.standard.string(forKey: "lastName")!)"
         emailAddress.text = (UserDefaults.standard.string(forKey: "email"))!
+        self.cache = NSCache()
         
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        
+//        if ((NSCache<AnyObject, AnyObject>().object(forKey:"profilePicture" as AnyObject)) != nil){
+//            self.profilePicture.image = self.cache.object(forKey:"profilePicture" as AnyObject) as? UIImage
+//        }        
+        if (UserDefaults.standard.string(forKey: "imageId") != nil){
+            self.getProfilPic()
+        }
+    }
+    
+    func getProfilPic()
+    {
+        let urlString = ("http://69.164.208.35:8080/api/image/\((UserDefaults.standard.string(forKey: "imageId"))!)")
+        print("urlString\(urlString)")
+        let url: URL = URL(string: urlString)!
+        
+        let request: NSMutableURLRequest = NSMutableURLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            if error != nil {
+                ModelController().showToastMessage(message: "No internet connection.", view: self.view, y_coordinate: self.view.frame.size.height-85)
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: data! as Data, options:.allowFragments)
+                if let dict = json as? NSDictionary {
+                    
+                    print("dict:'\(dict)")
+                    
+                    if(error != nil) {
+                        print(error!.localizedDescription)
+                        let jsonStr = NSString(data: data! as Data, encoding: String.Encoding.utf8.rawValue)
+                        print("Error could not parse JSON: '\(jsonStr)'")
+                    }
+                    else {
+                        if let dict = json as? NSDictionary {
+                            if let status = dict["status"] as? Int {
+                                DispatchQueue.main.async{
+                                    if status == 200{
+                                        let strBase64 = ((dict["image"] as AnyObject).object(forKey: "imageData") as! String)
+                                        print("strBase64\(strBase64)")
+                                        let imageData = NSData(base64Encoded: strBase64, options: .ignoreUnknownCharacters)
+                                        self.profilePicture.image = UIImage.init(data: imageData as! Data)
+                                    }
+                                    else {
+                                         ModelController().showToastMessage(message: "No internet connection.", view: self.view, y_coordinate: self.view.frame.size.height-85)
+                                    }
+                                }
+                            }
+                            return
+                        }
+                        else {
+                            let jsonStr = NSString(data: data! as Data, encoding: String.Encoding.utf8.rawValue)
+                            print("Error could not parse JSON: \(jsonStr)")
+                        }
+                    }
+                }
+            }catch let error as NSError {
+                print("An error occurred: \(error)")
+            }
+        }
+        task.resume()
+    }
+
+    
     // Mark: Table View Delegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

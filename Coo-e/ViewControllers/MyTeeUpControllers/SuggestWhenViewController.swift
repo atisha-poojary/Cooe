@@ -45,7 +45,7 @@ class SuggestWhenViewController: UIViewController {
         dateLabel.text = dateAndTimeArr[0]
         timeLabel.text = dateAndTimeArr[1]
         
-        timestamp = String(discoveredDate.timeIntervalSince1970)
+        timestamp = String((discoveredDate.timeIntervalSince1970)*1000)
         print("timestamp\(timestamp)")
         
     }

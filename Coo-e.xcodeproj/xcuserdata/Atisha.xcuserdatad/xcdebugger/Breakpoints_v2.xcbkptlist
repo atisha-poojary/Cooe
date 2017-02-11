@@ -13,54 +13,6 @@
             timestampString = "506254020.712736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
-            landmarkName = "signUpFunc(username:password:email:firstName:lastName:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Coo_e.SignUpViewController.(signUpFunc (username : Swift.String, password : Swift.String, email : Swift.String, firstName : Swift.String, lastName : Swift.String) -&gt; ()).(closure #1).(closure #5)"
-                  moduleName = "Coo-e"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/SignUpViewController.swift"
-                  timestampString = "507811608.24303"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "327"
-                  endingLineNumber = "327"
-                  offsetFromSymbolStart = "5568">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Coo_e.SignUpViewController.(signUpFunc (username : Swift.String, password : Swift.String, email : Swift.String, firstName : Swift.String, lastName : Swift.String) -&gt; ()).(closure #1).(closure #5).(closure #2)"
-                  moduleName = "Coo-e"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/SignUpViewController.swift"
-                  timestampString = "507811608.246264"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "328"
-                  endingLineNumber = "328"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/SignUpViewController.swift"
-            timestampString = "506254020.712736"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "254"
             endingLineNumber = "254"
             landmarkName = "signUpFunc(username:password:email:firstName:lastName:)"
@@ -74,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/SignUpViewController.swift"
-            timestampString = "506254020.712736"
+            timestampString = "508302227.227332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "signUpFunc(username:password:email:firstName:lastName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/SignUpViewController.swift"
-            timestampString = "506254020.712736"
+            timestampString = "508302227.227332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "393"
-            endingLineNumber = "393"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
             landmarkName = "validateCodeRequest(userName:validationCode:validationType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -244,12 +196,12 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/SignUpViewController.swift"
-                  timestampString = "507811608.300699"
+                  timestampString = "508464282.871066"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "224"
                   endingLineNumber = "224"
-                  offsetFromSymbolStart = "2524">
+                  offsetFromSymbolStart = "2252">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -259,12 +211,12 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/SignUpViewController.swift"
-                  timestampString = "507811608.302976"
+                  timestampString = "508464282.87325"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "224"
                   endingLineNumber = "224"
-                  offsetFromSymbolStart = "44">
+                  offsetFromSymbolStart = "56">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -292,11 +244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
-            timestampString = "505434896.14965"
+            timestampString = "508370706.007076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "LoginViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -324,27 +276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
-            timestampString = "505297659.974311"
+            timestampString = "508370706.007076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "signInFunc()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
-            timestampString = "505434896.14965"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "setCookies(response:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -356,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
-            timestampString = "505367497.496751"
+            timestampString = "508370706.007076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "signInFunc()"
             landmarkType = "7">
             <Locations>
@@ -372,12 +308,12 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/LoginViewController.swift"
-                  timestampString = "507811608.333345"
+                  timestampString = "508464282.892784"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "164"
-                  endingLineNumber = "164"
-                  offsetFromSymbolStart = "5134">
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "4204">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -387,12 +323,12 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/LoginViewController.swift"
-                  timestampString = "507811608.335814"
+                  timestampString = "508464282.895887"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "166"
-                  endingLineNumber = "166"
-                  offsetFromSymbolStart = "27">
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -404,11 +340,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
-            timestampString = "505434896.14965"
+            timestampString = "508370706.007076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "setCookies(response:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -419,28 +355,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Coo-e/ViewControllers/Register|LoginViewControllers/LoginViewController.swift"
-            timestampString = "505434278.035493"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "signInFunc()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/MenuViewController/SidePanelViewController.swift"
-            timestampString = "505902909.327422"
+            timestampString = "508462676.848467"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "showAlert(sender:)"
             landmarkType = "7">
             <Locations>
@@ -452,12 +372,12 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/MenuViewController/SidePanelViewController.swift"
-                  timestampString = "507811608.351033"
+                  timestampString = "508464282.90397"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "194">
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "176">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -467,12 +387,12 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/MenuViewController/SidePanelViewController.swift"
-                  timestampString = "507811608.353772"
+                  timestampString = "508464282.906073"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "15">
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -516,13 +436,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift"
-            timestampString = "506481108.14005"
+            timestampString = "508058544.562462"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "MyTeeUpViewController"
-            landmarkType = "3">
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "isTeeUpCategory(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
