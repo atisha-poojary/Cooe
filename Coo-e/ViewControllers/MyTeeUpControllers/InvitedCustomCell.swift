@@ -13,8 +13,10 @@ class InvitedCustomCell: UITableViewCell {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var message: UILabel!
-    @IBOutlet weak var lastUpdate: UILabel!
+    @IBOutlet weak var inviteAge: UILabel!
     @IBOutlet weak var invitedBy: UILabel!
+    @IBOutlet weak var whenLabel: UILabel!
+    @IBOutlet weak var whereLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

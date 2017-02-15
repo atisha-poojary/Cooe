@@ -134,6 +134,7 @@ class SuggestWhenViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         datePicker.isHidden = true
+        self.view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {

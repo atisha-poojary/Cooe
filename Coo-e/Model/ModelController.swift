@@ -49,6 +49,37 @@ extension UIImageView {
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
     }
+    
+    public func imageFromID(urlString: String){
+        let url: URL = URL(string: urlString)!
+        
+        let request: NSMutableURLRequest = NSMutableURLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            do {
+                let json = try JSONSerialization.jsonObject(with: data! as Data, options:.allowFragments)
+                if let dict = json as? NSDictionary {
+                    if let status = dict["status"] as? Int {
+                        if status == 200{
+                            let strBase64 = ((dict["image"] as AnyObject).object(forKey: "imageData") as! String)
+                            let imageData = NSData(base64Encoded: strBase64, options: .ignoreUnknownCharacters)
+                            DispatchQueue.main.sync() {
+                                self.image = UIImage.init(data: imageData as! Data)
+                            }
+                        }
+                    }
+                    return
+                }
+            }catch let error as NSError {
+                print("An error occurred: \(error)")
+            }
+        }
+        task.resume()
+    }
 }
 
 extension String {
@@ -92,4 +123,18 @@ extension UIView {
 //        self.shadowRadius = 5;
 //        self.shadowOpacity = 0.5;
 //    }
+}
+
+extension UILabel {
+    func formatDate(_ date: String){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        if let date = dateFormatter.date(from: date) {
+            dateFormatter.dateFormat = "EEE, MMM d, yyyy-h:mm a"
+            var stringOfDate = dateFormatter.string(from: date)
+            stringOfDate = stringOfDate.replacingOccurrences(of: "-", with: "\n")
+            self.text = stringOfDate
+        }
+    }
 }

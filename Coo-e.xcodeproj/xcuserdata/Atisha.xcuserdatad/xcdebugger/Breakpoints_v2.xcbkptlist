@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/MyTeeUpControllers/TeeUpViewController.swift"
-            timestampString = "507810640.991908"
+            timestampString = "508845836.572994"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "549"
-            endingLineNumber = "549">
+            startingLineNumber = "687"
+            endingLineNumber = "687">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/MyTeeUpControllers/TeeUpViewController.swift"
-            timestampString = "507810640.991908"
+            timestampString = "508845836.572994"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "528"
-            endingLineNumber = "528">
+            startingLineNumber = "666"
+            endingLineNumber = "666">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -166,11 +166,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/MyTeeUpControllers/TeeUpViewController.swift"
-            timestampString = "507810640.991908"
+            timestampString = "508845836.572994"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "557"
-            endingLineNumber = "557">
+            startingLineNumber = "695"
+            endingLineNumber = "695">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -196,7 +196,7 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/SignUpViewController.swift"
-                  timestampString = "508464282.871066"
+                  timestampString = "508848497.592675"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "224"
@@ -211,7 +211,7 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/SignUpViewController.swift"
-                  timestampString = "508464282.87325"
+                  timestampString = "508848497.596287"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "224"
@@ -308,7 +308,7 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/LoginViewController.swift"
-                  timestampString = "508464282.892784"
+                  timestampString = "508848497.628615"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "134"
@@ -323,7 +323,7 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/Register%7CLoginViewControllers/LoginViewController.swift"
-                  timestampString = "508464282.895887"
+                  timestampString = "508848497.631639"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
@@ -356,11 +356,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Coo-e/ViewControllers/MenuViewController/SidePanelViewController.swift"
-            timestampString = "508462676.848467"
+            timestampString = "508753228.513353"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "showAlert(sender:)"
             landmarkType = "7">
             <Locations>
@@ -372,11 +372,11 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/MenuViewController/SidePanelViewController.swift"
-                  timestampString = "508464282.90397"
+                  timestampString = "508848497.6465"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "124"
-                  endingLineNumber = "124"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
                   offsetFromSymbolStart = "176">
                </Location>
                <Location
@@ -387,11 +387,11 @@
                   moduleName = "Coo-e"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Atisha/Documents/iOS%20apps/Coo-e_V1/Coo-e/Coo-e/ViewControllers/MenuViewController/SidePanelViewController.swift"
-                  timestampString = "508464282.906073"
+                  timestampString = "508848497.650393"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
@@ -426,22 +426,6 @@
             startingLineNumber = "132"
             endingLineNumber = "132"
             landmarkName = "datePickerFunc(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Coo-e/ViewControllers/MyTeeUpControllers/MyTeeUpViewController.swift"
-            timestampString = "508058544.562462"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "isTeeUpCategory(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

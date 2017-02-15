@@ -26,6 +26,7 @@
 		3B417AB71DB258D600D14360 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB41DB258D600D14360 /* SignUpViewController.swift */; };
 		3B417AB81DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B417AB51DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift */; };
 		3B43A12E1E449D8C00F5A0DD /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B43A12D1E449D8C00F5A0DD /* ResultsViewController.swift */; };
+		3B45772C1E5316C70068C33B /* WhenSuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B45772B1E5316C60068C33B /* WhenSuggestionsViewController.swift */; };
 		3B46C86A1DD7D29D0029B638 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B46C8691DD7D29D0029B638 /* data.json */; };
 		3B4E8D971DDAEBC40044CEC4 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E8D961DDAEBC30044CEC4 /* AboutViewController.swift */; };
 		3B4E8D9B1DDBE9590044CEC4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4E8D9A1DDBE9590044CEC4 /* SWRevealViewController.m */; };
@@ -89,6 +90,7 @@
 		3B417AB41DB258D600D14360 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "ViewControllers/Register|LoginViewControllers/SignUpViewController.swift"; sourceTree = "<group>"; };
 		3B417AB51DB258D600D14360 /* ForgotUsernameOrPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotUsernameOrPasswordVC.swift; path = "ViewControllers/Register|LoginViewControllers/ForgotUsernameOrPasswordVC.swift"; sourceTree = "<group>"; };
 		3B43A12D1E449D8C00F5A0DD /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultsViewController.swift; path = ViewControllers/MyTeeUpControllers/WhereSuggestion/ResultsViewController.swift; sourceTree = "<group>"; };
+		3B45772B1E5316C60068C33B /* WhenSuggestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhenSuggestionsViewController.swift; path = ViewControllers/WhenSuggestionViewControllers/WhenSuggestionsViewController.swift; sourceTree = "<group>"; };
 		3B46C8691DD7D29D0029B638 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		3B4E8D961DDAEBC30044CEC4 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = ViewControllers/AboutViewController/AboutViewController.swift; sourceTree = "<group>"; };
 		3B4E8D991DDBE9590044CEC4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = ViewControllers/MenuViewController/SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
@@ -203,10 +205,10 @@
 				3BE00CB31DB17D84000ACAB7 /* Register|Login */,
 				3B4E8D951DDAEB830044CEC4 /* AboutViewContoller */,
 				3B4E8D8B1DD903350044CEC4 /* SidePanelViewController */,
-				3B43A12C1E449CEB00F5A0DD /* WhereSuggestion */,
-				3B43A12B1E449CD900F5A0DD /* WhenSuggestion */,
 				3B08C2811DB49A6D003F3B7D /* MyTeeUpControllers */,
 				3B1434DD1E1CBD8D00325138 /* CreateTeeUpViewController */,
+				3B43A12B1E449CD900F5A0DD /* WhenSuggestion */,
+				3B43A12C1E449CEB00F5A0DD /* WhereSuggestion */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -216,6 +218,7 @@
 			children = (
 				3BFF9F901E3D5D3A0084893C /* Chrono */,
 				3BF1E0031E10911E00D99589 /* SuggestWhenViewController.swift */,
+				3B45772B1E5316C60068C33B /* WhenSuggestionsViewController.swift */,
 			);
 			name = WhenSuggestion;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				3BB55B4F1DA482E5005FD17D /* Resources */,
 				8E1E3704B579E6FB041E2FEC /* [CP] Copy Pods Resources */,
 				38D8653A480D22691F5FF477 /* 📦 Copy Pods Resources */,
+				B7A43D9135732BF9D6512EC8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -552,7 +556,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		38D8653A480D22691F5FF477 /* 📦 Copy Pods Resources */ = {
@@ -720,6 +724,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B7A43D9135732BF9D6512EC8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Coo-eUITests/Pods-Coo-eUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C74C81AEA63505FB82C69B1A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -747,7 +766,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E812F6AAF34051473E8A919B /* [CP] Check Pods Manifest.lock */ = {
@@ -762,7 +781,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FC6D0509FEC1B092CE41D2A1 /* 📦 Copy Pods Resources */ = {
@@ -801,6 +820,7 @@
 				3B2A4A0B1DE7C0A1002A8696 /* ModelController.swift in Sources */,
 				3B4E8D971DDAEBC40044CEC4 /* AboutViewController.swift in Sources */,
 				3B1434E31E1CCA1D00325138 /* Reachability_swift.swift in Sources */,
+				3B45772C1E5316C70068C33B /* WhenSuggestionsViewController.swift in Sources */,
 				3B2A4A051DE150DF002A8696 /* ArchiveCustomCell.swift in Sources */,
 				3BB55B3B1DA482E5005FD17D /* Coo_e.xcdatamodeld in Sources */,
 				3B1434DF1E1CBE3400325138 /* CreateTeeUpViewController.swift in Sources */,

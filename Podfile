@@ -3,9 +3,8 @@
 
 target 'Coo-e' do
   pod 'Firebase'
-  pod 'Firebase/Storage'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Database'
+  pod 'FirebaseDatabase'
+  pod 'FirebaseAuth'
   pod 'JSQMessagesViewController'
   pod 'GooglePlaces'
   pod 'GooglePlacePicker'
