@@ -89,7 +89,6 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     func getMyTeeups(category: String)
     {
         let urlString = ("http://69.164.208.35:8080/api/teeups/\(category)")
-        print("urlString\(urlString)")
         let url: URL = URL(string: urlString)!
         
         let request: NSMutableURLRequest = NSMutableURLRequest(url: url)
@@ -171,12 +170,17 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
        
         let cell:InvitedCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "InvitedCustomCell") as! InvitedCustomCell!)
         
+        let teeupDict = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject)
+        
         if(isCategory == "Invities"){
             let cell:InvitedCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "InvitedCustomCell") as! InvitedCustomCell!)
             
             if self.myTeeupArray.count != 0 {
-                cell.title.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
-                cell.message.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
+                cell.title.text = teeupDict.object(forKey: "title") as? String
+                
+                if let message = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String{
+                    cell.message.text = message
+                }
                 
                 let invitedByString = "\((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) invited you and \(((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).count - 2) others."
                 cell.invitedBy.text = invitedByString
@@ -188,17 +192,22 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                     cell.profilePicture.image = UIImage(named: "profile_pic.png")
                 }
                 
-                if let gamePlanWhen = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhen") as AnyObject).object(forKey: "fromDate") as? String {
-                    cell.whenLabel.formatDate(gamePlanWhen)
-                    cell.whenLabel.adjustsFontSizeToFitWidth = true
-                }
-                
-                if let gamePlanWhere = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhere") as AnyObject).object(forKey: "locationName") as? String {
-                    cell.whereLabel.text=gamePlanWhere
+                if let gamePlanWhen = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhen") as? NSDictionary {
+                    let time = gamePlanWhen.object(forKey: "fromDate") as? String
+                    cell.whereLabel.text = time
                     cell.whereLabel.adjustsFontSizeToFitWidth = true
+                }else{
+                    cell.whereLabel.text = "No time set"
                 }
                 
                 
+                if let gamePlanWhere = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhere") as? NSDictionary {
+                    let location = gamePlanWhere.object(forKey: "locationName") as? String
+                    cell.whereLabel.text = location
+                    cell.whereLabel.adjustsFontSizeToFitWidth = true
+                }else{
+                    cell.whereLabel.text = "No location set"
+                }
             }
             return cell
         }
@@ -206,7 +215,10 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             let cell:CoordinatingCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "CoordinatingCustomCell") as! CoordinatingCustomCell!)
             if self.myTeeupArray.count != 0 {
                 cell.title.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
-                cell.message.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
+                
+                if let message = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String{
+                    cell.message.text = message
+                }
 
                 if let profilePicId = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "profilePicId") as? String {
                     cell.profilePicture.imageFromID(urlString:"http://69.164.208.35:8080/api/image/\(profilePicId)")
@@ -219,20 +231,50 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                 cell.createdByLabel.text = createdByString
                 
 
-                cell.teeupStatus.text = self.displayTeeupStatus(((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "status") as? Int)!)
+                let teeupStatus = self.getTeeupStatus(((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "status") as? Int)!)
+                cell.teeupStatus.text = teeupStatus
+                cell.userStatus_icon.image = UIImage(named: "\(teeupStatus).png")
                 
-//                for i in 0..<
-//                ((self.teeUpDictionary["participants"] as! NSArray).object(at: i) as AnyObject).object(forKey: "status") as! Int
+                var goingCount = 0
+                var invitedCount = 0
                 
-                
-                //self.displayUserStatus()
-                
-                if let gamePlanWhenDict = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhen") as AnyObject) as? NSDictionary {
-                    cell.whenLabel.text = "\(timeStringFromUnixTime ((gamePlanWhenDict.object(forKey: "fromDate") as? String)!)) -\n\(timeStringFromUnixTime ((gamePlanWhenDict.object(forKey: "toDate") as? String)!))"
-                    cell.whenLabel.adjustsFontSizeToFitWidth = true
+                for j in 0..<((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).count{
+                    if let userId = (((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "userId") as? String {
+                        if userId == UserDefaults.standard.string(forKey: "id")! {
+                            let userStatus = self.getUserStatus((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as! Int)
+                            cell.userStatus.text = userStatus
+                            cell.userStatus_icon.image = UIImage(named: "\(userStatus).png")
+                        }
+                    }
+                    
+                    if let userStatus = (((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as? Int{
+                        if userStatus == 0{
+                            invitedCount += 1
+                        }
+                        if userStatus == 2{
+                            goingCount += 1
+                        }
+                    }
                 }
-                else {
-                    cell.whenLabel.text = "No time set"
+                
+                cell.numberOfPeopleGoing.text = "\(goingCount) going"
+                cell.numberOfPeopleInvited.text = "\(invitedCount) invited"
+
+                if let gamePlanWhen = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhen") as? NSDictionary {
+                    let time = gamePlanWhen.object(forKey: "fromDate") as? String
+                    cell.whereLabel.text = time
+                    cell.whereLabel.adjustsFontSizeToFitWidth = true
+                }else{
+                    cell.whereLabel.text = "No time set"
+                }
+                
+                
+                if let gamePlanWhere = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhere") as? NSDictionary {
+                    let location = gamePlanWhere.object(forKey: "locationName") as? String
+                    cell.whereLabel.text = location
+                    cell.whereLabel.adjustsFontSizeToFitWidth = true
+                }else{
+                    cell.whereLabel.text = "No location set"
                 }
             }
             return cell
@@ -241,17 +283,70 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             let cell:ArchiveCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "ArchiveCustomCell") as! ArchiveCustomCell!)
             if self.myTeeupArray.count != 0 {
                 cell.title.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
-                //cell.message.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String
-                //cell.createdByLabel.text = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String
+                
+                if let profilePicId = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "profilePicId") as? String {
+                    cell.profilePicture.imageFromID(urlString:"http://69.164.208.35:8080/api/image/\(profilePicId)")
+                }
+                else{
+                    cell.profilePicture.image = UIImage(named: "profile_pic.png")
+                }
+                
+                let createdByString = "Created by \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
+                cell.createdByLabel.text = createdByString
+                
+                let teeupStatus = self.getTeeupStatus(((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "status") as? Int)!)
+                cell.teeupStatus.text = teeupStatus
+                cell.userStatus_icon.image = UIImage(named: "\(teeupStatus).png")
+                
+                var goingCount = 0
+                var invitedCount = 0
+                
+                for j in 0..<((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).count{
+                    if let userId = (((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "userId") as? String {
+                        if userId == UserDefaults.standard.string(forKey: "id")! {
+                            let userStatus = self.getUserStatus((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as! Int)
+                            cell.userStatus.text = userStatus
+                            cell.userStatus_icon.image = UIImage(named: "\(userStatus).png")
+                        }
+                    }
+                    
+                    if let userStatus = (((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as? Int{
+                        if userStatus == 0{
+                            invitedCount += 1
+                        }
+                        if userStatus == 2{
+                            goingCount += 1
+                        }
+                    }
+                }
+                
+                cell.numberOfPeopleWent.text = "\(goingCount) going"
+                cell.numberOfPeopleInvited.text = "\(invitedCount) invited"
+                
+                if let gamePlanWhen = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhen") as? NSDictionary {
+                    let time = gamePlanWhen.object(forKey: "fromDate") as? String
+                    cell.whereLabel.text = time
+                    cell.whereLabel.adjustsFontSizeToFitWidth = true
+                }else{
+                    cell.whereLabel.text = "No time set"
+                }
+                
+                
+                if let gamePlanWhere = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhere") as? NSDictionary {
+                    let location = gamePlanWhere.object(forKey: "locationName") as? String
+                    cell.whereLabel.text = location
+                    cell.whereLabel.adjustsFontSizeToFitWidth = true
+                }else{
+                    cell.whereLabel.text = "No location set"
+                }
+
             }
             return cell
         }
- 
         return cell
-        
     }
     
-    func displayTeeupStatus(_ status: Int) -> String{
+    func getTeeupStatus(_ status: Int) -> String{
         switch status {
         case 0:
             return "Planning"
@@ -269,18 +364,22 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         return ""
     }
     
-    func displayUserStatus(_ status: Int) -> String{
+    func getUserStatus(_ status: Int) -> String{
         switch status {
         case 0:
-            return "Planning"
+            return "Invited"
         case 1:
-            return "It's On"
+            return "Might go"
         case 2:
-            return "Happening"
+            return "I'm going"
         case 3:
-            return "It's Ended"
+            return "Interested"
         case 4:
-            return "Cancelled"
+            return "Not going"
+        case 5:
+            return "On my way"
+        case 6:
+            return "Arrived"
         default:
             break
         }
@@ -301,22 +400,11 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         return 0.0;//Choose your custom row height
     }
     
-    func timeStringFromUnixTime(_ unixTime: String) -> String {
-        //let date = Date(timeIntervalSince1970:(unixTime)/1000)
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.AAAZ"
-        dateFormatter.timeZone = NSTimeZone(name: "GMT") as TimeZone!
-        let myDate: Date = dateFormatter.date(from: unixTime)!
-
-        //myDate = NSDate(timeIntervalSinceReferenceDate: -3_938_698_800.0) as Date
-        dateFormatter.dateFormat = "MMM dd, YY h:mm"
-        return dateFormatter.string(from: myDate)
-    }
-    
     func refresh(_ sender:AnyObject){
         if Reachability()?.modifiedReachabilityChanged() == true {
-            self.getMyTeeups(category: "")
+            if(isCategory == "Invities"){ self.getMyTeeups(category: "invites")}
+            if(isCategory == "Invities"){ self.getMyTeeups(category: "")}
+            if(isCategory == "Invities"){ self.getMyTeeups(category: "past")}
         }
         else{
             ModelController().showToastMessage(message: "No internet connection.", view: self.view, y_coordinate: view.frame.size.height-85)

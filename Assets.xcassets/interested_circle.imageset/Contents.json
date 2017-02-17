@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Interested_circle.png",
+      "filename" : "interested.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "interested@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "interested@3x.png",
       "scale" : "3x"
     }
   ],
