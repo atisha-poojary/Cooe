@@ -178,21 +178,21 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
             if self.myTeeupArray.count != 0 {
                 cell.title.text = teeupDict.object(forKey: "title") as? String
                 
-                if let message = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String{
+                if let message = teeupDict.object(forKey: "message") as? String{
                     cell.message.text = message
                 }
                 
-                let invitedByString = "\((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) invited you and \(((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).count - 2) others."
+                let invitedByString = "\(((teeupDict.object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) invited you and \((teeupDict.object(forKey: "participants") as! NSArray).count - 2) others."
                 cell.invitedBy.text = invitedByString
                 
-                if let profilePicId = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "profilePicId") as? String {
+                if let profilePicId = (teeupDict.object(forKey: "creator") as AnyObject).object(forKey: "profilePicId") as? String {
                     cell.profilePicture.imageFromID(urlString:"http://69.164.208.35:8080/api/image/\(profilePicId)")
                 }
                 else{
                     cell.profilePicture.image = UIImage(named: "profile_pic.png")
                 }
                 
-                if let gamePlanWhen = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhen") as? NSDictionary {
+                if let gamePlanWhen = teeupDict.object(forKey: "gamePlanWhen") as? NSDictionary {
                     let time = gamePlanWhen.object(forKey: "fromDate") as? String
                     cell.whereLabel.text = time
                     cell.whereLabel.adjustsFontSizeToFitWidth = true
@@ -201,7 +201,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
                 
                 
-                if let gamePlanWhere = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhere") as? NSDictionary {
+                if let gamePlanWhere = teeupDict.object(forKey: "gamePlanWhere") as? NSDictionary {
                     let location = gamePlanWhere.object(forKey: "locationName") as? String
                     cell.whereLabel.text = location
                     cell.whereLabel.adjustsFontSizeToFitWidth = true
@@ -214,40 +214,40 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         else if(isCategory == "Coordinating"){
             let cell:CoordinatingCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "CoordinatingCustomCell") as! CoordinatingCustomCell!)
             if self.myTeeupArray.count != 0 {
-                cell.title.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
+                cell.title.text = teeupDict.object(forKey: "title") as? String
                 
-                if let message = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "message") as? String{
+                if let message = teeupDict.object(forKey: "message") as? String{
                     cell.message.text = message
                 }
 
-                if let profilePicId = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "profilePicId") as? String {
+                if let profilePicId = (teeupDict.object(forKey: "creator") as AnyObject).object(forKey: "profilePicId") as? String {
                     cell.profilePicture.imageFromID(urlString:"http://69.164.208.35:8080/api/image/\(profilePicId)")
                 }
                 else{
                     cell.profilePicture.image = UIImage(named: "profile_pic.png")
                 }
                 
-                let createdByString = "Created by \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
+                let createdByString = "Created by \(((teeupDict.object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \(((teeupDict.object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
                 cell.createdByLabel.text = createdByString
                 
 
-                let teeupStatus = self.getTeeupStatus(((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "status") as? Int)!)
+                let teeupStatus = self.getTeeupStatus((teeupDict.object(forKey: "status") as? Int)!)
                 cell.teeupStatus.text = teeupStatus
                 cell.userStatus_icon.image = UIImage(named: "\(teeupStatus).png")
                 
                 var goingCount = 0
                 var invitedCount = 0
                 
-                for j in 0..<((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).count{
-                    if let userId = (((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "userId") as? String {
+                for j in 0..<(teeupDict.object(forKey: "participants") as! NSArray).count{
+                    if let userId = ((teeupDict.object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "userId") as? String {
                         if userId == UserDefaults.standard.string(forKey: "id")! {
-                            let userStatus = self.getUserStatus((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as! Int)
+                            let userStatus = self.getUserStatus(((teeupDict.object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as! Int)
                             cell.userStatus.text = userStatus
                             cell.userStatus_icon.image = UIImage(named: "\(userStatus).png")
                         }
                     }
                     
-                    if let userStatus = (((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as? Int{
+                    if let userStatus = ((teeupDict.object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as? Int{
                         if userStatus == 0{
                             invitedCount += 1
                         }
@@ -260,7 +260,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                 cell.numberOfPeopleGoing.text = "\(goingCount) going"
                 cell.numberOfPeopleInvited.text = "\(invitedCount) invited"
 
-                if let gamePlanWhen = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhen") as? NSDictionary {
+                if let gamePlanWhen = teeupDict.object(forKey: "gamePlanWhen") as? NSDictionary {
                     let time = gamePlanWhen.object(forKey: "fromDate") as? String
                     cell.whereLabel.text = time
                     cell.whereLabel.adjustsFontSizeToFitWidth = true
@@ -269,7 +269,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
                 
                 
-                if let gamePlanWhere = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhere") as? NSDictionary {
+                if let gamePlanWhere = teeupDict.object(forKey: "gamePlanWhere") as? NSDictionary {
                     let location = gamePlanWhere.object(forKey: "locationName") as? String
                     cell.whereLabel.text = location
                     cell.whereLabel.adjustsFontSizeToFitWidth = true
@@ -282,35 +282,35 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
         else if(isCategory == "Past"){
             let cell:ArchiveCustomCell = (self.tableView?.dequeueReusableCell(withIdentifier: "ArchiveCustomCell") as! ArchiveCustomCell!)
             if self.myTeeupArray.count != 0 {
-                cell.title.text = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "title") as? String
+                cell.title.text = teeupDict.object(forKey: "title") as? String
                 
-                if let profilePicId = ((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "profilePicId") as? String {
+                if let profilePicId = (teeupDict.object(forKey: "creator") as AnyObject).object(forKey: "profilePicId") as? String {
                     cell.profilePicture.imageFromID(urlString:"http://69.164.208.35:8080/api/image/\(profilePicId)")
                 }
                 else{
                     cell.profilePicture.image = UIImage(named: "profile_pic.png")
                 }
                 
-                let createdByString = "Created by \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
+                let createdByString = "Created by \(((teeupDict.object(forKey: "creator") as AnyObject).object(forKey: "firstName") as? String)!) \(((teeupDict.object(forKey: "creator") as AnyObject).object(forKey: "lastName") as? String)!)"
                 cell.createdByLabel.text = createdByString
                 
-                let teeupStatus = self.getTeeupStatus(((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "status") as? Int)!)
+                let teeupStatus = self.getTeeupStatus((teeupDict.object(forKey: "status") as? Int)!)
                 cell.teeupStatus.text = teeupStatus
                 cell.userStatus_icon.image = UIImage(named: "\(teeupStatus).png")
                 
                 var goingCount = 0
                 var invitedCount = 0
                 
-                for j in 0..<((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).count{
-                    if let userId = (((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "userId") as? String {
+                for j in 0..<(teeupDict.object(forKey: "participants") as! NSArray).count{
+                    if let userId = ((teeupDict.object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "userId") as? String {
                         if userId == UserDefaults.standard.string(forKey: "id")! {
-                            let userStatus = self.getUserStatus((((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as! Int)
+                            let userStatus = self.getUserStatus(((teeupDict.object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as! Int)
                             cell.userStatus.text = userStatus
                             cell.userStatus_icon.image = UIImage(named: "\(userStatus).png")
                         }
                     }
                     
-                    if let userStatus = (((self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as? Int{
+                    if let userStatus = ((teeupDict.object(forKey: "participants") as! NSArray).object(at: j) as AnyObject).object(forKey: "status") as? Int{
                         if userStatus == 0{
                             invitedCount += 1
                         }
@@ -323,7 +323,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                 cell.numberOfPeopleWent.text = "\(goingCount) going"
                 cell.numberOfPeopleInvited.text = "\(invitedCount) invited"
                 
-                if let gamePlanWhen = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhen") as? NSDictionary {
+                if let gamePlanWhen = teeupDict.object(forKey: "gamePlanWhen") as? NSDictionary {
                     let time = gamePlanWhen.object(forKey: "fromDate") as? String
                     cell.whereLabel.text = time
                     cell.whereLabel.adjustsFontSizeToFitWidth = true
@@ -332,7 +332,7 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
                 
                 
-                if let gamePlanWhere = (self.myTeeupArray.object(at: (indexPath as NSIndexPath).row) as AnyObject).object(forKey: "gamePlanWhere") as? NSDictionary {
+                if let gamePlanWhere = teeupDict.object(forKey: "gamePlanWhere") as? NSDictionary {
                     let location = gamePlanWhere.object(forKey: "locationName") as? String
                     cell.whereLabel.text = location
                     cell.whereLabel.adjustsFontSizeToFitWidth = true
@@ -403,8 +403,8 @@ class MyTeeUpViewController: UIViewController, UITableViewDataSource, UITableVie
     func refresh(_ sender:AnyObject){
         if Reachability()?.modifiedReachabilityChanged() == true {
             if(isCategory == "Invities"){ self.getMyTeeups(category: "invites")}
-            if(isCategory == "Invities"){ self.getMyTeeups(category: "")}
-            if(isCategory == "Invities"){ self.getMyTeeups(category: "past")}
+            if(isCategory == "Coordinating"){ self.getMyTeeups(category: "")}
+            if(isCategory == "Past"){ self.getMyTeeups(category: "past")}
         }
         else{
             ModelController().showToastMessage(message: "No internet connection.", view: self.view, y_coordinate: view.frame.size.height-85)
