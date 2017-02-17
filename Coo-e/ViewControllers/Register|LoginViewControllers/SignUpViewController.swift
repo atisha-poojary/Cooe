@@ -255,80 +255,21 @@ class SignUpViewController: UIViewController {
                         if let dict = json as? NSDictionary {
                             // Okay, the parsedJSON is here, let's get the value for 'success' out of it
                             
-                             if (dict["userId"] as? Int) != nil {
-                                
-                                let attributedString = NSAttributedString(string: "Enter the validation code", attributes: [
-                                    NSFontAttributeName : UIFont.systemFont(ofSize: 17),
-                                    NSForegroundColorAttributeName : UIColor(red:33.0/255, green:127.0/255, blue:242.0/255, alpha: 1.0)
-                                    ])
-                                
-                                let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-                         
-                                alert.setValue(attributedString, forKey: "attributedMessage")
-                                alert.addTextField(configurationHandler: { (textField) -> Void in
-                                })
-            
-                                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
-                                    self.dismiss(animated: true, completion: nil)
-                                }))
-                                
-                                alert.addAction(UIAlertAction(title: "Send", style: .default, handler: { (action) -> Void in
-                                    let textField = alert.textFields![0] as UITextField
-                                    print("Text field: \(textField.text!)")
-                                    if textField.text != "" {
-                                        self.validateCodeRequest(userName: dict["userName"] as! String, validationCode: textField.text!, validationType: "EMAIL") //change later, as we use only email verication for now
+                            if let status = dict["status"] as? Int {
+
+                                DispatchQueue.main.async{
+                                    if status == 200 {
+                                         DispatchQueue.main.async(execute: {
+                                            let viewController: UIViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sw_rear")
+                                            UIApplication.shared.keyWindow?.rootViewController = viewController
+                                            _ = self.navigationController?.popToRootViewController(animated: true)
+                                        })
                                     }
-                                    else{
+                                    else {
+                                         ModelController().showToastMessage(message: dict["message"] as! String, view: self.view, y_coordinate: self.view.frame.size.height-85)
                                     }
-                                    self.dismiss(animated: true, completion: nil)
-                                }))
-                                self.present(alert, animated: true, completion: nil)
-                             }
-                                                        
-                            else if let code = dict["code"] as? String {
-                                print("code: \(code)")
-                                
-                                DispatchQueue.main.async(execute: {
-                                        if code == "COOE_005" {
-                                        let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:self.view.frame.size.width/2 - 90,y :self.view.frame.size.height-80), size: CGSize(width: 90+90, height: 24)))
-                                        toastLabel.backgroundColor = UIColor.black
-                                        toastLabel.textColor = UIColor.white
-                                        toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 14.5)
-                                        toastLabel.textAlignment = NSTextAlignment.center;
-                                        toastLabel.text = "Username isn't valid"
-                                        toastLabel.alpha = 1.0
-                                        toastLabel.layer.cornerRadius = 4;
-                                        toastLabel.layer.borderColor = UIColor.white.cgColor
-                                        toastLabel.layer.borderWidth = CGFloat(Float (2.0))
-                                        toastLabel.clipsToBounds = true
-                                        
-                                        self.view.addSubview(toastLabel)
-                                        
-                                        UIView.animate(withDuration: 2.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
-                                            toastLabel.alpha = 0.0
-                                        }, completion: nil)
-                                      
-                                    }
-                                    else if code == "COOE_004" {
-                                        let toastLabel = UILabel(frame: CGRect(origin: CGPoint(x:self.view.frame.size.width/2 - 90,y :self.view.frame.size.height-80), size: CGSize(width: 90+90, height: 24)))
-                                        toastLabel.backgroundColor = UIColor.black
-                                        toastLabel.textColor = UIColor.white
-                                        toastLabel.font = UIFont(name: toastLabel.font.fontName, size: 14.5)
-                                        toastLabel.textAlignment = NSTextAlignment.center;
-                                        toastLabel.text = "Username already exist"
-                                        toastLabel.alpha = 1.0
-                                        toastLabel.layer.cornerRadius = 4;
-                                        toastLabel.layer.borderColor = UIColor.white.cgColor
-                                        toastLabel.layer.borderWidth = CGFloat(Float (2.0))
-                                        toastLabel.clipsToBounds = true
-                                        
-                                        self.view.addSubview(toastLabel)
-                                        
-                                        UIView.animate(withDuration: 2.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations:{
-                                            toastLabel.alpha = 0.0
-                                        }, completion: nil)
-                                    }
-                                })
+                                    
+                                }
                             }
                             
                             return

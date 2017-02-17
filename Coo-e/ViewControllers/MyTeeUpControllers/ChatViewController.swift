@@ -12,12 +12,13 @@ import FirebaseDatabase
 import FirebaseAuth
 import JSQMessagesViewController
 
+
 final class ChatViewController: JSQMessagesViewController{
 
-
-
     //b4f6fabf-3406-40c1-a6dd-a1adc7b0627d should be replaced by teeupID currently hardcoded
-    private lazy var messageRef: FIRDatabaseReference = FIRDatabase.database().reference().child("teeups").child("b4f6fabf-3406-40c1-a6dd-a1adc7b0627d").child("messages")
+    var teeUp_id: String!
+    
+    private lazy var messageRef: FIRDatabaseReference = FIRDatabase.database().reference().child("teeups").child(self.teeUp_id).child("messages")
     private var newMessageRefHandle: FIRDatabaseHandle?
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()

@@ -14,6 +14,7 @@ class SidePanelViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var emailAddress: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    var cache: NSCache<AnyObject, AnyObject>!
     
     var menuListArray = ["TeeUps", "Discover", "Create My TeeUp", "Contacts", "Profile", "Setting", "Help", "Feedback", "About"]
     
@@ -21,12 +22,25 @@ class SidePanelViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         
         //change to the url you get from the response
-        profilePicture.imageFromUrl(urlString: "http://scontent.cdninstagram.com/t51.2885-19/s150x150/15276748_1238248896241231_7045268600633950208_a.jpg")
+        //profilePicture.imageFromUrl(urlString: "http://resources.coo-e.com:3000/api/image/\((UserDefaults.standard.string(forKey: "imageId")))")
+       
         profilePicture.setRounded()
         userName.text = "\(UserDefaults.standard.string(forKey: "firstName")!) \(UserDefaults.standard.string(forKey: "lastName")!)"
         emailAddress.text = (UserDefaults.standard.string(forKey: "email"))!
+        self.cache = NSCache()
         
         // Do any additional setup after loading the view.
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+//        if ((NSCache<AnyObject, AnyObject>().object(forKey:"profilePicture" as AnyObject)) != nil){
+//            self.profilePicture.image = self.cache.object(forKey:"profilePicture" as AnyObject) as? UIImage
+//        }        
+        if (UserDefaults.standard.string(forKey: "imageId") != nil){
+             self.profilePicture.imageFromID(urlString: "http://69.164.208.35:8080/api/image/\((UserDefaults.standard.string(forKey: "imageId"))!)")
+        }
     }
 
     // Mark: Table View Delegate
